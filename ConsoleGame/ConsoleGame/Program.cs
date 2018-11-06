@@ -13,15 +13,14 @@ namespace ConsoleGame
     {
         static void Main(string[] args)
         {
-            
-            
-            GameEngine.Engine game = new GameEngine.Engine();           
 
+
+            GameEngine.Engine game = new GameEngine.Engine();
 
             //while (!game.gameOver())
             {
-               Console.WriteLine(Engine.handToString(game.player1));
-               Console.WriteLine(Engine.handToString(game.player2));
+               Console.WriteLine(game.player1);
+               Console.WriteLine(game.player2);
 
 
 
