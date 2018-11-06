@@ -31,7 +31,10 @@ namespace GameEngine
             player2 = new PlayerUser();
 
             player1.nextPlayer = player2;
+            player1.previousPlayer = player2;
             player2.nextPlayer = player1;
+            player2.nextPlayer = player1;
+
 
             player1.SetRuka(player1Hand);
             player2.SetRuka(player2Hand);
@@ -60,7 +63,18 @@ namespace GameEngine
             current.Bacenekarte(poslednjeBacene);
             current.findBestMoce();
             poslednjeBacene= current.BestMove.Karte;
-
+            foreach(Karta card in poslednjeBacene)
+            {
+                if (isValid(card))
+                {
+                    topCard = card;
+                }
+                else
+                {
+                    throw new Exception("Invalid move");
+                }
+            }
+            
 
             return true;
         }
