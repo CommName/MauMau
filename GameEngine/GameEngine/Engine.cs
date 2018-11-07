@@ -57,7 +57,7 @@ namespace GameEngine
 
         public bool Game(bool kupio = false)
         {
-
+            //bug kraj poteza kupio kartu
             if (gameOver())
                 return false;
 
@@ -156,7 +156,7 @@ namespace GameEngine
                 }
                 else
                 {
-                    throw new Exception("Invalid move");
+                    throw new Exception("Nije kupio kartu");
                 }
             }
             return true;

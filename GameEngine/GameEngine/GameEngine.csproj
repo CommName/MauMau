@@ -44,6 +44,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BestMove.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="PlayerUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,7 +12,7 @@ namespace GameEngine
         #region atributi
         protected List<Karta> hand;
         public IMove BestMove { get; set; }
-        public List<Karta> Hand { get; }
+        public List<Karta> Hand { get { return hand; } }
         // public bool playtime { get; set; }
         public PlayerUser nextPlayer { get; set; }
         public PlayerUser previousPlayer { get; set; }
@@ -24,6 +24,7 @@ namespace GameEngine
         {
             //   playtime = false;
             hand = new List<Karta>();
+            BestMove = new BestMove();
             //IMOVE
 
         }
@@ -31,10 +32,13 @@ namespace GameEngine
         public void manualPlay(int rdBrojKarte, TipPoteza tip, Boja boja)
         {
             BestMove.Karte.Clear();
-            BestMove.Karte.Add(hand[rdBrojKarte]);
-            hand.RemoveAt(rdBrojKarte);
             BestMove.Tip = tip;
             BestMove.NovaBoja = boja;
+            if (tip == TipPoteza.BacaKartu)
+            { 
+                BestMove.Karte.Add(hand[rdBrojKarte]);
+                hand.RemoveAt(rdBrojKarte);
+            }
 
         }
 
@@ -47,7 +51,8 @@ namespace GameEngine
 
         public void Bacenekarte(List<Karta> karte)
         {
-            throw new NotImplementedException();
+            return;
+            //throw new NotImplementedException();
         }
 
         public void KupioKarte(List<Karta> karte)
