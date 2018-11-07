@@ -18,15 +18,19 @@ namespace ConsoleGame
             GameEngine.Engine game = new GameEngine.Engine();
 
             //while (!game.gameOver())
+            game.player1.name = "player 1";
+            game.player2.name = "player 2";
+
+            Console.WriteLine(game.player1);
+            Console.WriteLine(game.player2);
+
+            do
             {
-               Console.WriteLine(game.player1);
-               Console.WriteLine(game.player2);
+                Console.WriteLine(game.current);
+                Console.WriteLine("Tip poteza: BacaKartu, ")
 
 
-
-
-
-            }
+            } while (game.Game());
 
 
         }
