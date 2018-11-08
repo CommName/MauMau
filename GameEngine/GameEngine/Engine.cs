@@ -16,12 +16,15 @@ namespace GameEngine
         public Karta topCard { get; set; }
         public Boja boja { get; set; }
         protected int kazna;
+        protected bool kupioKartu;
 
         protected List<Karta> poslednjeBacene;
 
         public PlayerUser player1 { get; set; } 
         public PlayerUser player2 { get; set; }
+
         public PlayerUser current { get; set; }
+
 
         public Engine() {
             deck = new Spil(true);
@@ -32,13 +35,14 @@ namespace GameEngine
             player1.nextPlayer = player2;
             player1.previousPlayer = player2;
             player2.nextPlayer = player1;
-            player2.nextPlayer = player1;
+            player2.previousPlayer = player1;
 
 
             topCard = deck.Karte[0];
             deck.Karte.RemoveAt(0);
             boja = Boja.Unknown;
             kazna = 0;
+            kupioKartu = false;
 
 
             //Dealibg cards
@@ -55,7 +59,7 @@ namespace GameEngine
 
         }
 
-        public bool Game(bool kupio = false)
+        public bool Game()
         {
             //bug kraj poteza kupio kartu
             if (gameOver())
@@ -63,14 +67,14 @@ namespace GameEngine
 
             bool bacioKartu = false;
 
-            current.Bacenekarte(poslednjeBacene);
+            current.Bacenekarte(poslednjeBacene,boja,current.previousPlayer.Hand.Count);
             current.findBestMoce();
 
             poslednjeBacene = null;
             //kupi kartu
             if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKartu) != 0)
             {
-                kupio = true;
+                kupioKartu = true;
                 current.KupioKarte(kupi(1));
             }
             //kaznene karte
@@ -83,10 +87,16 @@ namespace GameEngine
             if (((int)current.BestMove.Tip & (int)TipPoteza.BacaKartu) != 0)
             {
                 poslednjeBacene = new List<Karta>();
+                if (current.BestMove.Karte.Count == 0)
+                {
+                    throw new Exception("Nije selektovana karta");
+                }
                 for (int i = 0; i < current.BestMove.Karte.Count; i++)
                 {
                     if (isValid(current.BestMove.Karte[i]))
                     {
+                        bacioKartu = true;
+                        kupioKartu = false; 
                         poslednjeBacene.Add(current.BestMove.Karte[i]);
                         topCard = current.BestMove.Karte[i];
                         //7
@@ -121,104 +131,101 @@ namespace GameEngine
                     else
                     {
                         throw new Exception("Invalid move");
-                    }
-                    //Changing the player
-                    if (topCard.Broj != "A")
+                    }                    
+
+                }
+                if(topCard.Broj != "A") //A
+                
+                {
+                    if(topCard.Broj == "8")
                     {
-                        //8
-                        if (topCard.Broj == "8")
-                        {
-                            //skiped
-                            current = current.nextPlayer.nextPlayer;
-                        }
-                        else
-                        {
-                            current = current.nextPlayer;
-                        }
-                        break;
+                        //8 skippped
+                        current = current.nextPlayer.nextPlayer;
                     }
                     else
                     {
-                        if (i == current.BestMove.Karte.Count())
-                        {
-                            return Game();
-                        }
+                        current = current.nextPlayer;
                     }
                 }
+
             }
             //Kraj poteza
-            if (((int)current.BestMove.Tip & (int)TipPoteza.KrajPoteza) != 0)
+            if(((int)current.BestMove.Tip & (int)TipPoteza.KrajPoteza) != 0)
             {
+                if(kupioKartu || bacioKartu)
+                {
+                    if (!bacioKartu)
+                    {
+                        current = current.nextPlayer;
+                    }
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("Ne moze da zavrsi potez");
+                }
+            }
+           
+        return true;
+        }
 
-                if (kupio || bacioKartu)
+
+            public List<Karta> kupi(int i)
+            {
+                List<Karta> ret = new List<Karta>() ;
+                for(int j = 0; j < i; j++)
+                {
+                    if (deck.Karte.Count == 0)
+                        throw new Exception("Nema vise karata");
+                    ret.Add(deck.Karte[0]);
+                    deck.Karte.RemoveAt(0);
+                }
+                return ret;
+            }
+
+
+            //is it a valid move
+            protected bool isValid(Karta card)
+            {
+                if ((card.Broj == "J") || (card.Boja == topCard.Boja) || (card.Broj == card.Broj)|| (boja==card.Boja))
                 {
                     return true;
                 }
                 else
                 {
-                    throw new Exception("Nije kupio kartu");
+                    return false;
+                }
+
+            }
+
+            public bool gameOver()
+            {
+                if (topCard.Broj!="A"&&(player1.Hand.Count == 0 || player1.Hand.Count == 0))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
-            return true;
-        }
-        
 
-        public List<Karta> kupi(int i)
-        {
-            List<Karta> ret = new List<Karta>() ;
-            for(int j = 0; j < i; j++)
+
+
+
+
+            /*
+            public static string handToString(List<Karta> hand)
             {
-                if (deck.Karte.Count == 0)
-                    throw new Exception("Nema vise karata");
-                ret.Add(deck.Karte[0]);
-                deck.Karte.RemoveAt(0);
+                string ret = "";
+                foreach(Karta a in hand)
+                {
+                    ret += "|" + a.Boja + " " + a.Broj;
+                }
+                return ret;
             }
-            return ret;
-        }
+            */
 
 
-        //is it a valid move
-        protected bool isValid(Karta card)
-        {
-            if ((card.Broj == "J") || (card.Boja == topCard.Boja) || (card.Broj == card.Broj)|| (boja==card.Boja))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-            
-        }
-
-        public bool gameOver()
-        {
-            if (topCard.Broj!="A"&&(player1.Hand.Count == 0 || player1.Hand.Count == 0))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-
-
-
-
-        /*
-        public static string handToString(List<Karta> hand)
-        {
-            string ret = "";
-            foreach(Karta a in hand)
-            {
-                ret += "|" + a.Boja + " " + a.Broj;
-            }
-            return ret;
-        }
-        */
-
-        
-    }
-}
+                    }
+                }

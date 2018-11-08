@@ -16,7 +16,7 @@ namespace ConsoleGame
 
 
             GameEngine.Engine game = new GameEngine.Engine();
-
+            
             //while (!game.gameOver())
             game.player1.name = "player 1";
             game.player2.name = "player 2";
@@ -24,7 +24,7 @@ namespace ConsoleGame
             Console.WriteLine(game.player1);
             Console.WriteLine(game.player2);
 
-            try
+            //try
             {
                 do
                 {
@@ -44,9 +44,9 @@ namespace ConsoleGame
 
                 } while (game.Game());
             }
-            catch(Exception e)
+           // catch(Exception e)
             {
-               Console.WriteLine(e.Message);
+              // Console.WriteLine(e.Message);
             }
 
 

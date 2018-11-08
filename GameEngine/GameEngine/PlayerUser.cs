@@ -8,6 +8,7 @@ namespace GameEngine
 {
     public class PlayerUser
     {
+        
 
         #region atributi
         protected List<Karta> hand;
@@ -49,7 +50,7 @@ namespace GameEngine
         }
 
 
-        public void Bacenekarte(List<Karta> karte)
+        public void Bacenekarte(List<Karta> karte, Boja boja, int BrojKarataProtivnika)
         {
             return;
             //throw new NotImplementedException();
