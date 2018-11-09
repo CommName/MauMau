@@ -69,7 +69,14 @@ namespace _16114
 
             }
         }
-        
+        public int count(Boja boja)
+        {
+            return Boja[(int)boja - 1].Count;
+        }
+        public int count(string broj)
+        {
+            return Broj[brojToNumber(broj)].Count;
+        }
              
    
 
