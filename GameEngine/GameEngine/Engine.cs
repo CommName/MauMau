@@ -70,6 +70,7 @@ namespace GameEngine
             current.Bacenekarte(poslednjeBacene,boja,current.previousPlayer.Hand.Count);
             current.findBestMoce();
 
+            ///poslednje bacene treba se preurdi za kad igrac igra 2x za redom
             poslednjeBacene = null;
             //kupi kartu
             if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKartu) != 0)
@@ -227,5 +228,5 @@ namespace GameEngine
             */
 
 
-                    }
-                }
+    }
+}

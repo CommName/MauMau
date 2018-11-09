@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E741F493-289B-4E1A-9355-1F216AE9F74C}</ProjectGuid>
+    <ProjectGuid>{7C7ADFBC-0C3D-4A7F-B375-D27B9EB1DAB3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameEngine</RootNamespace>
-    <AssemblyName>GameEngine</AssemblyName>
+    <RootNamespace>_16114</RootNamespace>
+    <AssemblyName>16114</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -44,16 +44,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BestMove.cs" />
-    <Compile Include="Engine.cs" />
-    <Compile Include="PlayerUser.cs" />
+    <Compile Include="CardCounter.cs" />
+    <Compile Include="Gilgamesh.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\16114\16114.csproj">
-      <Project>{7c7adfbc-0c3d-4a7f-b375-d27b9eb1dab3}</Project>
-      <Name>16114</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
