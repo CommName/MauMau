@@ -15,8 +15,22 @@ namespace _16114
         public List<Karta> hand { get; set; }
         public int enemyHand { get; set; }
         public CardCounter counter;
+        public List<IMove> moves { get
+            {
+
+                if (yourTurn)
+                {
+                    return getMoves(hand);
+                }
+                else
+                {
+                    return getMoves(counter.valid(talon.Karte.Last(), talon.NovaBoja, enemyHand));
+                }
+            } }
+
+
         public bool kazna { get; set; }
-        public List<IMove> moves { get; }
+        public bool kupio { get; set; }
 
         public Board()
         {
@@ -30,40 +44,78 @@ namespace _16114
             hand.AddRange(yourHand);
             enemyHand = enemy;
             counter = new CardCounter(used);
+            counter.remove(lastMove.Karte);
 
         }
-
-        List<IMove> getYourMoves()
+      
+        protected List<IMove> getMoves(List<Karta> fromHand)
         {
             bool J = false; //J 2 puta
             List<IMove> ret = new List<IMove>();
-            foreach(Karta karta in hand)
+            if (kazna)
             {
-                if (!J&&karta.Broj == "J" )
+                foreach(Karta karta in fromHand)
                 {
-                    J = true;
-                    for(int i = 1; i < 5; i++)
+                    if (karta.Broj == "7")
                     {
                         Move temp = new Move();
                         temp.setKarta(karta);
-                        temp.NovaBoja = (Boja)i;
-                        temp.Tip = TipPoteza.BacaKartu;
                         ret.Add(temp);
                     }
                 }
+                ret.Add(new Move() { Tip = TipPoteza.KupiKazneneKarte });
+            }
+            else
+            {
+                foreach (Karta karta in fromHand)
+                {
+                    if (!J && karta.Broj == "J")
+                    {
+                        J = true;
+                        for (int i = 1; i < 5; i++)
+                        {
+                            Move temp = new Move();
+                            temp.setKarta(karta);
+                            temp.NovaBoja = (Boja)i;
+                            temp.Tip = TipPoteza.BacaKartu;
+                            ret.Add(temp);
+                        }
+                    }
+                    else
+                    {
+                        if (isValid(karta))
+                        {
+                            Move temp = new Move();
+                            temp.setKarta(karta);
+                            ret.Add(temp);
+                        }
+                    }
+                }
+
+
+                if (kupio)
+                {
+                    ret.Add(new Move() { Tip = TipPoteza.KrajPoteza });
+                }
                 else
                 {
-                    Move temp = new Move();
-                    temp.setKarta(karta);
-                    ret.Add(temp);
+                    ret.Add(new Move() { Tip = TipPoteza.KupiKartu });
                 }
             }
-
-
             return ret;
-
         }
 
+        protected bool isValid(Karta karta)
+        {
+            if ((karta.Broj == "J") || (karta.Boja == talon.Karte.Last().Boja) || (talon.Karte.Last().Broj == karta.Broj) || (talon.NovaBoja == karta.Boja))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         
 
         public int evaluation()

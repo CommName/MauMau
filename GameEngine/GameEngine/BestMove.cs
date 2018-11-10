@@ -18,5 +18,7 @@ namespace GameEngine
             Karte = new List<Karta>();
         }
 
+
+
     }
 }

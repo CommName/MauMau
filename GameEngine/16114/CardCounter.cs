@@ -17,6 +17,8 @@ namespace _16114
         protected List<Karta>[] Boja;
         protected List<Karta>[] Broj;
 
+        public List<Karta> hand;
+
         protected int numOfRemCard;
 
 
@@ -109,7 +111,7 @@ namespace _16114
             return Broj[brojToNumber(broj)].Count;
         }
              
-        List<Karta> valid(Karta talon,Boja b,int numOfEnemieCards)
+        public List<Karta> valid(Karta talon,Boja b,int numOfEnemieCards)
         {
             List<Karta> ret = new List<Karta>();
             if (talon.Broj == "J")
@@ -134,10 +136,28 @@ namespace _16114
             }
             else
             {
-                
-                if (chance(Boja[(int)talon.Boja - 1].Count,numOfEnemieCards)>=granica)
+
+                if (chance(Boja[(int)talon.Boja - 1].Count, numOfEnemieCards) >= granica)
                 {
-                    ret.AddRange(Boja[(int)talon.Boja - 1]);
+                    bool all = true;
+                    foreach (Karta ka in Boja[(int)talon.Boja - 1])
+                    {
+                        if (ka.Broj != "A" && ka.Broj != "8" && ka.Broj != "7")
+                        {
+                            if (!hand.Exists(x => x.Broj == ka.Broj))
+                            {
+                                if (all)
+                                {
+                                    ret.Add(ka);
+                                    all = false;
+                                }
+                            }
+                            else
+                            {
+                                ret.Add(ka);
+                            }
+                        }
+                    }
                 }
                 
                 if (chance(Boja[(int)talon.Boja - 1].Count, numOfEnemieCards) > granica)
