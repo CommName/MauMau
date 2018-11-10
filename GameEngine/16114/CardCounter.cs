@@ -98,6 +98,7 @@ namespace _16114
                 }
 
             }
+            //check numbers first auto stop if not found
         }
         public int count(Boja boja)
         {
