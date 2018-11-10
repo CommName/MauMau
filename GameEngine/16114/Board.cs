@@ -15,6 +15,7 @@ namespace _16114
         public List<Karta> hand { get; set; }
         public int enemyHand { get; set; }
         public CardCounter counter;
+
         public List<IMove> moves { get
             {
 
@@ -34,18 +35,49 @@ namespace _16114
 
         public Board()
         {
+            hand = new List<Karta>();
+            kazna = false;
+            kupio = false;
 
         }
-        public Board(IMove lastMove,bool turn,List<Karta> yourHand,int enemy,CardCounter used)
+        public Board(IMove lastMove, bool turn, List<Karta> yourHand, int enemy, CardCounter used) : this()
         {
             counter = new CardCounter(used);
             talon = lastMove;
-            hand = new List<Karta>();
             hand.AddRange(yourHand);
             enemyHand = enemy;
             counter = new CardCounter(used);
             counter.remove(lastMove.Karte);
-
+        }
+        public Board(Board board, IMove move) : this()
+        {
+            counter = new CardCounter(board.counter);
+            talon = move;
+            enemyHand = board.enemyHand;
+            if (board.yourTurn)
+            {
+                foreach (Karta k in move.Karte)
+                {
+                    hand.Remove(k);
+                }
+                
+            }
+            else
+            {
+                foreach (Karta k in move.Karte)
+                {
+                    counter.remove(k);
+                }
+                enemyHand--;
+            }
+            if (move.Karte.Last().Broj == "A" || move.Karte.Last().Broj == "8")
+            {
+                yourTurn = board.yourTurn;
+            }
+            else
+            {
+                yourTurn = !board.yourTurn;
+            }
         }
       
         protected List<IMove> getMoves(List<Karta> fromHand)
@@ -91,7 +123,6 @@ namespace _16114
                         }
                     }
                 }
-
 
                 if (kupio)
                 {

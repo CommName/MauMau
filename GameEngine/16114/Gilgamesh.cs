@@ -7,11 +7,20 @@ using TIG.AV.Karte;
 
 namespace _16114
 {
-    class Gilgamesh : TIG.AV.Karte.IIgra
+    public class Gilgamesh : TIG.AV.Karte.IIgra
     {
         protected List<Karta> hand;
         protected Karta talon;
 
+        CardCounter remainingCards;
+
+
+        public Gilgamesh()
+        {
+            Reset();
+        }
+
+        
 
         public IMove BestMove { get; set; }
 
@@ -37,7 +46,9 @@ namespace _16114
 
         public void Reset()
         {
-
+            hand = new List<Karta>();
+            remainingCards = new CardCounter();
+            remainingCards.hand = hand;
             return;
         }
 
@@ -45,5 +56,7 @@ namespace _16114
         {
             throw new NotImplementedException();
         }
+
+        //kradja iteracia sa bacene karte
     }
 }
