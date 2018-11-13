@@ -11,9 +11,11 @@ namespace _16114
     {
         protected List<Karta> hand;
         protected Karta talon;
+        protected Boja novaBoja;
+        protected CardCounter remainingCards;
+        protected int brojKarataEnemy;
 
-        CardCounter remainingCards;
-
+        public IMove BestMove { get; set; }
 
         public Gilgamesh()
         {
@@ -22,11 +24,13 @@ namespace _16114
 
         
 
-        public IMove BestMove { get; set; }
 
         public void Bacenekarte(List<Karta> karte, Boja boja, int BrojKarataProtivnika)
         {
-            throw new NotImplementedException();
+            talon = karte.Last();
+            remainingCards.remove(karte);
+            novaBoja = boja;
+            brojKarataEnemy = BrojKarataProtivnika;
         }
 
         public void BeginBestMove()
@@ -41,7 +45,8 @@ namespace _16114
 
         public void KupioKarte(List<Karta> karte)
         {
-            throw new NotImplementedException();
+            hand.AddRange(karte);
+            remainingCards.remove(karte);
         }
 
         public void Reset()
@@ -54,7 +59,8 @@ namespace _16114
 
         public void SetRuka(List<Karta> karte)
         {
-            throw new NotImplementedException();
+            hand.AddRange(karte);
+            remainingCards.remove(karte);
         }
 
         //kradja iteracia sa bacene karte
