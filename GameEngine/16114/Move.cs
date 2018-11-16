@@ -19,6 +19,14 @@ namespace _16114
             NovaBoja = Boja.Unknown;
             Tip = TipPoteza.KupiKartu;
         }
+        public Move(Karta k, Boja nova)
+        {
+            Karte= new List<Karta>();
+            Karte.Add(k);
+            NovaBoja = nova;
+            Tip = TipPoteza.BacaKartu;
+
+        }
 
         public void setKarta(Karta  karta)
         {

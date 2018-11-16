@@ -48,6 +48,7 @@ namespace _16114
             enemyHand = enemy;
             counter = new CardCounter(used);
             counter.remove(lastMove.Karte);
+            yourTurn = turn;
         }
         public Board(Board board, IMove move) : this()
         {

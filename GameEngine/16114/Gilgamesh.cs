@@ -33,14 +33,100 @@ namespace _16114
             brojKarataEnemy = BrojKarataProtivnika;
         }
 
+
+        protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int beta,out IMove best)
+        {
+            List<IMove> child = node.moves;
+            if(depth==0|| child.Count < 1)
+            {
+                
+                best = new Move { Tip = TipPoteza.KrajPoteza };
+                
+                return node.evaluation();
+            }
+            int v;
+            best = child.First();
+            if (yourTurn)
+            {
+                v = int.MaxValue;
+                foreach(IMove i in child)
+                {
+                    int pom;
+                    if ((i.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu || (i.Tip & TipPoteza.KupiKazneneKarte)==TipPoteza.KupiKazneneKarte)
+                    {
+                        pom = node.evaluation();
+                    }
+                    else {
+                        bool turn = false;
+                        if (i.Karte.First().Broj == "A" || i.Karte.First().Broj == "8")
+                        {
+                            turn = true;
+                        }
+                        IMove bb;
+                        pom= alpaBeta(depth - 1, turn, new Board(node, i), ref alpa, ref beta,out bb);
+                    }
+                    if (v < pom)
+                    {
+                        v = pom;
+                        best = i;
+                        if (alpa < v)
+                        {
+                            alpa = v;
+                            if (beta <= alpa)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                v = int.MinValue;
+                foreach(IMove i in child)
+                {
+                    IMove bb;
+                    int pom = alpaBeta(depth - 1, !yourTurn, new Board(node, i), ref alpa, ref beta, out bb);
+                    if (v > pom)
+                    {
+                        v = pom;
+                        best = i;
+                        if (beta > v)
+                        {
+                            beta = v;
+                            if (beta <= alpa)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return v;
+        }
+
+
         public void BeginBestMove()
         {
-            throw new NotImplementedException();
+            int alpha = int.MinValue;
+            int beta = int.MaxValue;
+            IMove best;
+            alpaBeta(4, true, new Board( new Move(talon, novaBoja),true,hand,brojKarataEnemy,remainingCards),ref alpha,ref beta, out best);
+            BestMove.Karte = best.Karte;
+            BestMove.NovaBoja = best.NovaBoja;
+            BestMove.Tip = best.Tip;
+            foreach(Karta k in BestMove.Karte)
+            {
+                hand.Remove(k);
+            }
+            
+
         }
 
         public void EndBestMove()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void KupioKarte(List<Karta> karte)
