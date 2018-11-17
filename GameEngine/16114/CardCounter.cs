@@ -46,6 +46,8 @@ namespace _16114
                 Broj[i].AddRange(copy.Broj[i]);
             }
             numOfRemCard = copy.numOfRemCard;
+            hand = new List<Karta>();
+            hand.AddRange(copy.hand);
         }
 
         public void reset()
@@ -79,6 +81,7 @@ namespace _16114
         }
         public void remove(Karta karta)
         {
+            /*
             int bojaIndex = (int)karta.Boja - 1;
             for (int i = 0; i < Boja[bojaIndex].Count; i++)
             {
@@ -90,16 +93,16 @@ namespace _16114
                 }
             }
             int brojIndex = brojToNumber(karta.Broj) - 1;
+
             for (int i = 0; i < Broj[brojIndex].Count; i++)
             {
-
-            
                 if (karta.Boja == Broj[bojaIndex][i].Boja){
                     Broj[brojIndex].RemoveAt(i);
                     break;
                 }
 
             }
+            */
             //check numbers first auto stop if not found
         }
         public int count(Boja boja)
@@ -114,7 +117,7 @@ namespace _16114
         public List<Karta> valid(Karta talon,Boja b,int numOfEnemieCards)
         {
             List<Karta> ret = new List<Karta>();
-            if (talon.Broj == "J")
+            if (talon.Broj == "J"&&b!=TIG.AV.Karte.Boja.Unknown)
             {
                 ret.AddRange((Boja[(int)b - 1]));
             }

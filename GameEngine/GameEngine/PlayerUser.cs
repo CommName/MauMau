@@ -18,6 +18,8 @@ namespace GameEngine
         public PlayerUser nextPlayer { get; set; }
         public PlayerUser previousPlayer { get; set; }
         public string name { get; set; }
+
+        public IIgra bot;
         #endregion
 
         #region construcotrs
@@ -26,8 +28,15 @@ namespace GameEngine
             //   playtime = false;
             hand = new List<Karta>();
             BestMove = new BestMove();
-            //IMOVE
-
+            bot = null;
+            //*
+        }
+        public PlayerUser(bool autoPlayer) : this()
+        {
+            if (autoPlayer)
+            {
+                bot = new _16114.Gilgamesh();
+            }
         }
         #endregion
         public void manualPlay(int rdBrojKarte, TipPoteza tip, Boja boja)
@@ -39,6 +48,7 @@ namespace GameEngine
             { 
                 BestMove.Karte.Add(hand[rdBrojKarte]);
                 hand.RemoveAt(rdBrojKarte);
+
             }
 
         }
@@ -46,29 +56,61 @@ namespace GameEngine
         #region interfejs
         public void findBestMoce()
         {
+            if (bot != null)
+            {
+                bot.BeginBestMove();
+                BestMove = bot.BestMove;
+                foreach(Karta k in BestMove.Karte)
+                {
+                    hand.Remove(k);
+                }
+            }
+
             return;
         }
 
 
         public void Bacenekarte(List<Karta> karte, Boja boja, int BrojKarataProtivnika)
         {
+            if (bot != null)
+            {
+                bot.Bacenekarte(karte, boja, BrojKarataProtivnika);
+            }
+           /* if (karte != null)
+            {
+                Console.WriteLine(boja.ToString() + BrojKarataProtivnika.ToString());
+                foreach (Karta k in karte)
+                {
+                    Console.Write(k.Broj + k.Boja);
+                }
+            } */
             return;
-            //throw new NotImplementedException();
         }
 
         public void KupioKarte(List<Karta> karte)
         {
             hand.AddRange(karte);
+            if (bot!=null){
+                bot.KupioKarte(karte);
+            }
         }
 
         public void Reset()
         {
             hand = new List<Karta>();
+            if (bot != null)
+            {
+                bot.Reset();
+            }
         }
 
         public void SetRuka(List<Karta> karte)
         {
             hand = karte;
+            if (bot != null)
+            {
+                bot.SetRuka(karte);
+            }
         }
 
         #endregion

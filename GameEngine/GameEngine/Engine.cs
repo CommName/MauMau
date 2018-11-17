@@ -17,7 +17,7 @@ namespace GameEngine
         public Boja boja { get; set; }
         protected int kazna;
         protected bool kupioKartu;
-
+        protected bool promena;
         protected List<Karta> poslednjeBacene;
 
         public PlayerUser player1 { get; set; } 
@@ -29,8 +29,8 @@ namespace GameEngine
         public Engine() {
             deck = new Spil(true);
 
-            player1 = new PlayerUser();
-            player2 = new PlayerUser();
+            player1 = new PlayerUser(true);
+            player2 = new PlayerUser(true);
 
             player1.nextPlayer = player2;
             player1.previousPlayer = player2;
@@ -39,11 +39,13 @@ namespace GameEngine
 
 
             topCard = deck.Karte[0];
+            poslednjeBacene = new List<Karta>();
+            poslednjeBacene.Add(topCard);
             deck.Karte.RemoveAt(0);
             boja = Boja.Unknown;
             kazna = 0;
             kupioKartu = false;
-
+            promena = true;
 
             //Dealibg cards
             for(int i = 0; i < 2; i++)
@@ -54,7 +56,9 @@ namespace GameEngine
                 player2.KupioKarte(deck.Karte.GetRange(0, 3));
                 deck.Karte.RemoveRange(0, 3);
             }
-
+            //player1.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
+            //player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
+            //poslednjeBacene.Clear();
             current = player1;
 
         }
@@ -62,19 +66,26 @@ namespace GameEngine
         public bool Game()
         {
             //bug kraj poteza kupio kartu
+           
             if (gameOver())
                 return false;
 
             bool bacioKartu = false;
-
-            current.Bacenekarte(poslednjeBacene,boja,current.previousPlayer.Hand.Count);
-            current.findBestMoce();
-
-            ///poslednje bacene treba se preurdi za kad igrac igra 2x za redom
-            poslednjeBacene = null;
+            if (promena)
+            {
+                current.Bacenekarte(poslednjeBacene, boja, current.previousPlayer.Hand.Count);
+                poslednjeBacene = null;
+                promena = false;
+            }
+             current.findBestMoce();
+                
             //kupi kartu
             if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKartu) != 0)
             {
+                if (kupioKartu)
+                {
+                    throw new Exception("Vec je kupljena karta");
+                }
                 kupioKartu = true;
                 current.KupioKarte(kupi(1));
             }
@@ -146,6 +157,7 @@ namespace GameEngine
                     else
                     {
                         current = current.nextPlayer;
+                        promena = true;
                     }
                 }
 
@@ -158,6 +170,7 @@ namespace GameEngine
                     if (!bacioKartu)
                     {
                         current = current.nextPlayer;
+                        kupioKartu = false;
                     }
                     return true;
                 }
@@ -188,7 +201,8 @@ namespace GameEngine
             //is it a valid move
             protected bool isValid(Karta card)
             {
-                if ((card.Broj == "J") || (card.Boja == topCard.Boja) || (card.Broj == card.Broj)|| (boja==card.Boja))
+            
+                if ((card.Broj == "J") || (card.Boja == topCard.Boja) || (card.Broj == topCard.Broj)|| (boja==card.Boja))
                 {
                     return true;
                 }

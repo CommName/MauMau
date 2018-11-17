@@ -15,6 +15,8 @@ namespace _16114
         protected CardCounter remainingCards;
         protected int brojKarataEnemy;
 
+        protected bool kupio;
+
         public IMove BestMove { get; set; }
 
         public Gilgamesh()
@@ -27,10 +29,14 @@ namespace _16114
 
         public void Bacenekarte(List<Karta> karte, Boja boja, int BrojKarataProtivnika)
         {
-            talon = karte.Last();
-            remainingCards.remove(karte);
+            if (karte != null)
+            {
+                talon = karte.Last();
+                remainingCards.remove(karte);
+            }
             novaBoja = boja;
             brojKarataEnemy = BrojKarataProtivnika;
+            BestMove = new Move();
         }
 
 
@@ -65,11 +71,11 @@ namespace _16114
                         IMove bb;
                         pom= alpaBeta(depth - 1, turn, new Board(node, i), ref alpa, ref beta,out bb);
                     }
-                    if (v < pom)
+                    if (v > pom)
                     {
                         v = pom;
                         best = i;
-                        if (alpa < v)
+                        if (alpa > v)
                         {
                             alpa = v;
                             if (beta <= alpa)
@@ -87,11 +93,11 @@ namespace _16114
                 {
                     IMove bb;
                     int pom = alpaBeta(depth - 1, !yourTurn, new Board(node, i), ref alpa, ref beta, out bb);
-                    if (v > pom)
+                    if (v < pom)
                     {
                         v = pom;
                         best = i;
-                        if (beta > v)
+                        if (beta < v)
                         {
                             beta = v;
                             if (beta <= alpa)
@@ -107,21 +113,40 @@ namespace _16114
         }
 
 
-        public void BeginBestMove()
+        protected void alphaBetaBestMove()
         {
             int alpha = int.MinValue;
             int beta = int.MaxValue;
             IMove best;
-            alpaBeta(4, true, new Board( new Move(talon, novaBoja),true,hand,brojKarataEnemy,remainingCards),ref alpha,ref beta, out best);
+            alpaBeta(1, true, new Board(new Move(talon, novaBoja), true, hand, brojKarataEnemy, remainingCards), ref alpha, ref beta, out best);
             BestMove.Karte = best.Karte;
             BestMove.NovaBoja = best.NovaBoja;
             BestMove.Tip = best.Tip;
-            foreach(Karta k in BestMove.Karte)
+
+            if (kupio)
             {
-                hand.Remove(k);
+                if (BestMove.Tip == TipPoteza.KupiKartu)
+                    BestMove.Tip = TipPoteza.KrajPoteza;
+            }
+            if (BestMove.Tip == TipPoteza.KupiKartu)
+            {
+                kupio = true;
+            }
+            else
+            {
+                kupio = false;
             }
             
 
+            foreach (Karta k in BestMove.Karte)
+            {
+                hand.Remove(k);
+            }
+        }
+
+        public void BeginBestMove()
+        {
+            alphaBetaBestMove();
         }
 
         public void EndBestMove()
@@ -131,8 +156,11 @@ namespace _16114
 
         public void KupioKarte(List<Karta> karte)
         {
-            hand.AddRange(karte);
-            remainingCards.remove(karte);
+            if (karte != null && karte.Count > 0)
+            {
+                hand.AddRange(karte);
+                remainingCards.remove(karte);
+            }
         }
 
         public void Reset()
@@ -140,6 +168,7 @@ namespace _16114
             hand = new List<Karta>();
             remainingCards = new CardCounter();
             remainingCards.hand = hand;
+            kupio = false;
             return;
         }
 

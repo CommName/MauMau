@@ -71,7 +71,15 @@ namespace _16114
                 }
                 enemyHand--;
             }
-            if (move.Karte.Last().Broj == "A" || move.Karte.Last().Broj == "8")
+            if (move.Tip == TipPoteza.BacaKartu && move.Karte.Last().Broj == "7")
+            {
+                kazna = true;
+            }
+            else
+            {
+                kazna = false;
+            }
+            if (move.Tip==TipPoteza.BacaKartu&&( move.Karte.Last().Broj == "A" || move.Karte.Last().Broj == "8"))
             {
                 yourTurn = board.yourTurn;
             }
@@ -139,7 +147,7 @@ namespace _16114
 
         protected bool isValid(Karta karta)
         {
-            if ((karta.Broj == "J") || (karta.Boja == talon.Karte.Last().Boja) || (talon.Karte.Last().Broj == karta.Broj) || (talon.NovaBoja == karta.Boja))
+            if ((karta.Broj == "J") || (karta.Boja == talon.Karte.Last().Boja) || (talon.Karte.Last().Broj == karta.Broj) || (talon.Karte.Last().Broj=="J"&&talon.NovaBoja == karta.Boja))
             {
                 return true;
             }
