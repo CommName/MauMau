@@ -14,7 +14,7 @@ namespace _16114
         protected Boja novaBoja;
         protected CardCounter remainingCards;
         protected int brojKarataEnemy;
-
+        protected bool kupioKaznene;
         protected bool kupio;
 
         public IMove BestMove { get; set; }
@@ -118,11 +118,18 @@ namespace _16114
             int alpha = int.MinValue;
             int beta = int.MaxValue;
             IMove best;
-            alpaBeta(1, true, new Board(new Move(talon, novaBoja), true, hand, brojKarataEnemy, remainingCards), ref alpha, ref beta, out best);
+            alpaBeta(1, true, new Board(new Move(talon, novaBoja), true, hand, brojKarataEnemy, remainingCards,kupioKaznene), ref alpha, ref beta, out best);
             BestMove.Karte = best.Karte;
             BestMove.NovaBoja = best.NovaBoja;
             BestMove.Tip = best.Tip;
-
+            if(BestMove.Tip == TipPoteza.KupiKazneneKarte)
+            {
+                kupioKaznene = true;
+            }
+            else
+            {
+                kupioKaznene = false;
+            }
             if (kupio)
             {
                 if (BestMove.Tip == TipPoteza.KupiKartu)
@@ -141,6 +148,7 @@ namespace _16114
             foreach (Karta k in BestMove.Karte)
             {
                 hand.Remove(k);
+                talon = k;
             }
         }
 
@@ -169,6 +177,7 @@ namespace _16114
             remainingCards = new CardCounter();
             remainingCards.hand = hand;
             kupio = false;
+            kupioKaznene = false;
             return;
         }
 

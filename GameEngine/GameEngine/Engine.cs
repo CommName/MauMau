@@ -219,7 +219,7 @@ namespace GameEngine
 
             public bool gameOver()
             {
-                if (topCard.Broj!="A"&&(player1.Hand.Count == 0 || player1.Hand.Count == 0))
+                if (topCard.Broj!="A"&&(player1.Hand.Count == 0 || player1.Hand.Count == 0)&&kazna==0)
                 {
                     return true;
                 }

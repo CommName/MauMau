@@ -40,7 +40,7 @@ namespace _16114
             kupio = false;
 
         }
-        public Board(IMove lastMove, bool turn, List<Karta> yourHand, int enemy, CardCounter used) : this()
+        public Board(IMove lastMove, bool turn, List<Karta> yourHand, int enemy, CardCounter used,bool kaznene) : this()
         {
             counter = new CardCounter(used);
             talon = lastMove;
@@ -49,7 +49,7 @@ namespace _16114
             counter = new CardCounter(used);
             counter.remove(lastMove.Karte);
             yourTurn = turn;
-            if (lastMove.Tip == TipPoteza.BacaKartu && lastMove.Karte.Last().Broj == "7")
+            if (lastMove.Tip == TipPoteza.BacaKartu && lastMove.Karte.Last().Broj == "7" && !kaznene)
             {
                 kazna = true;
             }
