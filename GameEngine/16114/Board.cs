@@ -49,6 +49,10 @@ namespace _16114
             counter = new CardCounter(used);
             counter.remove(lastMove.Karte);
             yourTurn = turn;
+            if (lastMove.Tip == TipPoteza.BacaKartu && lastMove.Karte.Last().Broj == "7")
+            {
+                kazna = true;
+            }
         }
         public Board(Board board, IMove move) : this()
         {

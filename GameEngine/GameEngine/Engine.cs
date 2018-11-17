@@ -92,6 +92,10 @@ namespace GameEngine
             //kaznene karte
             if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKazneneKarte) != 0)
             {
+                if (kazna == 0)
+                {
+                    throw new Exception("Nije potrebno kupiti kaznenu kartu");
+                }
                 current.KupioKarte(kupi(kazna));
                 kazna = 0;
             }
