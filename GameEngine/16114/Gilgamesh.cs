@@ -37,6 +37,13 @@ namespace _16114
             novaBoja = boja;
             brojKarataEnemy = BrojKarataProtivnika;
             BestMove = new Move();
+            kupio = false;
+            if(karte!=null&&karte.Count>0)
+                kupioKaznene = false;
+            else
+            {
+                kupioKaznene = true;
+            }
         }
 
 
