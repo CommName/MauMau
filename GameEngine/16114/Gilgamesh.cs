@@ -50,6 +50,11 @@ namespace _16114
                 
                 return node.evaluation();
             }
+            if(node.talon.Tip == TipPoteza.KupiKartu || node.talon.Tip == TipPoteza.KupiKazneneKarte || node.talon.Tip == TipPoteza.KrajPoteza)
+            {
+                best = node.talon;
+                return node.evaluation();
+            }
             int v;
             best = child.First();
             if (yourTurn)
@@ -118,7 +123,7 @@ namespace _16114
             int alpha = int.MinValue;
             int beta = int.MaxValue;
             IMove best;
-            alpaBeta(1, true, new Board(new Move(talon, novaBoja), true, hand, brojKarataEnemy, remainingCards,kupioKaznene), ref alpha, ref beta, out best);
+            alpaBeta(4, true, new Board(new Move(talon, novaBoja), true, hand, brojKarataEnemy, remainingCards,kupioKaznene), ref alpha, ref beta, out best);
             BestMove.Karte = best.Karte;
             BestMove.NovaBoja = best.NovaBoja;
             BestMove.Tip = best.Tip;
@@ -128,7 +133,14 @@ namespace _16114
             }
             else
             {
-                kupioKaznene = false;
+                if (BestMove.Tip == TipPoteza.KupiKartu)
+                {
+
+                }
+                else
+                {
+                    kupioKaznene = false;
+                }
             }
             if (kupio)
             {

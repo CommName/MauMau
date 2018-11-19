@@ -45,7 +45,7 @@ namespace ConsoleGame
 
                 } while (game.Game());
             }
-            //catch(Exception e)
+           // catch(Exception e)
             {
              // Console.WriteLine(e.Message);
             }

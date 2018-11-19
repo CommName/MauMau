@@ -122,7 +122,7 @@ namespace _16114
                             Move temp = new Move();
                             temp.setKarta(karta);
                             temp.NovaBoja = (Boja)i;
-                            temp.Tip = TipPoteza.BacaKartu;
+                            temp.Tip = TipPoteza.BacaKartu | TipPoteza.PromeniBoju;
                             ret.Add(temp);
                         }
                     }
@@ -143,7 +143,7 @@ namespace _16114
                 }
                 else
                 {
-                    ret.Add(new Move() { Tip = TipPoteza.KupiKartu });
+                    ret.Add(new Move() { Tip = TipPoteza.KupiKartu, Karte = new List<Karta>( talon.Karte )});
                 }
             }
             return ret;
@@ -168,13 +168,16 @@ namespace _16114
             int evaluacija = 0;
             if (hand.Count == 0)
             {
-                if (talon.Karte.Last().Broj == "A")
+                if (talon.Karte.Count != 0)
                 {
-                    evaluacija = 8;
-                }
-                else
-                {
-                    evaluacija = -40;
+                    if (talon.Karte.Last().Broj == "A")
+                    {
+                        evaluacija = 8;
+                    }
+                    else
+                    {
+                        evaluacija = -40;
+                    }
                 }
             }
             else {
@@ -188,10 +191,13 @@ namespace _16114
 
             if(enemyHand ==0 || hand.Count == 0)
             {
-                if (talon.Karte.Last().Broj == "J")
+                if (talon.Karte.Count != 0)
                 {
-                    evaluacija *= 2;
-                    //shift 2
+                    if (talon.Karte.Last().Broj == "J")
+                    {
+                        evaluacija *= 2;
+                        //shift 2
+                    }
                 }
             }
 
