@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TIG.AV.Karte;
+using System.Threading;
 
 namespace _16114
 {
@@ -45,9 +46,18 @@ namespace _16114
                 kupioKaznene = true;
             }
         }
-
-
-        protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int beta,out IMove best)
+        bool stop;
+        static readonly object _locker = new object();
+        private bool checkStop()
+         {
+             bool ret;
+             lock (_locker)
+             {
+                 ret = stop;
+             }
+             return ret;
+         }
+protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int beta,out IMove best)
         {
             List<IMove> child = node.moves;
             if(depth==0|| child.Count < 1)
@@ -69,6 +79,11 @@ namespace _16114
                 v = int.MaxValue;
                 foreach(IMove i in child)
                 {
+                    if (checkStop())
+                    {
+                        best = null;
+                        return 0;
+                    }
                     int pom;
                     if ((i.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu || (i.Tip & TipPoteza.KupiKazneneKarte)==TipPoteza.KupiKazneneKarte)
                     {
@@ -103,6 +118,11 @@ namespace _16114
                 v = int.MinValue;
                 foreach(IMove i in child)
                 {
+                    if (checkStop())
+                    {
+                        best = null;
+                        return 0;
+                    }
                     IMove bb;
                     int pom = alpaBeta(depth - 1, !yourTurn, new Board(node, i), ref alpa, ref beta, out bb);
                     if (v < pom)
@@ -127,46 +147,59 @@ namespace _16114
 
         protected void alphaBetaBestMove()
         {
-            int alpha = int.MinValue;
-            int beta = int.MaxValue;
-            IMove best;
-            alpaBeta(4, true, new Board(new Move(talon, novaBoja), true, hand, brojKarataEnemy, remainingCards,kupioKaznene), ref alpha, ref beta, out best);
-            BestMove.Karte = best.Karte;
-            BestMove.NovaBoja = best.NovaBoja;
-            BestMove.Tip = best.Tip;
-            if(BestMove.Tip == TipPoteza.KupiKazneneKarte)
+            for (int i = 0; i < Int32.MaxValue; i++)
             {
-                kupioKaznene = true;
-            }
-            else
-            {
-                if ((BestMove.Tip & TipPoteza.KupiKartu) != TipPoteza.KupiKartu)
+                int alpha = int.MinValue;
+                int beta = int.MaxValue;
+                IMove best;
+                alpaBeta(i, true, new Board(new Move(talon, novaBoja), true, hand, brojKarataEnemy, remainingCards, kupioKaznene), ref alpha, ref beta, out best);
+                if (checkStop())
                 {
-                    kupioKaznene = false;
-                    
+                    break;
+                }
+                lock (_locker)
+                {
+                    BestMove.Karte = best.Karte;
+                    BestMove.NovaBoja = best.NovaBoja;
+                    BestMove.Tip = best.Tip;
                 }
             }
-            if (kupio)
+            lock (_locker)
             {
-                if (BestMove.Tip == TipPoteza.KupiKartu)
-                    BestMove.Tip = TipPoteza.KrajPoteza;
-            }
-            if ((BestMove.Tip&TipPoteza.KupiKartu) ==TipPoteza.KupiKartu)
-            {
-                kupio = true;
-            }
-            else
-            {
-                kupio = false;
-            }
-            if ((BestMove.Tip&TipPoteza.BacaKartu)==TipPoteza.BacaKartu)
-            {
-                foreach (Karta k in BestMove.Karte)
+                if (BestMove.Tip == TipPoteza.KupiKazneneKarte)
                 {
-                    if (k != null)
+                    kupioKaznene = true;
+                }
+                else
+                {
+                    if ((BestMove.Tip & TipPoteza.KupiKartu) != TipPoteza.KupiKartu)
                     {
-                        hand.Remove(k);
-                        talon = BestMove.Karte.Last();
+                        kupioKaznene = false;
+
+                    }
+                }
+                if (kupio)
+                {
+                    if (BestMove.Tip == TipPoteza.KupiKartu)
+                        BestMove.Tip = TipPoteza.KrajPoteza;
+                }
+                if ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)
+                {
+                    kupio = true;
+                }
+                else
+                {
+                    kupio = false;
+                }
+                if ((BestMove.Tip & TipPoteza.BacaKartu) == TipPoteza.BacaKartu)
+                {
+                    foreach (Karta k in BestMove.Karte)
+                    {
+                        if (k != null)
+                        {
+                            hand.Remove(k);
+                            talon = BestMove.Karte.Last();
+                        }
                     }
                 }
             }
@@ -174,12 +207,18 @@ namespace _16114
 
         public void BeginBestMove()
         {
-            alphaBetaBestMove();
+            stop = false;
+            Thread alphaBeta = new Thread(alphaBetaBestMove);
+            alphaBeta.Start();
+            //alphaBetaBestMove();
         }
 
         public void EndBestMove()
         {
-            
+            lock (_locker)
+            {
+                stop = true;
+            }
         }
 
         public void KupioKarte(List<Karta> karte)
