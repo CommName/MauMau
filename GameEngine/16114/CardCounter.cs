@@ -81,7 +81,7 @@ namespace _16114
         }
         public void remove(Karta karta)
         {
-            /*
+            
             int bojaIndex = (int)karta.Boja - 1;
             for (int i = 0; i < Boja[bojaIndex].Count; i++)
             {
@@ -96,13 +96,13 @@ namespace _16114
 
             for (int i = 0; i < Broj[brojIndex].Count; i++)
             {
-                if (karta.Boja == Broj[bojaIndex][i].Boja){
+                if (karta.Boja == Broj[brojIndex][i].Boja){
                     Broj[brojIndex].RemoveAt(i);
                     break;
                 }
 
             }
-            */
+           
             //check numbers first auto stop if not found
         }
         public int count(Boja boja)
@@ -117,11 +117,11 @@ namespace _16114
         public List<Karta> valid(Karta talon,Boja b,int numOfEnemieCards)
         {
             List<Karta> ret = new List<Karta>();
-            if (talon.Broj == "J"&&b!=TIG.AV.Karte.Boja.Unknown)
+            if (talon.Broj == "J"&&b!=TIG.AV.Karte.Boja.Unknown) // Dodavanje J
             {
                 ret.AddRange((Boja[(int)b - 1]));
             }
-            else if(talon.Broj == "7")
+            else if(talon.Broj == "7") // Slucaj za 7
             {
                 if (Broj[6].Count > 1)
                 {
@@ -139,7 +139,7 @@ namespace _16114
             }
             else
             {
-
+                
                 if (chance(Boja[(int)talon.Boja - 1].Count, numOfEnemieCards) >= granica)
                 {
                     bool all = true;
@@ -162,11 +162,12 @@ namespace _16114
                         }
                     }
                 }
-                
+                /*
                 if (chance(Boja[(int)talon.Boja - 1].Count, numOfEnemieCards) > granica)
                 {
                     ret.Add(Broj[10].First());
                 }
+                */
 
                 if (chance(Broj[brojToNumber(talon.Broj) - 1].Count, numOfEnemieCards) >= granica)
                 {
