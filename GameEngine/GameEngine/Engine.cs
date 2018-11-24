@@ -207,7 +207,7 @@ namespace GameEngine
             protected bool isValid(Karta card)
             {
             
-                if ((card.Broj == "J") || (card.Boja == topCard.Boja) || (card.Broj == topCard.Broj)|| (boja==card.Boja))
+                if ((card.Broj == "J") || (card.Boja == topCard.Boja) || (card.Broj == topCard.Broj && boja==Boja.Unknown)|| (boja==card.Boja))
                 {
                     return true;
                 }

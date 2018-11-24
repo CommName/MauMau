@@ -151,7 +151,7 @@ namespace _16114
 
         protected bool isValid(Karta karta)
         {
-            if ((karta.Broj != "J") &&( (karta.Boja == talon.Karte.Last().Boja) || (talon.Karte.Last().Broj == karta.Broj) || (talon.Karte.Last().Broj=="J"&&talon.NovaBoja == karta.Boja)) )
+            if ((karta.Broj != "J") &&( (karta.Boja == talon.Karte.Last().Boja) || (talon.Karte.Last().Broj == karta.Broj) || (talon.Karte.Last().Boja!=Boja.Unknown&&talon.NovaBoja == karta.Boja)) )
             {
                 return true;
             }
@@ -164,7 +164,7 @@ namespace _16114
 
         public int evaluation()
         {
-
+            
             int evaluacija = 0;
             if (hand.Count == 0)
             {
@@ -188,6 +188,8 @@ namespace _16114
             }
             // avrage card is 8 points
             evaluacija -= 8 * enemyHand;
+
+            evaluacija -= getMoves(hand).Count * 8;
 
             if(enemyHand ==0 || hand.Count == 0)
             {
