@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TIG.AV.Karte;
+using System.Threading;
 namespace GameEngine
 {
     public class PlayerUser
@@ -59,6 +60,9 @@ namespace GameEngine
             if (bot != null)
             {
                 bot.BeginBestMove();
+                Thread.Sleep(1000);
+                bot.EndBestMove();
+                Thread.Sleep(500);
                 BestMove = bot.BestMove;
                 foreach(Karta k in BestMove.Karte)
                 {

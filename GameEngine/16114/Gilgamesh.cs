@@ -59,6 +59,11 @@ namespace _16114
          }
 protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int beta,out IMove best)
         {
+            if (checkStop())
+            {
+                best = null;
+                return 0;
+            }
             List<IMove> child = node.moves;
             if(depth==0|| child.Count < 1)
             {
@@ -199,6 +204,7 @@ protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int b
                         {
                             hand.Remove(k);
                             talon = BestMove.Karte.Last();
+                            novaBoja = BestMove.NovaBoja;
                         }
                     }
                 }
