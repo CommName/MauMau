@@ -140,13 +140,10 @@ namespace _16114
             }
             else
             {
-                if (BestMove.Tip == TipPoteza.KupiKartu)
-                {
-
-                }
-                else
+                if ((BestMove.Tip & TipPoteza.KupiKartu) != TipPoteza.KupiKartu)
                 {
                     kupioKaznene = false;
+                    
                 }
             }
             if (kupio)
@@ -154,7 +151,7 @@ namespace _16114
                 if (BestMove.Tip == TipPoteza.KupiKartu)
                     BestMove.Tip = TipPoteza.KrajPoteza;
             }
-            if (BestMove.Tip == TipPoteza.KupiKartu)
+            if ((BestMove.Tip&TipPoteza.KupiKartu) ==TipPoteza.KupiKartu)
             {
                 kupio = true;
             }
@@ -162,12 +159,16 @@ namespace _16114
             {
                 kupio = false;
             }
-            
-
-            foreach (Karta k in BestMove.Karte)
+            if ((BestMove.Tip&TipPoteza.BacaKartu)==TipPoteza.BacaKartu)
             {
-                hand.Remove(k);
-                talon = k;
+                foreach (Karta k in BestMove.Karte)
+                {
+                    if (k != null)
+                    {
+                        hand.Remove(k);
+                        talon = BestMove.Karte.Last();
+                    }
+                }
             }
         }
 

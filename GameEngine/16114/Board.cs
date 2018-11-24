@@ -151,7 +151,8 @@ namespace _16114
 
         protected bool isValid(Karta karta)
         {
-            if ((karta.Broj != "J") &&( (karta.Boja == talon.Karte.Last().Boja) || (talon.Karte.Last().Broj == karta.Broj) || (talon.Karte.Last().Boja!=Boja.Unknown&&talon.NovaBoja == karta.Boja)) )
+
+            if ((karta.Broj != "J") && ((talon.NovaBoja == Boja.Unknown && karta.Boja == talon.Karte.Last().Boja) || (talon.Karte.Last().Broj == karta.Broj) || (talon.NovaBoja == karta.Boja)))
             {
                 return true;
             }

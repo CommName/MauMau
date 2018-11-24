@@ -81,6 +81,8 @@ namespace _16114
         }
         public void remove(Karta karta)
         {
+            if (karta == null)
+                return;
             
             int bojaIndex = (int)karta.Boja - 1;
             for (int i = 0; i < Boja[bojaIndex].Count; i++)
