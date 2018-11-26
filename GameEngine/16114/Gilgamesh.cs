@@ -59,6 +59,9 @@ namespace _16114
          }
 protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int beta,out IMove best)
         {
+            //promeni alph beta
+            //za child napravi kombinaciju
+
             if (checkStop())
             {
                 best = null;
