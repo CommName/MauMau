@@ -167,6 +167,19 @@ protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int b
                     BestMove.Karte = best.Karte;
                     BestMove.NovaBoja = best.NovaBoja;
                     BestMove.Tip = best.Tip;
+                    if (kupio)
+                    {
+                        if (BestMove.Tip == TipPoteza.KupiKartu)
+                            BestMove.Tip = TipPoteza.KrajPoteza;
+                    }
+                    if(((BestMove.Tip & TipPoteza.BacaKartu )== TipPoteza.BacaKartu) && hand.Count == 2)
+                    {
+                        BestMove.Tip = TipPoteza.Makao | BestMove.Tip;
+                    }
+                    if (((BestMove.Tip & TipPoteza.BacaKartu) == TipPoteza.BacaKartu) && hand.Count == 1)
+                    {
+                        BestMove.Tip = TipPoteza.Poslednja | BestMove.Tip;
+                    }
                 }
             }
             lock (_locker)
@@ -183,11 +196,7 @@ protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int b
 
                     }
                 }
-                if (kupio)
-                {
-                    if (BestMove.Tip == TipPoteza.KupiKartu)
-                        BestMove.Tip = TipPoteza.KrajPoteza;
-                }
+                
                 if ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)
                 {
                     kupio = true;
