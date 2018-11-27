@@ -62,7 +62,7 @@ namespace GameEngine
                 bot.BeginBestMove();
                 Thread.Sleep(1000);
                 bot.EndBestMove();
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
                 BestMove = bot.BestMove;
                 foreach(Karta k in BestMove.Karte)
                 {

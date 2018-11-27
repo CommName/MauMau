@@ -49,7 +49,7 @@ namespace _16114
             counter = new CardCounter(used);
             counter.remove(lastMove.Karte);
             yourTurn = turn;
-            if (lastMove.Tip == TipPoteza.BacaKartu && lastMove.Karte.Last().Broj == "7" && !kaznene)
+            if (lastMove.Tip == TipPoteza.BacaKartu && (lastMove.Karte.Last().Broj == "7"||(lastMove.Karte.Last().Broj=="2"&&lastMove.Karte.Last().Boja==Boja.Tref)) && !kaznene)
             {
                 kazna = true;
             }
@@ -99,13 +99,16 @@ namespace _16114
             List<IMove> ret = new List<IMove>();
             if (kazna)
             {
-                foreach(Karta karta in fromHand)
+                if (talon.Karte.Last().Broj == "7")
                 {
-                    if (karta.Broj == "7")
+                    foreach (Karta karta in fromHand)
                     {
-                        Move temp = new Move();
-                        temp.setKarta(karta);
-                        ret.Add(temp);
+                        if (karta.Broj == "7")
+                        {
+                            Move temp = new Move();
+                            temp.setKarta(karta);
+                            ret.Add(temp);
+                        }
                     }
                 }
                 ret.Add(new Move() { Tip = TipPoteza.KupiKazneneKarte });

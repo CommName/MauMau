@@ -127,7 +127,7 @@ namespace GameEngine
                         //2 tref
                         if (topCard.Boja == Boja.Tref && topCard.Broj == "2")
                         {
-                            current.previousPlayer.KupioKarte(kupi(4));
+                            kazna = 4;
                         }
                         //J
                         if (topCard.Broj == "J")
