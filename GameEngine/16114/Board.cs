@@ -133,9 +133,21 @@ namespace _16114
                     {
                         if (isValid(karta))
                         {
-                            Move temp = new Move();
-                            temp.setKarta(karta);
-                            ret.Add(temp);
+                            if (karta.Broj == "A")
+                            {
+                                List<Karta> jedinice = new List<Karta>();
+                                jedinice.Add(karta);
+
+                                kombinacijeA(jedinice, fromHand, ref ret);
+                            }
+                            else
+                            {
+                                
+                                Move temp = new Move();
+                                temp.setKarta(karta);
+                                ret.Add(temp);
+                                
+                            }
                         }
                     }
                 }
@@ -150,6 +162,73 @@ namespace _16114
                 }
             }
             return ret;
+        }
+
+        protected void kombinacijeA(List<Karta> kec, List<Karta> hand, ref List<IMove> moves)
+        {
+            bool J = false; //J 2 puta
+            List<Karta> localHand = new List<Karta>();
+            localHand.AddRange(hand);
+            foreach (Karta k in kec)
+            {
+                localHand.Remove(k);
+            }
+            foreach (Karta k in localHand)
+            {
+                if (isValid(kec.Last(), k))
+                {
+                    if (k.Broj != "A")
+                    {
+                        Move temp = new Move();
+                        if (!J && k.Broj == "J")
+                        {
+                            J = true;
+
+                            for (int i = 1; i < 5; i++)
+                            {
+                                temp.Karte.AddRange(kec);
+                                temp.Karte.Add(k);
+                                temp.NovaBoja = (Boja)i;
+                                temp.Tip = TipPoteza.BacaKartu | TipPoteza.PromeniBoju;
+                                moves.Add(temp);
+                            }
+                        }
+                        else
+                        {
+                            temp.Tip = TipPoteza.BacaKartu;
+                            temp.Karte.AddRange(kec);
+                            temp.Karte.Add(k);
+                            moves.Add(temp);
+                        }
+                    }
+                    else
+                    {
+                        List<Karta> pom = new List<Karta>();
+                        pom.AddRange(kec);
+                        pom.Add(k);
+                        kombinacijeA(pom, hand, ref moves);
+                    }
+                }
+
+            }
+            Move kraj = new Move();
+            kraj.Karte.AddRange(kec);
+            kraj.Tip = TipPoteza.BacaKartu;
+            moves.Add(kraj);
+
+        }
+
+        protected bool isValid(Karta talon,Karta karta)
+        {
+
+            if ((karta.Broj == "J") || ((karta.Boja == talon.Boja) || (talon.Broj == karta.Broj)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         protected bool isValid(Karta karta)
@@ -176,11 +255,11 @@ namespace _16114
                 {
                     if (talon.Karte.Last().Broj == "A")
                     {
-                        evaluacija = 8;
+                        evaluacija = -200;
                     }
                     else
                     {
-                        evaluacija = -40;
+                        evaluacija = -400;
                     }
                 }
             }

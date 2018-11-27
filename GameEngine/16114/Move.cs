@@ -27,6 +27,13 @@ namespace _16114
             Tip = TipPoteza.BacaKartu;
 
         }
+        public Move(Move m)
+        {
+            Tip = m.Tip;
+            NovaBoja = m.NovaBoja;
+            Karte = new List<Karta>();
+            Karte.AddRange(m.Karte);
+        }
 
         public void setKarta(Karta  karta)
         {

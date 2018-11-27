@@ -79,16 +79,7 @@ namespace GameEngine
             }
              current.findBestMoce();
                 
-            //kupi kartu
-            if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKartu) != 0)
-            {
-                if (kupioKartu)
-                {
-                    throw new Exception("Vec je kupljena karta");
-                }
-                kupioKartu = true;
-                current.KupioKarte(kupi(1));
-            }
+            
             //kaznene karte
             if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKazneneKarte) != 0)
             {
@@ -170,8 +161,19 @@ namespace GameEngine
                 }
 
             }
+
+            //kupi kartu
+            if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKartu) != 0)
+            {
+                if (kupioKartu)
+                {
+                    throw new Exception("Vec je kupljena karta");
+                }
+                kupioKartu = true;
+                current.KupioKarte(kupi(1));
+            }
             //Kraj poteza
-            if(((int)current.BestMove.Tip & (int)TipPoteza.KrajPoteza) != 0)
+            if (((int)current.BestMove.Tip & (int)TipPoteza.KrajPoteza) != 0)
             {
                 if(kupioKartu || bacioKartu)
                 {

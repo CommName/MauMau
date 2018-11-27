@@ -99,12 +99,13 @@ namespace _16114
                     }
                     else {
                         bool turn = false;
-                        if (i.Karte.First().Broj == "A" || i.Karte.First().Broj == "8")
+                        if (i.Karte.Last().Broj == "A" || i.Karte.Last().Broj == "8")
                         {
                             turn = true;
                         }
                         IMove bb;
                         pom= alpaBeta(depth - 1, turn, new Board(node, i), alpa, beta,out bb);
+                        
                     }
                     if (v > pom)
                     {
@@ -176,10 +177,6 @@ namespace _16114
                             BestMove.Tip = TipPoteza.KrajPoteza;
                     }
                     if(((BestMove.Tip & TipPoteza.BacaKartu )== TipPoteza.BacaKartu) && hand.Count == 2)
-                    {
-                        BestMove.Tip = TipPoteza.Makao | BestMove.Tip;
-                    }
-                    if (((BestMove.Tip & TipPoteza.BacaKartu) == TipPoteza.BacaKartu) && hand.Count == 1)
                     {
                         BestMove.Tip = TipPoteza.Poslednja | BestMove.Tip;
                     }
