@@ -132,6 +132,10 @@ namespace GameEngine
                         //J
                         if (topCard.Broj == "J")
                         {
+                            if ((current.BestMove.Tip & TipPoteza.PromeniBoju) != TipPoteza.PromeniBoju)
+                            {
+                                throw new Exception("Pogresan tip za J");
+                            }
                             boja = current.BestMove.NovaBoja;
                             if(boja == Boja.Unknown)
                             {
