@@ -57,7 +57,7 @@ namespace _16114
              }
              return ret;
          }
-protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int beta,out IMove best)
+        protected int alpaBeta(int depth,bool yourTurn,Board node,int alpa,int beta,out IMove best)
         {
             //promeni alph beta
             //za child napravi kombinaciju
@@ -104,7 +104,7 @@ protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int b
                             turn = true;
                         }
                         IMove bb;
-                        pom= alpaBeta(depth - 1, turn, new Board(node, i), ref alpa, ref beta,out bb);
+                        pom= alpaBeta(depth - 1, turn, new Board(node, i), alpa, beta,out bb);
                     }
                     if (v > pom)
                     {
@@ -132,7 +132,7 @@ protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int b
                         return 0;
                     }
                     IMove bb;
-                    int pom = alpaBeta(depth - 1, !yourTurn, new Board(node, i), ref alpa, ref beta, out bb);
+                    int pom = alpaBeta(depth - 1, !yourTurn, new Board(node, i),alpa,beta, out bb);
                     if (v < pom)
                     {
                         v = pom;
@@ -160,7 +160,7 @@ protected int alpaBeta(int depth,bool yourTurn,Board node,ref int alpa,ref int b
                 int alpha = int.MinValue;
                 int beta = int.MaxValue;
                 IMove best;
-                alpaBeta(i, true, new Board(new Move(talon, novaBoja), true, hand, brojKarataEnemy, remainingCards, kupioKaznene), ref alpha, ref beta, out best);
+                alpaBeta(i, true, new Board(new Move(talon, novaBoja), true, hand, brojKarataEnemy, remainingCards, kupioKaznene), alpha,  beta, out best);
                 if (checkStop())
                 {
                     break;
