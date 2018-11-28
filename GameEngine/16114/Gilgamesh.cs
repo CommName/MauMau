@@ -47,7 +47,7 @@ namespace _16114
             }
         }
         bool stop;
-        static readonly object _locker = new object();
+        public static readonly object _locker = new object();
         private bool checkStop()
          {
              bool ret;
@@ -156,12 +156,14 @@ namespace _16114
 
         protected void alphaBetaBestMove()
         {
+            Move trenutni = new Move(talon, novaBoja);
+            Board trenutnoStanje = new Board(trenutni, true, hand, brojKarataEnemy, remainingCards, kupioKaznene);
             for (int i = 0; i < Int32.MaxValue; i++)
             {
                 int alpha = int.MinValue;
                 int beta = int.MaxValue;
                 IMove best;
-                alpaBeta(i, true, new Board(new Move(talon, novaBoja), true, hand, brojKarataEnemy, remainingCards, kupioKaznene), alpha,  beta, out best);
+                alpaBeta(i, true, trenutnoStanje, alpha,  beta, out best);
                 if (checkStop())
                 {
                     break;

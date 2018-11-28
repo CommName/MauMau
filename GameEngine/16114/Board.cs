@@ -42,19 +42,22 @@ namespace _16114
         }
         public Board(IMove lastMove, bool turn, List<Karta> yourHand, int enemy, CardCounter used,bool kaznene) : this()
         {
-            counter = new CardCounter(used);
-            talon = lastMove;
-            if (yourHand != null && yourHand.Count > 0)
+            lock (Gilgamesh._locker)
             {
-                hand.AddRange(yourHand);
-            }
-            enemyHand = enemy;
-            counter.remove(lastMove.Karte);
-            yourTurn = turn;
+                counter = new CardCounter(used);
+                talon = lastMove;
+                if (yourHand != null && yourHand.Count > 0)
+                {
+                    hand.AddRange(yourHand);
+                }
+                enemyHand = enemy;
+                counter.remove(lastMove.Karte);
+                yourTurn = turn;
 
-            if (lastMove.Tip == TipPoteza.BacaKartu && lastMove.Karte.Count>0&&(lastMove.Karte.Last().Broj == "7"||(lastMove.Karte.Last().Broj=="2"&&lastMove.Karte.Last().Boja==Boja.Tref)) && !kaznene)
-            {
-                kazna = true;
+                if (lastMove.Tip == TipPoteza.BacaKartu && lastMove.Karte.Count > 0 && (lastMove.Karte.Last().Broj == "7" || (lastMove.Karte.Last().Broj == "2" && lastMove.Karte.Last().Boja == Boja.Tref)) && !kaznene)
+                {
+                    kazna = true;
+                }
             }
         }
         public Board(Board board, IMove move) : this()
