@@ -156,7 +156,7 @@ namespace _16114
 
         protected void alphaBetaBestMove()
         {
-            for (int i = 0; i < Int32.MaxValue; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 int alpha = int.MinValue;
                 int beta = int.MaxValue;
@@ -175,6 +175,10 @@ namespace _16114
                     {
                         if (BestMove.Tip == TipPoteza.KupiKartu)
                             BestMove.Tip = TipPoteza.KrajPoteza;
+                    }
+                    if ((BestMove.Tip & TipPoteza.BacaKartu) == TipPoteza.BacaKartu && BestMove.Karte.Last().Broj != "A")
+                    {
+                        BestMove.Tip = BestMove.Tip | TipPoteza.KrajPoteza;
                     }
                     if(((BestMove.Tip & TipPoteza.BacaKartu )== TipPoteza.BacaKartu) && hand.Count == 2)
                     {

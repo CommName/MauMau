@@ -47,7 +47,10 @@ namespace _16114
             }
             numOfRemCard = copy.numOfRemCard;
             hand = new List<Karta>();
-            hand.AddRange(copy.hand);
+            if (copy.hand != null && copy.hand.Count>0)
+            {
+                hand.AddRange(copy.hand);
+            }
         }
 
         public void reset()

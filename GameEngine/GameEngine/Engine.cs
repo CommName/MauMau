@@ -141,6 +141,11 @@ namespace GameEngine
                     }
                     else
                     {
+                        Console.Write(current.BestMove.Tip.ToString());
+                        foreach (Karta k in current.BestMove.Karte)
+                        {
+                            Console.Write(k.Broj +" "+k.Boja.ToString());
+                        }
                         throw new Exception("Invalid move");
                     }                    
 
@@ -175,6 +180,7 @@ namespace GameEngine
             //Kraj poteza
             if (((int)current.BestMove.Tip & (int)TipPoteza.KrajPoteza) != 0)
             {
+               
                 if(kupioKartu || bacioKartu)
                 {
                     if (!bacioKartu)

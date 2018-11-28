@@ -49,7 +49,8 @@ namespace _16114
             counter = new CardCounter(used);
             counter.remove(lastMove.Karte);
             yourTurn = turn;
-            if (lastMove.Tip == TipPoteza.BacaKartu && (lastMove.Karte.Last().Broj == "7"||(lastMove.Karte.Last().Broj=="2"&&lastMove.Karte.Last().Boja==Boja.Tref)) && !kaznene)
+
+            if (lastMove!=null&& lastMove.Tip == TipPoteza.BacaKartu && lastMove.Karte.Count>0&&(lastMove.Karte.Last().Broj == "7"||(lastMove.Karte.Last().Broj=="2"&&lastMove.Karte.Last().Boja==Boja.Tref)) && !kaznene)
             {
                 kazna = true;
             }
@@ -179,13 +180,14 @@ namespace _16114
                 {
                     if (k.Broj != "A")
                     {
-                        Move temp = new Move();
+                        
                         if (!J && k.Broj == "J")
                         {
                             J = true;
 
                             for (int i = 1; i < 5; i++)
                             {
+                                Move temp = new Move();
                                 temp.Karte.AddRange(kec);
                                 temp.Karte.Add(k);
                                 temp.NovaBoja = (Boja)i;
@@ -195,6 +197,7 @@ namespace _16114
                         }
                         else
                         {
+                            Move temp = new Move();
                             temp.Tip = TipPoteza.BacaKartu;
                             temp.Karte.AddRange(kec);
                             temp.Karte.Add(k);
