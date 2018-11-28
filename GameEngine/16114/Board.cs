@@ -44,13 +44,15 @@ namespace _16114
         {
             counter = new CardCounter(used);
             talon = lastMove;
-            hand.AddRange(yourHand);
+            if (yourHand != null && yourHand.Count > 0)
+            {
+                hand.AddRange(yourHand);
+            }
             enemyHand = enemy;
-            counter = new CardCounter(used);
             counter.remove(lastMove.Karte);
             yourTurn = turn;
 
-            if (lastMove!=null&& lastMove.Tip == TipPoteza.BacaKartu && lastMove.Karte.Count>0&&(lastMove.Karte.Last().Broj == "7"||(lastMove.Karte.Last().Broj=="2"&&lastMove.Karte.Last().Boja==Boja.Tref)) && !kaznene)
+            if (lastMove.Tip == TipPoteza.BacaKartu && lastMove.Karte.Count>0&&(lastMove.Karte.Last().Broj == "7"||(lastMove.Karte.Last().Broj=="2"&&lastMove.Karte.Last().Boja==Boja.Tref)) && !kaznene)
             {
                 kazna = true;
             }

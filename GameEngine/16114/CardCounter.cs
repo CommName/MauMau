@@ -45,6 +45,7 @@ namespace _16114
                 Broj[i] = new List<Karta>();
                 Broj[i].AddRange(copy.Broj[i]);
             }
+            numOfRemCard = 52;
             numOfRemCard = copy.numOfRemCard;
             hand = new List<Karta>();
             if (copy.hand != null && copy.hand.Count>0)

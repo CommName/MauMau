@@ -41,6 +41,7 @@ namespace GameEngine
             topCard = deck.Karte[0];
             poslednjeBacene = new List<Karta>();
             poslednjeBacene.Add(topCard);
+            player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
             deck.Karte.RemoveAt(0);
             boja = Boja.Unknown;
             kazna = 0;
@@ -48,14 +49,10 @@ namespace GameEngine
             promena = true;
 
             //Dealibg cards
-            for(int i = 0; i < 2; i++)
-            {
-
-                player1.KupioKarte(deck.Karte.GetRange(0, 3));
-                deck.Karte.RemoveRange(0, 3);
-                player2.KupioKarte(deck.Karte.GetRange(0, 3));
-                deck.Karte.RemoveRange(0, 3);
-            }
+                player1.SetRuka(deck.Karte.GetRange(0, 6));
+                deck.Karte.RemoveRange(0, 6);
+                player2.SetRuka(deck.Karte.GetRange(0, 6));
+                deck.Karte.RemoveRange(0,6 );
             //player1.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
             //player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
             //poslednjeBacene.Clear();
