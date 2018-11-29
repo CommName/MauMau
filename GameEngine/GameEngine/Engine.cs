@@ -75,8 +75,12 @@ namespace GameEngine
                 promena = false;
             }
              current.findBestMoce();
-                
-            
+
+
+            if (current.Hand.Count <= 1 && (current.BestMove.Tip & TipPoteza.Poslednja) != TipPoteza.Poslednja)
+            {
+                throw new Exception("Nije najavio poslednju");
+            }
             //kaznene karte
             if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKazneneKarte) != 0)
             {
@@ -147,6 +151,7 @@ namespace GameEngine
                     }                    
 
                 }
+
                 if(topCard.Broj != "A") //A
                 
                 {
