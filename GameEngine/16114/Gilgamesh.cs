@@ -114,7 +114,7 @@ namespace _16114
                         if (alpa > v)
                         {
                             alpa = v;
-                            if (beta <= alpa)
+                            if (beta >= alpa)
                             {
                                 break;
                             }
@@ -141,7 +141,7 @@ namespace _16114
                         if (beta < v)
                         {
                             beta = v;
-                            if (beta <= alpa)
+                            if (beta >= alpa)
                             {
                                 break;
                             }
