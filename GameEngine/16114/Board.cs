@@ -46,10 +46,13 @@ namespace _16114
             {
                 counter = new CardCounter(used);
                 talon = lastMove;
+
+                hand = new List<Karta>(yourHand);
+                /*
                 if (yourHand != null && yourHand.Count > 0)
                 {
                     hand.AddRange(yourHand);
-                }
+                }*/
                 enemyHand = enemy;
                 counter.remove(lastMove.Karte);
                 yourTurn = turn;
@@ -65,6 +68,7 @@ namespace _16114
             counter = new CardCounter(board.counter);
             talon = move;
             enemyHand = board.enemyHand;
+            this.hand = new List<Karta>(board.hand);
             if (board.yourTurn)
             {
                 foreach (Karta k in move.Karte)
