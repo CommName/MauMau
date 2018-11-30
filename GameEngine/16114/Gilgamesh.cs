@@ -183,8 +183,11 @@ namespace _16114
                     BestMove.Tip = best.Tip;
                     if (kupio)
                     {
-                        if (BestMove.Tip == TipPoteza.KupiKartu)
-                            BestMove.Tip = TipPoteza.KrajPoteza;
+                        if ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)
+                        {
+                            BestMove.Tip = BestMove.Tip ^ (TipPoteza.KupiKartu);
+                            BestMove.Tip = BestMove.Tip | TipPoteza.KrajPoteza;
+                        }
                     }
                     if ((BestMove.Tip & TipPoteza.BacaKartu) == TipPoteza.BacaKartu && BestMove.Karte.Last().Broj != "A")
                     {
