@@ -132,8 +132,16 @@ namespace _16114
                         best = null;
                         return 0;
                     }
-                    IMove bb;
-                    int pom = alpaBeta(depth - 1, !yourTurn, new Board(node, i),alpa,beta, out bb);
+                    int pom;
+                    if ((i.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu || (i.Tip & TipPoteza.KupiKazneneKarte) == TipPoteza.KupiKazneneKarte)
+                    {
+                        pom = node.evaluation();
+                    }
+                    else
+                    {
+                        IMove bb;
+                        pom = alpaBeta(depth - 1, !yourTurn, new Board(node, i), alpa, beta, out bb);
+                    }
                     if (v < pom)
                     {
                         v = pom;
