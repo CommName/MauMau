@@ -114,7 +114,7 @@ namespace _16114
                         if (alpa > v)
                         {
                             alpa = v;
-                            if (beta <= alpa)
+                            if (beta >= alpa)
                             {
                                 break;
                             }
@@ -141,7 +141,7 @@ namespace _16114
                         if (beta < v)
                         {
                             beta = v;
-                            if (beta <= alpa)
+                            if (beta >= alpa)
                             {
                                 break;
                             }
@@ -158,7 +158,7 @@ namespace _16114
         {
             Move trenutni = new Move(talon, novaBoja);
             Board trenutnoStanje = new Board(trenutni, true, hand, brojKarataEnemy, remainingCards, kupioKaznene);
-            for (int i = 0; i < Int32.MaxValue; i++)
+            for (int i = 1; i < Int32.MaxValue; i+=2)
             {
                 int alpha = int.MinValue;
                 int beta = int.MaxValue;
