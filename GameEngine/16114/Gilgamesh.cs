@@ -182,7 +182,7 @@ namespace _16114
                     {
                         BestMove.Tip = BestMove.Tip | TipPoteza.KrajPoteza;
                     }
-                    if(((BestMove.Tip & TipPoteza.BacaKartu )== TipPoteza.BacaKartu) && hand.Count == 2)
+                    if(!(((BestMove.Tip & TipPoteza.KupiKazneneKarte )== TipPoteza.KupiKazneneKarte)|| ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)) && (hand.Count-BestMove.Karte.Count) <2)
                     {
                         BestMove.Tip = TipPoteza.Poslednja | BestMove.Tip;
                     }
