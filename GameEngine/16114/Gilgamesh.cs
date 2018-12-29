@@ -25,13 +25,13 @@ namespace _16114
             Reset();
         }
 
-        
+
 
 
         public void Bacenekarte(List<Karta> karte, Boja boja, int BrojKarataProtivnika)
         {
 
-            if (karte != null&&karte.Count>0)
+            if (karte != null && karte.Count > 0)
             {
                 talon = karte.Last();
                 remainingCards.remove(karte);
@@ -40,7 +40,7 @@ namespace _16114
             brojKarataEnemy = BrojKarataProtivnika;
             BestMove = new Move();
             kupio = false;
-            if(karte!=null&&karte.Count>0)
+            if (karte != null && karte.Count > 0)
                 kupioKaznene = false;
             else
             {
@@ -50,15 +50,15 @@ namespace _16114
         bool stop;
         public static readonly object _locker = new object();
         private bool checkStop()
-         {
-             bool ret;
-             lock (_locker)
-             {
-                 ret = stop;
-             }
-             return ret;
-         }
-        protected int alpaBeta(int depth,bool yourTurn,Board node,int alpa,int beta,out IMove best)
+        {
+            bool ret;
+            lock (_locker)
+            {
+                ret = stop;
+            }
+            return ret;
+        }
+        protected int alpaBeta(int depth, bool yourTurn, Board node, int alpa, int beta, out IMove best, bool debug)
         {
             //promeni alph beta
             //za child napravi kombinaciju
@@ -69,14 +69,14 @@ namespace _16114
                 return 0;
             }
             List<IMove> child = node.moves;
-            if(depth==0|| child.Count < 1)
+            if (depth == 0 || child.Count < 1)
             {
-                
+
                 best = new Move { Tip = TipPoteza.KrajPoteza };
-                
+
                 return node.evaluation();
             }
-            if(node.talon.Tip == TipPoteza.KupiKartu || node.talon.Tip == TipPoteza.KupiKazneneKarte || node.talon.Tip == TipPoteza.KrajPoteza)
+            if (node.talon.Tip == TipPoteza.KupiKartu || node.talon.Tip == TipPoteza.KupiKazneneKarte || node.talon.Tip == TipPoteza.KrajPoteza)
             {
                 best = node.talon;
                 return node.evaluation();
@@ -86,7 +86,7 @@ namespace _16114
             if (yourTurn)
             {
                 v = int.MaxValue;
-                foreach(IMove i in child)
+                foreach (IMove i in child)
                 {
                     if (checkStop())
                     {
@@ -94,7 +94,7 @@ namespace _16114
                         return 0;
                     }
                     int pom;
-                    if ((i.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu || (i.Tip & TipPoteza.KupiKazneneKarte)==TipPoteza.KupiKazneneKarte)
+                    if ((i.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu || (i.Tip & TipPoteza.KupiKazneneKarte) == TipPoteza.KupiKazneneKarte)
                     {
                         pom = node.evaluation();
                     }
@@ -105,8 +105,16 @@ namespace _16114
                             turn = true;
                         }
                         IMove bb;
-                        pom= alpaBeta(depth - 1, turn, new Board(node, i), alpa, beta,out bb);
-                        
+                        pom = alpaBeta(depth - 1, turn, new Board(node, i), alpa, beta, out bb, false);
+                        if (debug)
+                        {
+                            Console.WriteLine(i.Tip.ToString() + " " + i.NovaBoja.ToString());
+                            foreach (Karta k in i.Karte)
+                            {
+                                Console.Write(k.Boja.ToString() + " " + k.Broj + "| ");
+                            }
+                            Console.WriteLine();
+                        }
                     }
                     if (v > pom)
                     {
@@ -117,6 +125,10 @@ namespace _16114
                             alpa = v;
                             if (beta >= alpa)
                             {
+                                if (debug)
+                                {
+                                    Console.WriteLine("doslo je do secenja");
+                                }
                                 break;
                             }
                         }
@@ -126,7 +138,7 @@ namespace _16114
             else
             {
                 v = int.MinValue;
-                foreach(IMove i in child)
+                foreach (IMove i in child)
                 {
                     if (checkStop())
                     {
@@ -141,7 +153,7 @@ namespace _16114
                     else
                     {
                         IMove bb;
-                        pom = alpaBeta(depth - 1, !yourTurn, new Board(node, i), alpa, beta, out bb);
+                        pom = alpaBeta(depth - 1, !yourTurn, new Board(node, i), alpa, beta, out bb,false);
                     }
                     if (v < pom)
                     {
@@ -159,22 +171,95 @@ namespace _16114
                 }
             }
 
-            return v-5;
+            return v - 5;
         }
 
-
-        protected void alphaBetaBestMove()
+        protected void debug()
         {
             Move trenutni = new Move(talon, novaBoja);
             Board trenutnoStanje = new Board(trenutni, true, hand, brojKarataEnemy, remainingCards, kupioKaznene);
-            for (int i = 1; i < Int32.MaxValue; i+=2)
-            {
+            
                 //int alpha = int.MaxValue;
                 //int beta = int.MinValue;
                 int alpha = int.MinValue;
                 int beta = int.MaxValue;
                 IMove best;
-                alpaBeta(i, true, trenutnoStanje, alpha,  beta, out best);
+                alpaBeta(10, true, trenutnoStanje, alpha, beta, out best, true);
+                
+                lock (_locker)
+                {
+                    BestMove.Karte = best.Karte;
+                    BestMove.NovaBoja = best.NovaBoja;
+                    BestMove.Tip = best.Tip;
+                    if (kupio)
+                    {
+                        if ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)
+                        {
+                            BestMove.Tip = BestMove.Tip ^ (TipPoteza.KupiKartu);
+                            BestMove.Tip = BestMove.Tip | TipPoteza.KrajPoteza;
+                        }
+                    }
+                    if ((BestMove.Tip & TipPoteza.BacaKartu) == TipPoteza.BacaKartu && BestMove.Karte.Last().Broj != "A")
+                    {
+                        BestMove.Tip = BestMove.Tip | TipPoteza.KrajPoteza;
+                    }
+                    if (!(((BestMove.Tip & TipPoteza.KupiKazneneKarte) == TipPoteza.KupiKazneneKarte) || ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)) && (hand.Count - BestMove.Karte.Count) < 2)
+                    {
+                        BestMove.Tip = TipPoteza.Poslednja | BestMove.Tip;
+                    }
+                }
+            
+
+            lock (_locker)
+            {
+                if (BestMove.Tip == TipPoteza.KupiKazneneKarte)
+                {
+                    kupioKaznene = true;
+                }
+                else
+                {
+                    if ((BestMove.Tip & TipPoteza.KupiKartu) != TipPoteza.KupiKartu)
+                    {
+                        kupioKaznene = false;
+
+                    }
+                }
+
+                if ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)
+                {
+                    kupio = true;
+                }
+                else
+                {
+                    kupio = false;
+                }
+                if ((BestMove.Tip & TipPoteza.BacaKartu) == TipPoteza.BacaKartu)
+                {
+                    foreach (Karta k in BestMove.Karte)
+                    {
+                        if (k != null)
+                        {
+                            hand.Remove(k);
+                            talon = BestMove.Karte.Last();
+                            novaBoja = BestMove.NovaBoja;
+                        }
+                    }
+                }
+            }
+        }
+
+        protected void alphaBetaBestMove()
+        {
+            Move trenutni = new Move(talon, novaBoja);
+            Board trenutnoStanje = new Board(trenutni, true, hand, brojKarataEnemy, remainingCards, kupioKaznene);
+            for (int i = 1; i < Int32.MaxValue; i++)
+            {
+                //int alpha = int.MaxValue;
+                //int beta = int.MinValue;
+                int alpha = int.MinValue;
+                int beta = int.MaxValue;
+                IMove best = new Move() ;
+                //alpaBeta(i, true, trenutnoStanje, alpha,  beta, out best);
                 if (checkStop())
                 {
                     break;
@@ -202,6 +287,7 @@ namespace _16114
                     }
                 }
             }
+
             lock (_locker)
             {
                 if (BestMove.Tip == TipPoteza.KupiKazneneKarte)
@@ -245,7 +331,8 @@ namespace _16114
             stop = false;
             Thread alphaBeta = new Thread(alphaBetaBestMove);
             alphaBeta.Priority = ThreadPriority.Highest;
-            alphaBeta.Start();
+            //alphaBeta.Start();
+            debug();
             //alphaBetaBestMove();
         }
 
