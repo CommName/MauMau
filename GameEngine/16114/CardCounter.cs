@@ -123,9 +123,27 @@ namespace _16114
         public List<Karta> valid(Karta talon,Boja b,int numOfEnemieCards)
         {
             List<Karta> ret = new List<Karta>();
-            if (talon.Broj == "J"&&b!=TIG.AV.Karte.Boja.Unknown) // Dodavanje J
+            if (talon.Broj == "J" && b != TIG.AV.Karte.Boja.Unknown) // Dodavanje sve iz te boje
             {
-                ret.AddRange((Boja[(int)b - 1]));
+                bool all=true;
+                foreach (Karta k in Boja[(int)b - 1])
+                {
+                    if (k.Broj != "A" && k.Broj != "8" && k.Broj != "J" && k.Broj != "7")
+                    {
+                        if (!hand.Exists(x => x.Broj == k.Broj))
+                        {
+                            if (all)
+                            {
+                                ret.Add(k);
+                                all = false;
+                            }
+                        }
+                        else
+                        {
+                            ret.Add(k);
+                        }
+                    }
+                }
             }
             else if(talon.Broj == "7") // Slucaj za 7
             {
@@ -145,7 +163,12 @@ namespace _16114
             }
             else
             {
-                
+                /*
+                Boja trBoja = talon.Boja;
+                if (talon.Broj == "J")
+                {
+                    trBoja = b;
+                }*/
                 if (chance(Boja[(int)talon.Boja - 1].Count, numOfEnemieCards) >= granica)
                 {
                     bool all = true;
@@ -168,16 +191,12 @@ namespace _16114
                         }
                     }
                 }
-                /*
-                if (chance(Boja[(int)talon.Boja - 1].Count, numOfEnemieCards) > granica)
+                if (talon.Broj != "J")
                 {
-                    ret.Add(Broj[10].First());
-                }
-                */
-
-                if (chance(Broj[brojToNumber(talon.Broj) - 1].Count, numOfEnemieCards) >= granica)
-                {
-                    ret.AddRange(Broj[brojToNumber(talon.Broj) - 1]);
+                    if (chance(Broj[brojToNumber(talon.Broj) - 1].Count, numOfEnemieCards) >= 0/*granica*/)
+                    {
+                        ret.AddRange(Broj[brojToNumber(talon.Broj) - 1]);
+                    }
                 }
 
             }

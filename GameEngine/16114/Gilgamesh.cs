@@ -68,7 +68,7 @@ namespace _16114
                 best = null;
                 return 0;
             }
-            List<IMove> child = node.moves;
+            List<IMove> child = node.moves();
             if (depth == 0 || child.Count < 1 || node.hand.Count==0||node.enemyHand==0)
             {
 
@@ -106,10 +106,25 @@ namespace _16114
                         }
                         IMove bb;
                         pom = alpaBeta(depth - 1, turn, new Board(node, i), alpa, beta, out bb, false);
-                        
+                        if (checkStop())
+                        {
+                            best = null;
+                            return 0;
+                        }
+                        if (turn)
+                        {
+                            pom -= 5;
+                        }
+                        if((i.Tip&TipPoteza.BacaKartu)==TipPoteza.BacaKartu && i.Karte.Last().Broj == "A"&&(bb.Tip&TipPoteza.BacaKartu)==TipPoteza.BacaKartu)
+                        {
+                            i.Karte.AddRange(bb.Karte);
+                            i.NovaBoja = bb.NovaBoja;
+                            i.Tip = i.Tip | bb.Tip;
+                        }
                     }
                     if (debug)
                     {
+                        Console.WriteLine();
                         Console.WriteLine(i.Tip.ToString() + " " + i.NovaBoja.ToString() + " " + pom.ToString());
                         foreach (Karta k in i.Karte)
                         {
@@ -149,7 +164,13 @@ namespace _16114
                     int pom;
                     if ((i.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu || (i.Tip & TipPoteza.KupiKazneneKarte) == TipPoteza.KupiKazneneKarte)
                     {
-                        pom = node.evaluation();
+                        IMove bb;
+                        IMove kupi = new Move();
+                        kupi.Karte = node.talon.Karte;
+                        kupi.NovaBoja = i.NovaBoja;
+                        kupi.Tip = TipPoteza.BacaKartu;
+                        pom = alpaBeta(depth - 1, !yourTurn, new Board(node,kupi ), alpa, beta, out bb, false);
+                        pom += 10;
                     }
                     else
                     {
@@ -180,10 +201,10 @@ namespace _16114
             Move trenutni = new Move(talon, novaBoja);
             Board trenutnoStanje = new Board(trenutni, true, hand, brojKarataEnemy, remainingCards, kupioKaznene);
             
-                int alpha = int.MaxValue;
-                int beta = int.MinValue;
-                //int alpha = int.MinValue;
-                //int beta = int.MaxValue;
+                //int alpha = int.MaxValue;
+                //int beta = int.MinValue;
+                int alpha = int.MinValue;
+                int beta = int.MaxValue;
                 IMove best;
                 alpaBeta(10, true, trenutnoStanje, alpha, beta, out best, true);
                 
@@ -255,8 +276,7 @@ namespace _16114
             Board trenutnoStanje = new Board(trenutni, true, hand, brojKarataEnemy, remainingCards, kupioKaznene);
             for (int i = 1; i < Int32.MaxValue; i++)
             {
-                //int alpha = int.MaxValue;
-                //int beta = int.MinValue;
+
                 int alpha = int.MinValue;
                 int beta = int.MaxValue;
                 IMove best = new Move() ;

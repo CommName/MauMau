@@ -16,7 +16,7 @@ namespace _16114
         public int enemyHand { get; set; }
         public CardCounter counter;
 
-        public List<IMove> moves { get
+        public List<IMove> moves()
             {
 
                 if (yourTurn)
@@ -27,7 +27,7 @@ namespace _16114
                 {
                     return getMoves(counter.valid(talon.Karte.Last(), talon.NovaBoja, enemyHand));
                 }
-            } }
+            } 
 
 
         public bool kazna { get; set; }
@@ -161,7 +161,7 @@ namespace _16114
                         }
                     }
                 }
-                //if (ret.Count == 0) { 
+                if (ret.Count == 0) { 
                 if (kupio)
                 {
                     ret.Add(new Move() { Tip = TipPoteza.KrajPoteza });
@@ -170,7 +170,7 @@ namespace _16114
                 {
                     ret.Add(new Move() { Tip = TipPoteza.KupiKartu, Karte = new List<Karta>( talon.Karte )});
                 }
-                //}
+                }
             }
             return ret;
         }
@@ -282,10 +282,15 @@ namespace _16114
                     evaluacija += cardPoints(k);
                 }
             }
+
+            if (enemyHand == 0)
+            {
+                evaluacija += 100;
+            }
             // avrage card is 8 points
             //evaluacija -= 8 * enemyHand;
 
-            //evaluacija -= getMoves(hand).Count * 8;
+            evaluacija -= getMoves(hand).Count;
 
             if(enemyHand ==0 || hand.Count == 0)
             {
