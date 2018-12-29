@@ -110,7 +110,7 @@ namespace GameEngine
 
         public void SetRuka(List<Karta> karte)
         {
-            hand = karte;
+            hand = new List<Karta>(karte);
             if (bot != null)
             {
                 bot.SetRuka(karte);
