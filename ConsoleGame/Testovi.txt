@@ -60,3 +60,14 @@
 1 8
 1 10
 4
+//TEST 2 -- resio enemy hand problem
+Pik J Karo
+player 2hand: |9 Tref||2 Karo||4 Karo||9 Herz|
+0
+4
+2 9
+1 2
+1 4
+3 9
+1 10
+6
