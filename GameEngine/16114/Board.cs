@@ -161,7 +161,7 @@ namespace _16114
                         }
                     }
                 }
-                if (ret.Count == 0) { 
+                //if (ret.Count == 0) { 
                 if (kupio)
                 {
                     ret.Add(new Move() { Tip = TipPoteza.KrajPoteza });
@@ -170,7 +170,7 @@ namespace _16114
                 {
                     ret.Add(new Move() { Tip = TipPoteza.KupiKartu, Karte = new List<Karta>( talon.Karte )});
                 }
-                }
+                //}
             }
             return ret;
         }

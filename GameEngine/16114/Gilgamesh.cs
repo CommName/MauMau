@@ -69,7 +69,7 @@ namespace _16114
                 return 0;
             }
             List<IMove> child = node.moves;
-            if (depth == 0 || child.Count < 1)
+            if (depth == 0 || child.Count < 1 || node.hand.Count==0||node.enemyHand==0)
             {
 
                 best = new Move { Tip = TipPoteza.KrajPoteza };
@@ -170,8 +170,8 @@ namespace _16114
                     }
                 }
             }
-
-            return v - 5;
+            
+            return v;
         }
 
         protected void debug()
@@ -179,10 +179,10 @@ namespace _16114
             Move trenutni = new Move(talon, novaBoja);
             Board trenutnoStanje = new Board(trenutni, true, hand, brojKarataEnemy, remainingCards, kupioKaznene);
             
-                //int alpha = int.MaxValue;
-                //int beta = int.MinValue;
-                int alpha = int.MinValue;
-                int beta = int.MaxValue;
+                int alpha = int.MaxValue;
+                int beta = int.MinValue;
+                //int alpha = int.MinValue;
+                //int beta = int.MaxValue;
                 IMove best;
                 alpaBeta(10, true, trenutnoStanje, alpha, beta, out best, true);
                 
@@ -203,7 +203,7 @@ namespace _16114
                     {
                         BestMove.Tip = BestMove.Tip | TipPoteza.KrajPoteza;
                     }
-                    if (!(((BestMove.Tip & TipPoteza.KupiKazneneKarte) == TipPoteza.KupiKazneneKarte) || ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)) && (hand.Count - BestMove.Karte.Count) < 2)
+                    if (!(((BestMove.Tip & TipPoteza.KupiKazneneKarte) == TipPoteza.KupiKazneneKarte) || ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)) && (hand.Count - BestMove.Karte.Count) == 1)
                     {
                         BestMove.Tip = TipPoteza.Poslednja | BestMove.Tip;
                     }
@@ -281,7 +281,7 @@ namespace _16114
                     {
                         BestMove.Tip = BestMove.Tip | TipPoteza.KrajPoteza;
                     }
-                    if(!(((BestMove.Tip & TipPoteza.KupiKazneneKarte )== TipPoteza.KupiKazneneKarte)|| ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)) && (hand.Count-BestMove.Karte.Count) <2)
+                    if(!(((BestMove.Tip & TipPoteza.KupiKazneneKarte )== TipPoteza.KupiKazneneKarte)|| ((BestMove.Tip & TipPoteza.KupiKartu) == TipPoteza.KupiKartu)) && (hand.Count-BestMove.Karte.Count) ==1)
                     {
                         BestMove.Tip = TipPoteza.Poslednja | BestMove.Tip;
                     }
