@@ -106,15 +106,16 @@ namespace _16114
                         }
                         IMove bb;
                         pom = alpaBeta(depth - 1, turn, new Board(node, i), alpa, beta, out bb, false);
-                        if (debug)
+                        
+                    }
+                    if (debug)
+                    {
+                        Console.WriteLine(i.Tip.ToString() + " " + i.NovaBoja.ToString() + " " + pom.ToString());
+                        foreach (Karta k in i.Karte)
                         {
-                            Console.WriteLine(i.Tip.ToString() + " " + i.NovaBoja.ToString()+" "+pom.ToString());
-                            foreach (Karta k in i.Karte)
-                            {
-                                Console.Write(k.Boja.ToString() + " " + k.Broj + "| ");
-                            }
-                            Console.WriteLine();
+                            Console.Write(k.Boja.ToString() + " " + k.Broj + "| ");
                         }
+                        Console.WriteLine();
                     }
                     if (v > pom)
                     {
@@ -259,7 +260,7 @@ namespace _16114
                 int alpha = int.MinValue;
                 int beta = int.MaxValue;
                 IMove best = new Move() ;
-                //alpaBeta(i, true, trenutnoStanje, alpha,  beta, out best);
+                alpaBeta(i, true, trenutnoStanje, alpha,  beta, out best,false);
                 if (checkStop())
                 {
                     break;
@@ -331,9 +332,9 @@ namespace _16114
             stop = false;
             Thread alphaBeta = new Thread(alphaBetaBestMove);
             alphaBeta.Priority = ThreadPriority.Highest;
-            //alphaBeta.Start();
-            debug();
-            //alphaBetaBestMove();
+            alphaBeta.Start();
+            //debug();
+            
         }
 
         public void EndBestMove()
@@ -369,7 +370,6 @@ namespace _16114
             hand.AddRange(karte);
             remainingCards.remove(karte);
         }
-
-        //kradja iteracia sa bacene karte
+        
     }
 }

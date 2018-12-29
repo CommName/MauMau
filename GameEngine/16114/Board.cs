@@ -283,7 +283,7 @@ namespace _16114
                 }
             }
             // avrage card is 8 points
-            evaluacija -= 8 * enemyHand;
+            //evaluacija -= 8 * enemyHand;
 
             //evaluacija -= getMoves(hand).Count * 8;
 
