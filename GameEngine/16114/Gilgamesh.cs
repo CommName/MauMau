@@ -108,7 +108,7 @@ namespace _16114
                         pom = alpaBeta(depth - 1, turn, new Board(node, i), alpa, beta, out bb, false);
                         if (debug)
                         {
-                            Console.WriteLine(i.Tip.ToString() + " " + i.NovaBoja.ToString());
+                            Console.WriteLine(i.Tip.ToString() + " " + i.NovaBoja.ToString()+" "+pom.ToString());
                             foreach (Karta k in i.Karte)
                             {
                                 Console.Write(k.Boja.ToString() + " " + k.Broj + "| ");
