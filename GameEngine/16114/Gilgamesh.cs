@@ -30,7 +30,8 @@ namespace _16114
 
         public void Bacenekarte(List<Karta> karte, Boja boja, int BrojKarataProtivnika)
         {
-            if (karte != null)
+
+            if (karte != null&&karte.Count>0)
             {
                 talon = karte.Last();
                 remainingCards.remove(karte);
@@ -168,6 +169,8 @@ namespace _16114
             Board trenutnoStanje = new Board(trenutni, true, hand, brojKarataEnemy, remainingCards, kupioKaznene);
             for (int i = 1; i < Int32.MaxValue; i+=2)
             {
+                //int alpha = int.MaxValue;
+                //int beta = int.MinValue;
                 int alpha = int.MinValue;
                 int beta = int.MaxValue;
                 IMove best;
@@ -241,6 +244,7 @@ namespace _16114
         {
             stop = false;
             Thread alphaBeta = new Thread(alphaBetaBestMove);
+            alphaBeta.Priority = ThreadPriority.Highest;
             alphaBeta.Start();
             //alphaBetaBestMove();
         }
@@ -274,6 +278,7 @@ namespace _16114
 
         public void SetRuka(List<Karta> karte)
         {
+            hand = new List<Karta>();
             hand.AddRange(karte);
             remainingCards.remove(karte);
         }
