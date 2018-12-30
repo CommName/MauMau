@@ -69,10 +69,10 @@ namespace _16114
                 return 0;
             }
             List<IMove> child = node.moves();
-            if (depth == 0 || child.Count < 1 || node.hand.Count==0||node.enemyHand==0)
+            if (depth == 0 || child.Count < 1 || node.hand.Count==0||node.enemyHand<0)
             {
 
-                best = new Move { Tip = TipPoteza.KrajPoteza };
+                best = new Move { Tip = TipPoteza.KupiKartu };
 
                 return node.evaluation();
             }
@@ -169,8 +169,10 @@ namespace _16114
                         kupi.Karte = node.talon.Karte;
                         kupi.NovaBoja = i.NovaBoja;
                         kupi.Tip = TipPoteza.BacaKartu;
+                        node.enemyHand++;
                         pom = alpaBeta(depth - 1, !yourTurn, new Board(node,kupi ), alpa, beta, out bb, false);
-                        pom += 10;
+                        node.enemyHand--;
+                        pom -= 10;
                     }
                     else
                     {
@@ -352,8 +354,8 @@ namespace _16114
             stop = false;
             Thread alphaBeta = new Thread(alphaBetaBestMove);
             alphaBeta.Priority = ThreadPriority.Highest;
-            alphaBeta.Start();
-            //debug();
+            //alphaBeta.Start();
+            debug();
             
         }
 
