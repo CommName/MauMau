@@ -21,6 +21,7 @@ namespace _16114
             NovaBoja = Boja.Unknown;
             Tip = TipPoteza.KupiKartu;
             Dubina = 0;
+            Value = 0;
         }
         public Move(IMove mv,int d,int v)
         {
@@ -28,6 +29,7 @@ namespace _16114
             NovaBoja = mv.NovaBoja;
             Tip = mv.Tip;
             Dubina = d;
+            Value = v;
         }
         public Move(Karta k, Boja nova)
         {
@@ -35,6 +37,8 @@ namespace _16114
             Karte.Add(k);
             NovaBoja = nova;
             Tip = TipPoteza.BacaKartu;
+            Dubina = 0;
+            Value = 0;
 
         }
         public Move(Move m)
@@ -43,6 +47,8 @@ namespace _16114
             NovaBoja = m.NovaBoja;
             Karte = new List<Karta>();
             Karte.AddRange(m.Karte);
+            Dubina = 0;
+            Value = 0;
         }
 
         public void setKarta(Karta  karta)
@@ -50,6 +56,7 @@ namespace _16114
             Karte.Clear();
             Karte.Add(karta);
             Tip = TipPoteza.BacaKartu;
+
         }
 
         public void apendMove(IMove move)

@@ -64,9 +64,16 @@ namespace GameEngine
                 bot.EndBestMove();
                 //Thread.Sleep(500);
                 BestMove = bot.BestMove;
-                foreach(Karta k in BestMove.Karte)
+                if ((BestMove.Tip & TipPoteza.BacaKartu) == TipPoteza.BacaKartu)
                 {
-                    hand.Remove(k);
+                    foreach (Karta k in BestMove.Karte)
+                    {
+                        if (!this.Hand.Exists(x => x.Boja == k.Boja && x.Broj == k.Broj))
+                        {
+                            throw new Exception("Nemas tu kartu " + k.Broj + k.Boja.ToString());
+                        }
+                        hand.Remove(k);
+                    }
                 }
             }
 

@@ -69,6 +69,21 @@ namespace _16114
                 best = null;
                 return 0;
             }
+            //*
+            if (yourTurn)
+            {
+                Move history;
+
+                if (tabela.TryGetValue(node.key(), out history))
+                {
+                    if (history.Dubina >= depth)
+                    {
+                        best = history;
+                        return history.Value;
+                    }
+                }
+            }
+            //*/
             List<IMove> child = node.moves();
             if (depth == 0 || child.Count < 1 || node.hand.Count==0||node.enemyHand<0)
             {
@@ -122,6 +137,7 @@ namespace _16114
                             i.NovaBoja = bb.NovaBoja;
                             i.Tip = i.Tip | bb.Tip;
                         }
+
                     }
                     
                     if (v > pom)
@@ -193,13 +209,16 @@ namespace _16114
             Move trenutni = new Move(talon, novaBoja);
             Board trenutnoStanje = new Board(trenutni, true, hand, brojKarataEnemy, remainingCards, kupioKaznene);
             Move history;
-
+            int pocetak = 1;
+            //*
             if (tabela.TryGetValue(trenutnoStanje.key(),out history))
             {
                 BestMove = history;
+                pocetak = history.Dubina;
             }
+            //*/
 
-            for (int i = 1; i < Int32.MaxValue; i++)
+            for (int i = pocetak; i < Int32.MaxValue; i++)
             {
 
                 int alpha = int.MinValue;
@@ -233,15 +252,21 @@ namespace _16114
                         BestMove.Tip = TipPoteza.Poslednja | BestMove.Tip;
                     }
                 }
+                //*
                 Move upis;
-
+                
                 if (tabela.TryGetValue(trenutnoStanje.key(), out upis))
                 {
                     if (upis.Dubina < i)
                     {
-                        upis = new Move(best,i);
+                        upis = new Move(best,i,value);
                     }
                 }
+                else
+                {
+                    tabela.Add(trenutnoStanje.key(), new Move(best, i, value));
+                }
+                //*/
 
             }
 

@@ -46,6 +46,7 @@ namespace ConsoleGame
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                throw new Exception("ERROR");
             }
 
         }
@@ -111,9 +112,11 @@ namespace ConsoleGame
         static void Main(string[] args)
         {
 
-            
-            //igra();
-            specCase();
+            for (int i = 0; i < 100; i++)
+            {
+                //igra();
+                specCase();
+            }
 
         }
     }
