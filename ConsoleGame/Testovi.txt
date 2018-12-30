@@ -60,6 +60,95 @@
 1 8
 1 10
 4
+
+A 8
+
+//TEST 8 and A
+0
+2
+1 A
+1 8
+1 10
+4
+
+A 8
+
+//TEST Case 2 Js
+0
+4
+2 9
+3 J
+1 5
+1 10
+3 4
+4
+
+Boja karo
+
+//TEST Case 3 Js
+0
+5
+2 9
+3 J
+1 5
+1 10
+2 8
+3 4
+4
+
+Boja pik
+
+//TEST Case 4 Js and a
+0
+5
+2 9
+2 10
+3 A
+3 J
+4 9
+3 2
+4
+
+A J Pik
+
+//Test case 5 js and 8
+0
+5
+2 9
+2 10
+3 8
+3 J
+4 9
+3 2
+4
+
+8 
+//Test case 6 js
+0
+5
+2 9
+2 10
+3 3
+3 J
+4 9
+3 2
+4
+
+4 herz
+
+//Test case 7 js
+0
+5
+2 9
+2 10
+3 3
+3 J
+4 9
+3 2
+1
+
+pik promeni boju
+
 //TEST 2 -- resio enemy hand problem
 Pik J Karo
 player 2hand: |9 Tref||2 Karo||4 Karo||9 Herz|
@@ -71,3 +160,95 @@ player 2hand: |9 Tref||2 Karo||4 Karo||9 Herz|
 3 9
 1 10
 6
+
+//TEST case Broj
+12
+1 A
+1 2
+1 3
+1 4
+1 5
+1 7
+1 8
+1 9
+1 10
+1 J
+1 Q
+1 K
+2
+1 6
+3 6
+2 6
+5
+
+//TEST za boju
+3
+1 4
+2 4
+3 4
+2
+4 4
+4 5
+4 3
+4
+
+//TEST za boju 2
+2
+2 4
+3 4
+2
+4 4
+4 5
+4 3
+4
+
+//TEST za 7
+2
+2 7
+4 7
+2
+1 7
+3 4
+3 7
+4
+
+//TEST ZA 7
+0
+2
+1 7
+3 4
+3 7
+4
+
+//TEST za 7 ?
+0
+3
+1 2
+1 7
+1 4
+1 9
+4
+
+//TEST za 7
+0
+2
+1 7
+2 4
+2 7
+0
+
+Tref 5 Unknown
+player 2hand: |5 Pik||9 Pik||J Tref||J Pik|
+
+Tref 2 Unknown
+player 1hand: |Q Herz||A Herz||3 Herz||9 Tref
+
+Tref 6 Unknown
+player 1hand: |A Tref|
+Tref A Unknown
+
+Herz 4 Unknown
+player 1hand: |7 Herz|
+Herz 7 Unknown
+player 2hand: |3 Herz|
+Ne moze da zavrsi potez

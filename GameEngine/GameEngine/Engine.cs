@@ -103,6 +103,10 @@ namespace GameEngine
                         kupioKartu = false; 
                         poslednjeBacene.Add(current.BestMove.Karte[i]);
                         topCard = current.BestMove.Karte[i];
+                        if (!current.Hand.Exists(x => x.Boja == topCard.Boja && x.Broj == topCard.Broj))
+                        {
+                            throw new Exception("Nemas tu kartu");
+                        }
                         //7
                         if (topCard.Broj == "7")
                         {

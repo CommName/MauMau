@@ -12,12 +12,22 @@ namespace _16114
         public TipPoteza Tip { get; set; }
         public List<Karta> Karte { get; set; }
         public Boja NovaBoja { get; set; }
+        public int Dubina { get; set; }
+        public int Value { get; set; }
 
         public Move()
         {
             Karte = new List<Karta>();
             NovaBoja = Boja.Unknown;
             Tip = TipPoteza.KupiKartu;
+            Dubina = 0;
+        }
+        public Move(IMove mv,int d,int v)
+        {
+            Karte = new List<Karta>(mv.Karte);
+            NovaBoja = mv.NovaBoja;
+            Tip = mv.Tip;
+            Dubina = d;
         }
         public Move(Karta k, Boja nova)
         {

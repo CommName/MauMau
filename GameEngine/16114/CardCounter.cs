@@ -23,7 +23,7 @@ namespace _16114
 
 
         private const int singleCard = 13;
-        private const double granica = 0.5;
+        private const double granica = 0.1;
 
 
         public CardCounter()
@@ -52,6 +52,21 @@ namespace _16114
             {
                 hand.AddRange(copy.hand);
             }
+        }
+
+        public ulong key()
+        {
+            ulong ret = 0;
+            for(uint i = 0; i < 4; i++)
+            {
+                ulong pom = 0;
+                foreach(Karta k in Boja[i])
+                {
+                    pom += brojToNumber(k.Broj);
+                }
+                ret += pom * ((uint)Math.Pow(100, (i + 1)));
+            }
+            return ret;
         }
 
         public void reset()
@@ -98,7 +113,7 @@ namespace _16114
                     break;
                 }
             }
-            int brojIndex = brojToNumber(karta.Broj) - 1;
+            uint brojIndex = brojToNumber(karta.Broj) - 1;
 
             for (int i = 0; i < Broj[brojIndex].Count; i++)
             {
@@ -163,12 +178,7 @@ namespace _16114
             }
             else
             {
-                /*
-                Boja trBoja = talon.Boja;
-                if (talon.Broj == "J")
-                {
-                    trBoja = b;
-                }*/
+               
                 if (chance(Boja[(int)talon.Boja - 1].Count, numOfEnemieCards) >= granica)
                 {
                     bool all = true;
@@ -193,7 +203,8 @@ namespace _16114
                 }
                 if (talon.Broj != "J")
                 {
-                    if (chance(Broj[brojToNumber(talon.Broj) - 1].Count, numOfEnemieCards) >= 0/*granica*/)
+                   
+                    if (chance(Broj[brojToNumber(talon.Broj) - 1].Count, numOfEnemieCards) >= granica)
                     {
                         ret.AddRange(Broj[brojToNumber(talon.Broj) - 1]);
                     }
@@ -205,9 +216,10 @@ namespace _16114
         protected double chance(int numOfCards,int numOfDraws)
         {
             double ret = 1;
+
             for(int i = 0; i < numOfDraws; i++)
             {
-                ret *= (1 - ((double)(numOfCards + i) / numOfRemCard));
+                ret *= (double)(numOfRemCard-i-numOfCards) /(numOfRemCard-i);
             }
             return 1 - ret;
         }
@@ -216,7 +228,7 @@ namespace _16114
         // Dodati listu karata koje nema protivnik i sa tim uporedjivati
         //filter opcija i pointer na ruku
 
-        static public int brojToNumber(string broj)
+        static public uint brojToNumber(string broj)
         {
             switch (broj)
             {

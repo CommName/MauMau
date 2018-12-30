@@ -307,6 +307,22 @@ namespace _16114
             return evaluacija;
         }
 
+        public ulong key()
+        {
+            ulong ret = 0;
+            ret += counter.key()*10000000000;
+
+            foreach(Karta k in hand)
+            {
+                ret += CardCounter.brojToNumber(k.Broj)*100*((uint)Math.Pow(100 ,((uint)((int)k.Boja))));
+            }
+            if (kazna)
+            {
+                ret+=1000000000000000;
+            }
+            return ret;
+        }
+
         public static int cardPoints(Karta karta)
         {
             switch (karta.Broj)
