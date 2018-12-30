@@ -62,7 +62,8 @@ namespace ConsoleGame
             for (int i = 0; i < broj; i++)
             {
                 Karta karta = new Karta();
-                karta.Boja = (TIG.AV.Karte.Boja)Int32.Parse(Console.Read().ToString());
+                karta.Boja = (TIG.AV.Karte.Boja)(Console.Read()-'0');
+                Console.Read();
                 karta.Broj = Console.ReadLine().ToString();
                 ruka.Add(karta);
             }
