@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauMauGame", "MauMauGame\MauMauGame.csproj", "{0575C1D1-F8C1-4129-94B2-D120994A736E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameEngine", "..\GameEngine\GameEngine\GameEngine.csproj", "{E741F493-289B-4E1A-9355-1F216AE9F74C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16114", "..\GameEngine\16114\16114.csproj", "{7C7ADFBC-0C3D-4A7F-B375-D27B9EB1DAB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0575C1D1-F8C1-4129-94B2-D120994A736E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0575C1D1-F8C1-4129-94B2-D120994A736E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0575C1D1-F8C1-4129-94B2-D120994A736E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E741F493-289B-4E1A-9355-1F216AE9F74C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E741F493-289B-4E1A-9355-1F216AE9F74C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E741F493-289B-4E1A-9355-1F216AE9F74C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E741F493-289B-4E1A-9355-1F216AE9F74C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C7ADFBC-0C3D-4A7F-B375-D27B9EB1DAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C7ADFBC-0C3D-4A7F-B375-D27B9EB1DAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C7ADFBC-0C3D-4A7F-B375-D27B9EB1DAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C7ADFBC-0C3D-4A7F-B375-D27B9EB1DAB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

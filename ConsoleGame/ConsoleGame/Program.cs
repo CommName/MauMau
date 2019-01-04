@@ -114,8 +114,9 @@ namespace ConsoleGame
 
             for (int i = 0; i < 100; i++)
             {
-                //igra();
-                specCase();
+                
+                igra();
+                //specCase();
             }
 
         }

@@ -26,11 +26,35 @@ namespace GameEngine
         public PlayerUser current { get; set; }
 
 
-        public Engine() {
+        public Engine(int numOfBots) {
             deck = new Spil(true);
-
-            player1 = new PlayerUser(true);
-            player2 = new PlayerUser(true);
+            if(numOfBots == 0)
+            {
+                player1 = new PlayerUser(false);
+                player2 = new PlayerUser(false);
+            }
+            else if (numOfBots == 1)
+            {
+                 Random random = new Random();
+                if (random.Next() % 2 == 0)
+                {
+                    player1 = new PlayerUser(false);
+                    player2 = new PlayerUser(true);
+                }
+                else
+                {
+                    player1 = new PlayerUser(true);
+                    player2 = new PlayerUser(false);
+                }
+            }
+            else
+                if (numOfBots == 2)
+            {
+                player1 = new PlayerUser(true);
+                player2 = new PlayerUser(true);
+            }
+            else throw new Exception("Neispravan broj igraca");
+            
 
             player1.nextPlayer = player2;
             player1.previousPlayer = player2;

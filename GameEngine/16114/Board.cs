@@ -323,7 +323,7 @@ namespace _16114
             return ret;
         }
 
-        public static int cardPoints(Karta karta)
+        public int cardPoints(Karta karta)
         {
             switch (karta.Broj)
             {
@@ -337,7 +337,7 @@ namespace _16114
                 case "8": return 12;
                 case "9": return 9;
                 case "10": return 10;
-                case "J": return 10;
+                case "J": if (enemyHand > 3) return 1; else return 25;
                 case "Q": return 10;
                 case "K": return 10;
                 default: return 8;

@@ -25,7 +25,7 @@ namespace _16114
         {
             Reset();
         }
-
+        //Nije dobra funkcija za trazenje kljuca
         protected static Dictionary<ulong, Move> tabela = new Dictionary<ulong, Move>();
 
 
@@ -69,7 +69,7 @@ namespace _16114
                 best = null;
                 return 0;
             }
-            //*
+            /*
             if (yourTurn)
             {
                 Move history;
@@ -85,7 +85,7 @@ namespace _16114
             }
             //*/
             List<IMove> child = node.moves();
-            if (depth == 0 || child.Count < 1 || node.hand.Count==0||node.enemyHand<0)
+            if (depth == 0 || child.Count < 1 || ((node.hand.Count == 0 || node.enemyHand == 0) && !node.kazna))
             {
 
                 best = new Move { Tip = TipPoteza.KupiKartu };
@@ -210,7 +210,7 @@ namespace _16114
             Board trenutnoStanje = new Board(trenutni, true, hand, brojKarataEnemy, remainingCards, kupioKaznene);
             Move history;
             int pocetak = 1;
-            //*
+            /*
             if (tabela.TryGetValue(trenutnoStanje.key(),out history))
             {
                 BestMove = history;
@@ -252,7 +252,7 @@ namespace _16114
                         BestMove.Tip = TipPoteza.Poslednja | BestMove.Tip;
                     }
                 }
-                //*
+                /*
                 Move upis;
                 
                 if (tabela.TryGetValue(trenutnoStanje.key(), out upis))
@@ -314,7 +314,7 @@ namespace _16114
             Thread alphaBeta = new Thread(alphaBetaBestMove);
             alphaBeta.Priority = ThreadPriority.Highest;
             alphaBeta.Start();
-          
+            //alphaBetaBestMove();
             
         }
 
