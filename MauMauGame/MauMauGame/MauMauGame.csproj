@@ -49,12 +49,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaceneKarte.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaceneKarte.resx</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ostalo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ostalo.resx</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,8 +74,16 @@
       <DependentUpon>Karte.resx</DependentUpon>
     </Compile>
     <Compile Include="View.cs" />
+    <EmbeddedResource Include="BaceneKarte.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BaceneKarte.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ostalo.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ostalo.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -258,6 +276,171 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Karte\TrefQ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Herz2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Herz3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Herz4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Herz5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Herz6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Herz7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Herz8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Herz9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Herz10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\HerzA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\HerzJ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\HerzK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\HerzQ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Karo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Karo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Karo4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Karo5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Karo6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Karo7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Karo8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Karo9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Karo10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\KaroA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\KaroJ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\KaroK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\KaroQ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Pik2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Pik3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Pik4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Pik5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Pik6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Pik7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Pik8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Pik9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Pik10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\PikA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\PikJ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\PikK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\PikQ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Tref2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Tref3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Tref4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Tref5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Tref6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Tref7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Tref8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Tref9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\Tref10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\TrefA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\TrefJ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\TrefK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\TrefQ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Karte\BackGround.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\BaceneKarte\BackGround.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
