@@ -57,20 +57,21 @@ namespace MauMauGame
         {
             if (igrac.Hand.Count == 0)
             {
-
-                yourPoints += game.topCard.Broj=="J"?-40:-20;
+                bool J = game.topCard.Broj == "J";
+                yourPoints += J?-40:-20;
                 foreach(TIG.AV.Karte.Karta k in igrac.nextPlayer.Hand)
                 {
-                    enemyPoints += Engine.vrednostKarte(k);
+                    enemyPoints += J?Engine.vrednostKarte(k)*2:Engine.vrednostKarte(k);
                 }
             }
             else if (igrac.nextPlayer.Hand.Count == 0)
             {
-                foreach (TIG.AV.Karte.Karta k in igrac.Hand)
+                bool J = game.topCard.Broj == "J";
+                enemyPoints += J ? -40 : -20;
+                foreach (TIG.AV.Karte.Karta k in igrac.nextPlayer.Hand)
                 {
-                    yourPoints += Engine.vrednostKarte(k);
+                    yourPoints += J ? Engine.vrednostKarte(k) * 2 : Engine.vrednostKarte(k);
                 }
-                enemyPoints += game.topCard.Broj == "J" ? -40 : -20;
             }
             pogled.updatePoints(yourPoints, enemyPoints);
             if (yourPoints < 100 && enemyPoints < 100)
@@ -141,7 +142,16 @@ namespace MauMauGame
             {
                 if (game.kupiKaznene)
                 {
-
+                    if (game.topCard.Broj == "2")
+                    {
+                        MessageBox.Show("Potrebno je kupiti kaznene karte!");
+                        return;
+                    }
+                    if (!(game.topCard.Broj == "7" && igrac.Hand[i].Broj == "7"))
+                    { 
+                        MessageBox.Show("Potrebno je kupiti kaznene karte!");
+                        return;
+                    }
                 }
                 if (igrac.Hand[i].Broj == "J")
                 {

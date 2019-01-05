@@ -134,7 +134,7 @@ namespace MauMauGame
         public void updatePoints(int your, int enemy)
         {
             playerPoints.Text = your.ToString();
-            enemyPoints.Text = your.ToString();
+            enemyPoints.Text = enemy.ToString();
         }
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)

@@ -123,6 +123,7 @@
             this.enemyHand.Name = "enemyHand";
             this.enemyHand.Size = new System.Drawing.Size(350, 100);
             this.enemyHand.TabIndex = 9;
+            this.enemyHand.WrapContents = false;
             // 
             // znak
             // 
