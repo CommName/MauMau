@@ -112,7 +112,7 @@ namespace MauMauGame
 
         private void draw_Click(object sender, EventArgs e)
         {
-
+            controller.draw();
         }
     }
 }

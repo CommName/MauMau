@@ -20,6 +20,10 @@ namespace GameEngine
         protected bool promena;
         protected List<Karta> poslednjeBacene;
 
+        public bool KupiKartu { get { return !kupioKartu; } }
+        public bool kupiKaznene { get { return kazna!=0; } }
+
+
         public PlayerUser player1 { get; set; } 
         public PlayerUser player2 { get; set; }
 
@@ -65,8 +69,14 @@ namespace GameEngine
             topCard = deck.Karte[0];
             poslednjeBacene = new List<Karta>();
             poslednjeBacene.Add(topCard);
-            player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
             deck.Karte.RemoveAt(0);
+            while (topCard.Broj == "7")
+            {
+                topCard = deck.Karte[0];
+                poslednjeBacene.Add(topCard);
+                deck.Karte.RemoveAt(0);
+            }
+            player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
             boja = Boja.Unknown;
             kazna = 0;
             kupioKartu = false;
