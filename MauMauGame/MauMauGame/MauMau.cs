@@ -130,5 +130,16 @@ namespace MauMauGame
         {
             controller.draw();
         }
+
+        public void updatePoints(int your, int enemy)
+        {
+            playerPoints.Text = your.ToString();
+            enemyPoints.Text = your.ToString();
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controller.novaIgra();
+        }
     }
 }

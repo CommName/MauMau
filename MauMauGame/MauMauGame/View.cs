@@ -12,5 +12,6 @@ namespace MauMauGame
         void updateTalon(Karta k,Boja b);
         void updateYourHand(List<Karta> k);
         void updateEnemyHand(int karte);
+        void updatePoints(int your, int enemy);
     }
 }

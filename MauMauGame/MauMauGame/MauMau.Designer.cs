@@ -39,6 +39,10 @@
             this.znak = new System.Windows.Forms.PictureBox();
             this.draw = new System.Windows.Forms.PictureBox();
             this.imageFaceCard = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.playerPoints = new System.Windows.Forms.Label();
+            this.enemyPoints = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.enemyHand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.znak)).BeginInit();
@@ -83,8 +87,9 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // scoreToolStripMenuItem
             // 
@@ -149,12 +154,52 @@
             this.imageFaceCard.TabIndex = 2;
             this.imageFaceCard.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Your Points";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(60, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Enemy Points";
+            // 
+            // playerPoints
+            // 
+            this.playerPoints.AutoSize = true;
+            this.playerPoints.Location = new System.Drawing.Point(1, 45);
+            this.playerPoints.Name = "playerPoints";
+            this.playerPoints.Size = new System.Drawing.Size(35, 13);
+            this.playerPoints.TabIndex = 14;
+            this.playerPoints.Text = "label3";
+            // 
+            // enemyPoints
+            // 
+            this.enemyPoints.AutoSize = true;
+            this.enemyPoints.Location = new System.Drawing.Point(60, 45);
+            this.enemyPoints.Name = "enemyPoints";
+            this.enemyPoints.Size = new System.Drawing.Size(35, 13);
+            this.enemyPoints.TabIndex = 15;
+            this.enemyPoints.Text = "label4";
+            // 
             // GameView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(624, 530);
+            this.Controls.Add(this.enemyPoints);
+            this.Controls.Add(this.playerPoints);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.znak);
             this.Controls.Add(this.draw);
             this.Controls.Add(this.enemyHand);
@@ -190,6 +235,10 @@
         private System.Windows.Forms.FlowLayoutPanel enemyHand;
         private System.Windows.Forms.PictureBox draw;
         private System.Windows.Forms.PictureBox znak;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label playerPoints;
+        private System.Windows.Forms.Label enemyPoints;
     }
 }
 

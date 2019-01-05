@@ -21,7 +21,7 @@ namespace MauMauGame
             pogled = view;
             novaIgra();
         }
-        protected void novaIgra()
+        public void novaIgra()
         {
             yourPoints = 0;
             enemyPoints = 0;
@@ -51,29 +51,50 @@ namespace MauMauGame
             pogled.updateTalon(game.topCard,game.boja);
             pogled.updateYourHand(igrac.Hand);
             pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
+            pogled.updatePoints(yourPoints, enemyPoints);
+        }
+        protected void gameover()
+        {
+            if (igrac.Hand.Count == 0)
+            {
+
+                yourPoints += game.topCard.Broj=="J"?-40:-20;
+                foreach(TIG.AV.Karte.Karta k in igrac.nextPlayer.Hand)
+                {
+                    enemyPoints += Engine.vrednostKarte(k);
+                }
+            }
+            else if (igrac.nextPlayer.Hand.Count == 0)
+            {
+                foreach (TIG.AV.Karte.Karta k in igrac.Hand)
+                {
+                    yourPoints += Engine.vrednostKarte(k);
+                }
+                enemyPoints += game.topCard.Broj == "J" ? -40 : -20;
+            }
+            pogled.updatePoints(yourPoints, enemyPoints);
+            if (yourPoints < 100 && enemyPoints < 100)
+            {
+                novaRunda();
+            }
+            else
+            {
+                if (yourPoints < 100)
+                {
+                    MessageBox.Show("Cestitam pobedili ste", "POBEDNIK");
+                }
+                else
+                {
+                    MessageBox.Show("Izgubili ste", "");
+                }
+            }
         }
 
         protected void playYourturn()
         {
             if (game.current.bot == null&&!game.Game())
             {
-                yourPoints += 0;
-                enemyPoints += 0;
-                if (yourPoints < 100 && enemyPoints < 100)
-                {
-                    novaRunda();
-                }
-                else
-                {
-                    if (yourPoints < 100) {
-                        MessageBox.Show("Cestitam pobedili ste", "POBEDNIK");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Izgubili ste", "");
-                    }
-                }
-                
+                gameover();
             }
             pogled.updateYourHand(igrac.Hand);
             pogled.updateTalon(game.topCard, game.boja);
@@ -82,11 +103,20 @@ namespace MauMauGame
         protected void playEnemyTurn()
         {
 
-            while (game.current.bot != null&&game.Game())
+            while (game.current.bot != null)
             {
-                pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
-                pogled.updateTalon(game.topCard, game.boja);
+                if (game.Game())
+                {
+                    pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
+                    pogled.updateTalon(game.topCard, game.boja);
+                }
+                else
+                {
+                    gameover();
+                    break;
+                }
             }
+            
         }
 
         public void draw()
@@ -109,6 +139,10 @@ namespace MauMauGame
         {
             if (game.isValid(igrac.Hand[i]))
             {
+                if (game.kupiKaznene)
+                {
+
+                }
                 if (igrac.Hand[i].Broj == "J")
                 {
                     izaber_znak znak = new izaber_znak();
