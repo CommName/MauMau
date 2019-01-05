@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imageFaceCard = new System.Windows.Forms.PictureBox();
-            this.draw_button = new System.Windows.Forms.Button();
             this.yourHand = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,33 +36,15 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enemyHandlabel = new System.Windows.Forms.Label();
             this.enemyHand = new System.Windows.Forms.FlowLayoutPanel();
+            this.znak = new System.Windows.Forms.PictureBox();
             this.draw = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.imageFaceCard)).BeginInit();
+            this.imageFaceCard = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.enemyHand.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.znak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageFaceCard)).BeginInit();
             this.SuspendLayout();
-            // 
-            // imageFaceCard
-            // 
-            this.imageFaceCard.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.imageFaceCard.BackColor = System.Drawing.SystemColors.Control;
-            this.imageFaceCard.Location = new System.Drawing.Point(137, 183);
-            this.imageFaceCard.Name = "imageFaceCard";
-            this.imageFaceCard.Size = new System.Drawing.Size(170, 194);
-            this.imageFaceCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imageFaceCard.TabIndex = 2;
-            this.imageFaceCard.TabStop = false;
-            // 
-            // draw_button
-            // 
-            this.draw_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.draw_button.Location = new System.Drawing.Point(507, 354);
-            this.draw_button.Name = "draw_button";
-            this.draw_button.Size = new System.Drawing.Size(75, 23);
-            this.draw_button.TabIndex = 3;
-            this.draw_button.Text = "Draw";
-            this.draw_button.UseVisualStyleBackColor = true;
             // 
             // yourHand
             // 
@@ -139,6 +119,15 @@
             this.enemyHand.Size = new System.Drawing.Size(350, 100);
             this.enemyHand.TabIndex = 9;
             // 
+            // znak
+            // 
+            this.znak.Location = new System.Drawing.Point(90, 263);
+            this.znak.Name = "znak";
+            this.znak.Size = new System.Drawing.Size(41, 36);
+            this.znak.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.znak.TabIndex = 11;
+            this.znak.TabStop = false;
+            // 
             // draw
             // 
             this.draw.Location = new System.Drawing.Point(319, 183);
@@ -147,6 +136,18 @@
             this.draw.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.draw.TabIndex = 10;
             this.draw.TabStop = false;
+            this.draw.Click += new System.EventHandler(this.draw_Click);
+            // 
+            // imageFaceCard
+            // 
+            this.imageFaceCard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imageFaceCard.BackColor = System.Drawing.SystemColors.Control;
+            this.imageFaceCard.Location = new System.Drawing.Point(137, 183);
+            this.imageFaceCard.Name = "imageFaceCard";
+            this.imageFaceCard.Size = new System.Drawing.Size(170, 194);
+            this.imageFaceCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageFaceCard.TabIndex = 2;
+            this.imageFaceCard.TabStop = false;
             // 
             // GameView
             // 
@@ -154,10 +155,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(624, 530);
+            this.Controls.Add(this.znak);
             this.Controls.Add(this.draw);
             this.Controls.Add(this.enemyHand);
             this.Controls.Add(this.yourHand);
-            this.Controls.Add(this.draw_button);
             this.Controls.Add(this.imageFaceCard);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -165,12 +166,13 @@
             this.MaximumSize = new System.Drawing.Size(640, 100000);
             this.Name = "GameView";
             this.Text = "Mau Mau";
-            ((System.ComponentModel.ISupportInitialize)(this.imageFaceCard)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.enemyHand.ResumeLayout(false);
             this.enemyHand.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.znak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageFaceCard)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,7 +180,6 @@
 
         #endregion
         private System.Windows.Forms.PictureBox imageFaceCard;
-        private System.Windows.Forms.Button draw_button;
         private System.Windows.Forms.FlowLayoutPanel yourHand;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -188,6 +189,7 @@
         private System.Windows.Forms.Label enemyHandlabel;
         private System.Windows.Forms.FlowLayoutPanel enemyHand;
         private System.Windows.Forms.PictureBox draw;
+        private System.Windows.Forms.PictureBox znak;
     }
 }
 

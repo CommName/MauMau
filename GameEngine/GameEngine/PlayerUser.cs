@@ -45,7 +45,7 @@ namespace GameEngine
             BestMove.Karte.Clear();
             BestMove.Tip = tip;
             BestMove.NovaBoja = boja;
-            if (tip == TipPoteza.BacaKartu)
+            if ((tip&TipPoteza.BacaKartu) == TipPoteza.BacaKartu)
             { 
                 BestMove.Karte.Add(hand[rdBrojKarte]);
                 hand.RemoveAt(rdBrojKarte);

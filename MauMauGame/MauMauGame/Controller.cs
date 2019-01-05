@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameEngine;
-
+using System.Windows.Forms;
 
 namespace MauMauGame
 {
@@ -13,12 +13,26 @@ namespace MauMauGame
         View pogled;
         Engine game;
         PlayerUser igrac;
+        int yourPoints, enemyPoints;
+
 
         public Controller(View view)
         {
             pogled = view;
+            novaIgra();
+        }
+        protected void novaIgra()
+        {
+            yourPoints = 0;
+            enemyPoints = 0;
+            novaRunda();
+
+        }
+        protected void novaRunda()
+        {
+            
             game = new Engine(1);
-            if (game.player1.bot != null)
+            if (game.player1.bot == null)
             {
                 igrac = game.player1;
             }
@@ -31,6 +45,7 @@ namespace MauMauGame
             playEnemyTurn();
         }
 
+
         protected void updateView()
         {
             pogled.updateTalon(game.topCard,game.boja);
@@ -40,9 +55,25 @@ namespace MauMauGame
 
         protected void playYourturn()
         {
-            if (game.Game())
+            if (game.current.bot == null&&!game.Game())
             {
-
+                yourPoints += 0;
+                enemyPoints += 0;
+                if (yourPoints < 100 && enemyPoints < 100)
+                {
+                    novaRunda();
+                }
+                else
+                {
+                    if (yourPoints < 100) {
+                        MessageBox.Show("Cestitam pobedili ste", "POBEDNIK");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Izgubili ste", "");
+                    }
+                }
+                
             }
             pogled.updateYourHand(igrac.Hand);
             pogled.updateTalon(game.topCard, game.boja);
@@ -50,7 +81,8 @@ namespace MauMauGame
         }
         protected void playEnemyTurn()
         {
-            while (game.Game() && game.current != igrac)
+
+            while (game.current.bot != null&&game.Game())
             {
                 pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
                 pogled.updateTalon(game.topCard, game.boja);
@@ -66,6 +98,34 @@ namespace MauMauGame
             else if (game.KupiKartu)
             {
                 igrac.manualPlay(0, TIG.AV.Karte.TipPoteza.KupiKartu, TIG.AV.Karte.Boja.Unknown);
+            }
+            else
+            {
+                igrac.manualPlay(0, TIG.AV.Karte.TipPoteza.KrajPoteza, TIG.AV.Karte.Boja.Unknown);
+            }
+            playYourturn();
+        }
+        public void playCard(int i)
+        {
+            if (game.isValid(igrac.Hand[i]))
+            {
+                if (igrac.Hand[i].Broj == "J")
+                {
+                    izaber_znak znak = new izaber_znak();
+                    if (znak.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        igrac.manualPlay(i, TIG.AV.Karte.TipPoteza.BacaKartu | TIG.AV.Karte.TipPoteza.PromeniBoju, znak.boja);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    igrac.manualPlay(i, TIG.AV.Karte.TipPoteza.BacaKartu, TIG.AV.Karte.Boja.Unknown);
+                }
+                playYourturn();
             }
         }
 

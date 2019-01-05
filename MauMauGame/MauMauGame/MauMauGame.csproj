@@ -55,11 +55,17 @@
       <DependentUpon>BaceneKarte.resx</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Izaberi znak.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Izaberi znak.Designer.cs">
+      <DependentUpon>Izaberi znak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MauMau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MauMau.Designer.cs">
+      <DependentUpon>MauMau.cs</DependentUpon>
     </Compile>
     <Compile Include="Ostalo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -78,8 +84,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BaceneKarte.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Izaberi znak.aa.resx">
+      <DependentUpon>Izaberi znak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izaberi znak.resx">
+      <DependentUpon>Izaberi znak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MauMau.resx">
+      <DependentUpon>MauMau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ostalo.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -441,6 +453,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\BaceneKarte\BackGround.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ikona.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\herz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\karo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tref.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,10 +26,10 @@ namespace MauMauGame
                                                 ,new Bitmap(BaceneKarte.PikA), new Bitmap(BaceneKarte.Pik2), new Bitmap(BaceneKarte.Pik3), new Bitmap(BaceneKarte.Pik4), new Bitmap(BaceneKarte.Pik5), new Bitmap(BaceneKarte.Pik6), new Bitmap(BaceneKarte.Pik7), new Bitmap(BaceneKarte.Pik8), new Bitmap(BaceneKarte.Pik9), new Bitmap(BaceneKarte.Pik10), new Bitmap(BaceneKarte.PikJ), new Bitmap(BaceneKarte.PikQ), new Bitmap(BaceneKarte.PikK)
                                                 ,new Bitmap(BaceneKarte.HerzA), new Bitmap(BaceneKarte.Herz2), new Bitmap(BaceneKarte.Herz3), new Bitmap(BaceneKarte.Herz4), new Bitmap(BaceneKarte.Herz5), new Bitmap(BaceneKarte.Herz6), new Bitmap(BaceneKarte.Herz7), new Bitmap(BaceneKarte.Herz8), new Bitmap(BaceneKarte.Herz9), new Bitmap(BaceneKarte.Herz10), new Bitmap(BaceneKarte.HerzJ), new Bitmap(BaceneKarte.HerzQ), new Bitmap(BaceneKarte.HerzK)
                                                 ,new Bitmap(BaceneKarte.TrefA), new Bitmap(BaceneKarte.Tref2), new Bitmap(BaceneKarte.Tref3), new Bitmap(BaceneKarte.Tref4), new Bitmap(BaceneKarte.Tref5), new Bitmap(BaceneKarte.Tref6), new Bitmap(BaceneKarte.Tref7), new Bitmap(BaceneKarte.Tref8), new Bitmap(BaceneKarte.Tref9), new Bitmap(BaceneKarte.Tref10), new Bitmap(BaceneKarte.TrefJ), new Bitmap(BaceneKarte.TrefQ), new Bitmap(BaceneKarte.TrefK)
-                                                ,new Bitmap(BaceneKarte.BackGround) };
+                                                ,new Bitmap(BaceneKarte.BackGround) }; 
 
 
-
+        protected static Bitmap[] znakSlika = {null, new Bitmap(Ostalo.karo), new Bitmap(Ostalo.pik), new Bitmap(Ostalo.herz), new Bitmap(Ostalo.tref) };
 
         public GameView()
         {
@@ -41,6 +41,7 @@ namespace MauMauGame
             BackgroundImage = Ostalo.background;
             draw.Image = bacenekarteSlike[52];
             draw.BackColor = Color.Transparent;
+            znak.BackColor = Color.Transparent;
 
 
             hand = new List<PictureBox>();
@@ -67,11 +68,20 @@ namespace MauMauGame
         {
             
             imageFaceCard.Image = bacenekarteSlike[indexKarte(k)];
+            //if (b == Boja.Unknown)
+            {
+              //  znak.Image = null;
+            }
+            //else
+            {
+                znak.Image = znakSlika[(int)b];
+            }
         }
 
         public void updateYourHand(List<Karta> k)
         {
-            //yourHand.Controls.Clear();
+            yourHand.Controls.Clear();
+            hand.Clear();
             
             foreach(Karta karta in k)
             {
@@ -81,10 +91,16 @@ namespace MauMauGame
                
                 pom.Height = 80;
                 pom.Width = 50;
+                pom.Click += playCard;
                 hand.Add(pom);
 
                 yourHand.Controls.Add(pom);
             }
+        }
+
+        private void playCard(object sender, EventArgs e)
+        {
+            controller.playCard(hand.IndexOf(sender as PictureBox));
         }
 
         static protected int indexKarte(Karta k)
