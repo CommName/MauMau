@@ -68,7 +68,7 @@ namespace MauMauGame
             {
                 bool J = game.topCard.Broj == "J";
                 enemyPoints += J ? -40 : -20;
-                foreach (TIG.AV.Karte.Karta k in igrac.nextPlayer.Hand)
+                foreach (TIG.AV.Karte.Karta k in igrac.Hand)
                 {
                     yourPoints += J ? Engine.vrednostKarte(k) * 2 : Engine.vrednostKarte(k);
                 }
@@ -97,25 +97,31 @@ namespace MauMauGame
             {
                 gameover();
             }
+
             pogled.updateYourHand(igrac.Hand);
             pogled.updateTalon(game.topCard, game.boja);
-            playEnemyTurn();
+            if (game.gameOver())
+            {
+                gameover();
+            }
+            else
+            {
+                playEnemyTurn();
+            }
         }
         protected void playEnemyTurn()
         {
 
-            while (game.current.bot != null)
+            while (game.current.bot != null&& game.Game())
             {
-                if (game.Game())
-                {
+               
                     pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
                     pogled.updateTalon(game.topCard, game.boja);
-                }
-                else
-                {
-                    gameover();
-                    break;
-                }
+
+            }
+            if (game.gameOver())
+            {
+                gameover();
             }
             
         }
