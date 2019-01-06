@@ -207,7 +207,15 @@ namespace GameEngine
                     throw new Exception("Vec je kupljena karta");
                 }
                 kupioKartu = true;
-                current.KupioKarte(kupi(1));
+                if (deck.Karte.Count != 0)
+                {
+                    current.KupioKarte(kupi(1));
+                }
+                else
+                {
+                    return false;
+                }
+
             }
             //Kraj poteza
             if (((int)current.BestMove.Tip & (int)TipPoteza.KrajPoteza) != 0)
