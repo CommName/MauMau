@@ -68,14 +68,20 @@ namespace GameEngine
 
             topCard = deck.Karte[0];
             poslednjeBacene = new List<Karta>();
-            poslednjeBacene.Add(topCard);
             deck.Karte.RemoveAt(0);
-            while (topCard.Broj == "7")
+            //Da ne pocninje partiju sa kaznenim kartama
+            if (topCard.Broj == "7" || (topCard.Broj == "2" && topCard.Boja == Boja.Tref))
             {
-                topCard = deck.Karte[0];
-                poslednjeBacene.Add(topCard);
-                deck.Karte.RemoveAt(0);
+                int index = 0;
+                while (deck.Karte[index].Broj=="7"||(deck.Karte[index].Broj=="2"&&deck.Karte[index].Boja==Boja.Tref))
+                {
+                    index++;
+                }
+                Karta pom = topCard;
+                topCard = deck.Karte[index];
+                deck.Karte[index] = pom;
             }
+            poslednjeBacene.Add(topCard);
             player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
             boja = Boja.Unknown;
             kazna = 0;
@@ -173,11 +179,13 @@ namespace GameEngine
                     }
                     else
                     {
+                        /*
                         Console.Write(current.BestMove.Tip.ToString());
                         foreach (Karta k in current.BestMove.Karte)
                         {
                             Console.Write(k.Broj +" "+k.Boja.ToString());
                         }
+                        */
                         throw new Exception("Invalid move");
                     }                    
 
