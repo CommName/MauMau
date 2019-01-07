@@ -43,12 +43,13 @@
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Name = "label1";
             // 
             // hertz
             // 
             resources.ApplyResources(this.hertz, "hertz");
-            this.hertz.BackColor = System.Drawing.SystemColors.Control;
+            this.hertz.BackColor = System.Drawing.Color.Transparent;
             this.hertz.Image = global::MauMauGame.Ostalo.herz;
             this.hertz.Name = "hertz";
             this.hertz.TabStop = false;
@@ -57,7 +58,7 @@
             // pik
             // 
             resources.ApplyResources(this.pik, "pik");
-            this.pik.BackColor = System.Drawing.SystemColors.Control;
+            this.pik.BackColor = System.Drawing.Color.Transparent;
             this.pik.Image = global::MauMauGame.Ostalo.pik;
             this.pik.Name = "pik";
             this.pik.TabStop = false;
@@ -66,6 +67,7 @@
             // tref
             // 
             resources.ApplyResources(this.tref, "tref");
+            this.tref.BackColor = System.Drawing.Color.Transparent;
             this.tref.Image = global::MauMauGame.Ostalo.tref;
             this.tref.Name = "tref";
             this.tref.TabStop = false;
@@ -74,6 +76,7 @@
             // karo
             // 
             resources.ApplyResources(this.karo, "karo");
+            this.karo.BackColor = System.Drawing.Color.Transparent;
             this.karo.Image = global::MauMauGame.Ostalo.karo;
             this.karo.Name = "karo";
             this.karo.TabStop = false;
@@ -83,6 +86,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.hertz);
             this.Controls.Add(this.pik);

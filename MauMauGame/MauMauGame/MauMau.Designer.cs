@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameView));
             this.yourHand = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,13 +37,13 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enemyHandlabel = new System.Windows.Forms.Label();
             this.enemyHand = new System.Windows.Forms.FlowLayoutPanel();
-            this.znak = new System.Windows.Forms.PictureBox();
-            this.draw = new System.Windows.Forms.PictureBox();
-            this.imageFaceCard = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.playerPoints = new System.Windows.Forms.Label();
             this.enemyPoints = new System.Windows.Forms.Label();
+            this.znak = new System.Windows.Forms.PictureBox();
+            this.draw = new System.Windows.Forms.PictureBox();
+            this.imageFaceCard = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.enemyHand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.znak)).BeginInit();
@@ -125,36 +126,6 @@
             this.enemyHand.TabIndex = 9;
             this.enemyHand.WrapContents = false;
             // 
-            // znak
-            // 
-            this.znak.Location = new System.Drawing.Point(90, 263);
-            this.znak.Name = "znak";
-            this.znak.Size = new System.Drawing.Size(41, 36);
-            this.znak.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.znak.TabIndex = 11;
-            this.znak.TabStop = false;
-            // 
-            // draw
-            // 
-            this.draw.Location = new System.Drawing.Point(319, 183);
-            this.draw.Name = "draw";
-            this.draw.Size = new System.Drawing.Size(168, 194);
-            this.draw.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.draw.TabIndex = 10;
-            this.draw.TabStop = false;
-            this.draw.Click += new System.EventHandler(this.draw_Click);
-            // 
-            // imageFaceCard
-            // 
-            this.imageFaceCard.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.imageFaceCard.BackColor = System.Drawing.SystemColors.Control;
-            this.imageFaceCard.Location = new System.Drawing.Point(137, 183);
-            this.imageFaceCard.Name = "imageFaceCard";
-            this.imageFaceCard.Size = new System.Drawing.Size(170, 194);
-            this.imageFaceCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imageFaceCard.TabIndex = 2;
-            this.imageFaceCard.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -203,6 +174,36 @@
             this.enemyPoints.TabIndex = 15;
             this.enemyPoints.Text = "label4";
             // 
+            // znak
+            // 
+            this.znak.Location = new System.Drawing.Point(91, 307);
+            this.znak.Name = "znak";
+            this.znak.Size = new System.Drawing.Size(40, 40);
+            this.znak.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.znak.TabIndex = 11;
+            this.znak.TabStop = false;
+            // 
+            // draw
+            // 
+            this.draw.Location = new System.Drawing.Point(319, 183);
+            this.draw.Name = "draw";
+            this.draw.Size = new System.Drawing.Size(168, 194);
+            this.draw.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.draw.TabIndex = 10;
+            this.draw.TabStop = false;
+            this.draw.Click += new System.EventHandler(this.draw_Click);
+            // 
+            // imageFaceCard
+            // 
+            this.imageFaceCard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imageFaceCard.BackColor = System.Drawing.SystemColors.Control;
+            this.imageFaceCard.Location = new System.Drawing.Point(137, 183);
+            this.imageFaceCard.Name = "imageFaceCard";
+            this.imageFaceCard.Size = new System.Drawing.Size(170, 194);
+            this.imageFaceCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageFaceCard.TabIndex = 2;
+            this.imageFaceCard.TabStop = false;
+            // 
             // GameView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,6 +221,7 @@
             this.Controls.Add(this.imageFaceCard);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(640, 100000);
             this.Name = "GameView";
