@@ -57,10 +57,10 @@
             this.yourHand.AutoScroll = true;
             this.yourHand.Location = new System.Drawing.Point(137, 418);
             this.yourHand.MaximumSize = new System.Drawing.Size(350, 100);
-            this.yourHand.MinimumSize = new System.Drawing.Size(350, 100);
+            this.yourHand.MinimumSize = new System.Drawing.Size(350, 105);
             this.yourHand.Name = "yourHand";
             this.yourHand.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.yourHand.Size = new System.Drawing.Size(350, 100);
+            this.yourHand.Size = new System.Drawing.Size(350, 105);
             this.yourHand.TabIndex = 6;
             this.yourHand.WrapContents = false;
             // 
@@ -87,7 +87,7 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
@@ -158,36 +158,48 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(1, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "Your Points";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(60, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "Enemy Points";
             // 
             // playerPoints
             // 
             this.playerPoints.AutoSize = true;
+            this.playerPoints.BackColor = System.Drawing.Color.Transparent;
+            this.playerPoints.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerPoints.ForeColor = System.Drawing.Color.White;
             this.playerPoints.Location = new System.Drawing.Point(1, 45);
             this.playerPoints.Name = "playerPoints";
-            this.playerPoints.Size = new System.Drawing.Size(35, 13);
+            this.playerPoints.Size = new System.Drawing.Size(38, 16);
             this.playerPoints.TabIndex = 14;
             this.playerPoints.Text = "label3";
             // 
             // enemyPoints
             // 
             this.enemyPoints.AutoSize = true;
+            this.enemyPoints.BackColor = System.Drawing.Color.Transparent;
+            this.enemyPoints.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemyPoints.ForeColor = System.Drawing.Color.White;
             this.enemyPoints.Location = new System.Drawing.Point(60, 45);
             this.enemyPoints.Name = "enemyPoints";
-            this.enemyPoints.Size = new System.Drawing.Size(35, 13);
+            this.enemyPoints.Size = new System.Drawing.Size(38, 16);
             this.enemyPoints.TabIndex = 15;
             this.enemyPoints.Text = "label4";
             // 
