@@ -64,6 +64,11 @@
     <Compile Include="Izaberi znak.Designer.cs">
       <DependentUpon>Izaberi znak.cs</DependentUpon>
     </Compile>
+    <Compile Include="Karte.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Karte.resx</DependentUpon>
+    </Compile>
     <Compile Include="MauMau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,11 +82,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Karte.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Karte.resx</DependentUpon>
-    </Compile>
     <Compile Include="View.cs" />
     <EmbeddedResource Include="BaceneKarte.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +92,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Izaberi znak.resx">
       <DependentUpon>Izaberi znak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Karte.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Karte.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MauMau.resx">
       <DependentUpon>MauMau.cs</DependentUpon>
@@ -109,10 +113,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Karte.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Karte.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -137,325 +137,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Karte\Herz2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Herz3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Herz4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Herz5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Herz6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Herz7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Herz8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Herz9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Herz10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\HerzA.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\HerzJ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\HerzK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\HerzQ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Karo2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Karo3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Karo4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Karo5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Karo6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Karo7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Karo8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Karo9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Karo10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\KaroA.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\KaroJ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\KaroK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\KaroQ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Pik2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Pik3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Pik4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Pik5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Pik6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Pik7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Pik8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Pik9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Pik10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\PikA.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\PikJ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\PikK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\PikQ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Tref2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Tref3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Tref4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Tref5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Tref6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Tref7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Tref8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Tref9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\Tref10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\TrefA.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\TrefJ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\TrefK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karte\TrefQ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Herz2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Herz3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Herz4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Herz5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Herz6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Herz7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Herz8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Herz9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Herz10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\HerzA.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\HerzJ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\HerzK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\HerzQ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Karo2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Karo3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Karo4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Karo5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Karo6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Karo7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Karo8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Karo9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Karo10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\KaroA.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\KaroJ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\KaroK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\KaroQ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Pik2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Pik3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Pik4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Pik5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Pik6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Pik7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Pik8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Pik9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Pik10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\PikA.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\PikJ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\PikK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\PikQ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Tref2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Tref3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Tref4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Tref5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Tref6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Tref7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Tref8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Tref9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\Tref10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\TrefA.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\TrefJ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\TrefK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\TrefQ.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Karte\BackGround.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\BaceneKarte\BackGround.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ikona.jpg" />
@@ -473,7 +155,113 @@
     <None Include="Resources\tref.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BaceneKarte\BackGround.png" />
+    <None Include="BaceneKarte\Herz2.png" />
+    <None Include="BaceneKarte\Herz3.png" />
+    <None Include="BaceneKarte\Herz4.png" />
+    <None Include="BaceneKarte\Herz5.png" />
+    <None Include="BaceneKarte\Herz6.png" />
+    <None Include="BaceneKarte\Herz7.png" />
+    <None Include="BaceneKarte\Herz8.png" />
+    <None Include="BaceneKarte\Herz9.png" />
+    <None Include="BaceneKarte\Herz10.png" />
+    <None Include="BaceneKarte\HerzA.png" />
+    <None Include="BaceneKarte\HerzJ.png" />
+    <None Include="BaceneKarte\HerzK.png" />
+    <None Include="BaceneKarte\HerzQ.png" />
+    <None Include="BaceneKarte\Karo2.png" />
+    <None Include="BaceneKarte\Karo3.png" />
+    <None Include="BaceneKarte\Karo4.png" />
+    <None Include="BaceneKarte\Karo5.png" />
+    <None Include="BaceneKarte\Karo6.png" />
+    <None Include="BaceneKarte\Karo7.png" />
+    <None Include="BaceneKarte\Karo8.png" />
+    <None Include="BaceneKarte\Karo9.png" />
+    <None Include="BaceneKarte\Karo10.png" />
+    <None Include="BaceneKarte\KaroA.png" />
+    <None Include="BaceneKarte\KaroJ.png" />
+    <None Include="BaceneKarte\KaroK.png" />
+    <None Include="BaceneKarte\KaroQ.png" />
+    <None Include="BaceneKarte\Pik2.png" />
+    <None Include="BaceneKarte\Pik3.png" />
+    <None Include="BaceneKarte\Pik4.png" />
+    <None Include="BaceneKarte\Pik5.png" />
+    <None Include="BaceneKarte\Pik6.png" />
+    <None Include="BaceneKarte\Pik7.png" />
+    <None Include="BaceneKarte\Pik8.png" />
+    <None Include="BaceneKarte\Pik9.png" />
+    <None Include="BaceneKarte\Pik10.png" />
+    <None Include="BaceneKarte\PikA.png" />
+    <None Include="BaceneKarte\PikJ.png" />
+    <None Include="BaceneKarte\PikK.png" />
+    <None Include="BaceneKarte\PikQ.png" />
+    <None Include="BaceneKarte\Tref2.png" />
+    <None Include="BaceneKarte\Tref3.png" />
+    <None Include="BaceneKarte\Tref4.png" />
+    <None Include="BaceneKarte\Tref5.png" />
+    <None Include="BaceneKarte\Tref6.png" />
+    <None Include="BaceneKarte\Tref7.png" />
+    <None Include="BaceneKarte\Tref8.png" />
+    <None Include="BaceneKarte\Tref9.png" />
+    <None Include="BaceneKarte\Tref10.png" />
+    <None Include="BaceneKarte\TrefA.png" />
+    <None Include="BaceneKarte\TrefJ.png" />
+    <None Include="BaceneKarte\TrefK.png" />
+    <None Include="BaceneKarte\TrefQ.png" />
     <Content Include="ikonica.ico" />
+    <None Include="Karte\TrefQ.png" />
+    <None Include="Karte\TrefK.png" />
+    <None Include="Karte\TrefJ.png" />
+    <None Include="Karte\TrefA.png" />
+    <None Include="Karte\Tref10.png" />
+    <None Include="Karte\Tref9.png" />
+    <None Include="Karte\Tref8.png" />
+    <None Include="Karte\Tref7.png" />
+    <None Include="Karte\Tref6.png" />
+    <None Include="Karte\Tref5.png" />
+    <None Include="Karte\Tref4.png" />
+    <None Include="Karte\Tref3.png" />
+    <None Include="Karte\Tref2.png" />
+    <None Include="Karte\PikQ.png" />
+    <None Include="Karte\PikK.png" />
+    <None Include="Karte\PikJ.png" />
+    <None Include="Karte\PikA.png" />
+    <None Include="Karte\Pik10.png" />
+    <None Include="Karte\Pik9.png" />
+    <None Include="Karte\Pik8.png" />
+    <None Include="Karte\Pik7.png" />
+    <None Include="Karte\Pik6.png" />
+    <None Include="Karte\Pik5.png" />
+    <None Include="Karte\Pik4.png" />
+    <None Include="Karte\Pik3.png" />
+    <None Include="Karte\Pik2.png" />
+    <None Include="Karte\KaroQ.png" />
+    <None Include="Karte\KaroK.png" />
+    <None Include="Karte\KaroJ.png" />
+    <None Include="Karte\KaroA.png" />
+    <None Include="Karte\Karo10.png" />
+    <None Include="Karte\Karo9.png" />
+    <None Include="Karte\Karo8.png" />
+    <None Include="Karte\Karo7.png" />
+    <None Include="Karte\Karo6.png" />
+    <None Include="Karte\Karo5.png" />
+    <None Include="Karte\Karo4.png" />
+    <None Include="Karte\Karo3.png" />
+    <None Include="Karte\Karo2.png" />
+    <None Include="Karte\HerzQ.png" />
+    <None Include="Karte\HerzK.png" />
+    <None Include="Karte\HerzJ.png" />
+    <None Include="Karte\HerzA.png" />
+    <None Include="Karte\Herz10.png" />
+    <None Include="Karte\Herz9.png" />
+    <None Include="Karte\Herz8.png" />
+    <None Include="Karte\Herz7.png" />
+    <None Include="Karte\Herz6.png" />
+    <None Include="Karte\Herz5.png" />
+    <None Include="Karte\Herz4.png" />
+    <None Include="Karte\Herz3.png" />
+    <None Include="Karte\Herz2.png" />
+    <None Include="Karte\BackGround.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

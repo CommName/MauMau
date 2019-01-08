@@ -119,321 +119,162 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="BackGround" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\BackGround.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BackGround1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\BackGround.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\BackGround.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Herz10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Herz101" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Herz10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Herz2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Herz21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Herz2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Herz3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Herz31" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Herz3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Herz4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Herz41" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Herz4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Herz5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Herz51" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Herz5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Herz6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Herz61" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Herz6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Herz7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Herz71" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Herz7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Herz8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Herz81" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Herz8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Herz9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Herz91" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Herz9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Herz9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HerzA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\HerzA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HerzA1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\HerzA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\HerzA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HerzJ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\HerzJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HerzJ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\HerzJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\HerzJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HerzK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\HerzK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HerzK1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\HerzK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\HerzK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HerzQ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\HerzQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HerzQ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\HerzQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\HerzQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Karo10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Karo101" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Karo10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Karo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Karo21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Karo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Karo3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Karo31" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Karo3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Karo4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Karo41" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Karo4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Karo5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Karo51" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Karo5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Karo6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Karo61" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Karo6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Karo7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Karo71" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Karo7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Karo8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Karo81" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Karo8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Karo9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Karo91" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Karo9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Karo9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="KaroA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\KaroA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="KaroA1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\KaroA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\KaroA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="KaroJ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\KaroJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="KaroJ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\KaroJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\KaroJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="KaroK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\KaroK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="KaroK1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\KaroK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\KaroK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="KaroQ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\KaroQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="KaroQ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\KaroQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\KaroQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pik10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pik101" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Pik10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pik2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pik21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Pik2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pik3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pik31" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Pik3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pik4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pik41" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Pik4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pik5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pik51" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Pik5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pik6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pik61" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Pik6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pik7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pik71" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Pik7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pik8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pik81" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Pik8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pik9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pik91" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Pik9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Pik9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PikA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\PikA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PikA1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\PikA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\PikA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PikJ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\PikJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PikJ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\PikJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\PikJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PikK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\PikK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PikK1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\PikK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\PikK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PikQ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\PikQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PikQ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\PikQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\PikQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tref10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tref101" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Tref10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tref2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tref21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Tref2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tref3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tref31" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Tref3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tref4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tref41" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Tref4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tref5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tref51" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Tref5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tref6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tref61" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Tref6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tref7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tref71" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Tref7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tref8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tref81" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Tref8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tref9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tref91" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\Tref9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\Tref9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TrefA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\TrefA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TrefA1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\TrefA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\TrefA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TrefJ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\TrefJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TrefJ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\TrefJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\TrefJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TrefK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\TrefK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TrefK1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\TrefK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\TrefK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TrefQ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\TrefQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TrefQ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>bin\Debug\BaceneKarte\TrefQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>BaceneKarte\TrefQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
