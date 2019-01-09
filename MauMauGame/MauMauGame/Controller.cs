@@ -95,7 +95,7 @@ namespace MauMauGame
         {
             if (game.current.bot == null&&!game.Game())
             {
-                gameover();
+                //gameover();
             }
 
             pogled.updateYourHand(igrac.Hand);

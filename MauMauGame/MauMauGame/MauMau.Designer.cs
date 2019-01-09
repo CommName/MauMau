@@ -33,9 +33,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.scoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enemyHandlabel = new System.Windows.Forms.Label();
             this.enemyHand = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,7 +42,6 @@
             this.draw = new System.Windows.Forms.PictureBox();
             this.imageFaceCard = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            this.enemyHand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.znak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageFaceCard)).BeginInit();
@@ -56,7 +52,7 @@
             this.yourHand.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.yourHand.AutoScroll = true;
-            this.yourHand.Location = new System.Drawing.Point(137, 418);
+            this.yourHand.Location = new System.Drawing.Point(164, 394);
             this.yourHand.MaximumSize = new System.Drawing.Size(350, 100);
             this.yourHand.MinimumSize = new System.Drawing.Size(350, 105);
             this.yourHand.Name = "yourHand";
@@ -71,16 +67,14 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(624, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(644, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newGameToolStripMenuItem,
-            this.scoreToolStripMenuItem,
-            this.viewToolStripMenuItem});
+            this.newGameToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -88,37 +82,13 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
-            // scoreToolStripMenuItem
-            // 
-            this.scoreToolStripMenuItem.Name = "scoreToolStripMenuItem";
-            this.scoreToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.scoreToolStripMenuItem.Text = "Score";
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // enemyHandlabel
-            // 
-            this.enemyHandlabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.enemyHandlabel.AutoSize = true;
-            this.enemyHandlabel.Location = new System.Drawing.Point(3, 0);
-            this.enemyHandlabel.Name = "enemyHandlabel";
-            this.enemyHandlabel.Size = new System.Drawing.Size(35, 13);
-            this.enemyHandlabel.TabIndex = 8;
-            this.enemyHandlabel.Text = "label1";
-            // 
             // enemyHand
             // 
-            this.enemyHand.Controls.Add(this.enemyHandlabel);
-            this.enemyHand.Location = new System.Drawing.Point(137, 27);
+            this.enemyHand.Location = new System.Drawing.Point(164, 28);
             this.enemyHand.MaximumSize = new System.Drawing.Size(350, 100);
             this.enemyHand.MinimumSize = new System.Drawing.Size(350, 100);
             this.enemyHand.Name = "enemyHand";
@@ -134,9 +104,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(1, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Your Points";
+            this.label1.Text = "Tvoj poeni";
             // 
             // label2
             // 
@@ -146,9 +116,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(60, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 16);
+            this.label2.Size = new System.Drawing.Size(98, 16);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Enemy Points";
+            this.label2.Text = "Protivnikovi poeni";
             // 
             // playerPoints
             // 
@@ -176,7 +146,8 @@
             // 
             // znak
             // 
-            this.znak.Location = new System.Drawing.Point(91, 307);
+            this.znak.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.znak.Location = new System.Drawing.Point(118, 293);
             this.znak.Name = "znak";
             this.znak.Size = new System.Drawing.Size(40, 40);
             this.znak.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -185,7 +156,8 @@
             // 
             // draw
             // 
-            this.draw.Location = new System.Drawing.Point(319, 183);
+            this.draw.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.draw.Location = new System.Drawing.Point(346, 167);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(168, 194);
             this.draw.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -197,7 +169,7 @@
             // 
             this.imageFaceCard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imageFaceCard.BackColor = System.Drawing.SystemColors.Control;
-            this.imageFaceCard.Location = new System.Drawing.Point(137, 183);
+            this.imageFaceCard.Location = new System.Drawing.Point(164, 167);
             this.imageFaceCard.Name = "imageFaceCard";
             this.imageFaceCard.Size = new System.Drawing.Size(170, 194);
             this.imageFaceCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -209,7 +181,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(624, 530);
+            this.ClientSize = new System.Drawing.Size(644, 511);
             this.Controls.Add(this.enemyPoints);
             this.Controls.Add(this.playerPoints);
             this.Controls.Add(this.label2);
@@ -223,13 +195,12 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(640, 100000);
+            this.MaximumSize = new System.Drawing.Size(660, 550);
+            this.MinimumSize = new System.Drawing.Size(660, 550);
             this.Name = "GameView";
             this.Text = "Mau Mau";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.enemyHand.ResumeLayout(false);
-            this.enemyHand.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.znak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageFaceCard)).EndInit();
@@ -244,9 +215,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem scoreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-        private System.Windows.Forms.Label enemyHandlabel;
         private System.Windows.Forms.FlowLayoutPanel enemyHand;
         private System.Windows.Forms.PictureBox draw;
         private System.Windows.Forms.PictureBox znak;

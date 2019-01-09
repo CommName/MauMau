@@ -82,21 +82,19 @@ namespace GameEngine
                 deck.Karte[index] = pom;
             }
             poslednjeBacene.Add(topCard);
-            player1.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
-            player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
             boja = Boja.Unknown;
             kazna = 0;
             kupioKartu = false;
             promena = true;
 
             //Dealibg cards
-                player1.SetRuka(deck.Karte.GetRange(0, 6));
-                deck.Karte.RemoveRange(0, 6);
-                player2.SetRuka(deck.Karte.GetRange(0, 6));
-                deck.Karte.RemoveRange(0,6 );
-            //player1.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
-            //player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
-            //poslednjeBacene.Clear();
+           player1.SetRuka(deck.Karte.GetRange(0, 6));
+           deck.Karte.RemoveRange(0, 6);
+           player2.SetRuka(deck.Karte.GetRange(0, 6));
+           deck.Karte.RemoveRange(0,6 );
+           player1.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
+           player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
+           poslednjeBacene.Clear();
             current = player1;
 
         }

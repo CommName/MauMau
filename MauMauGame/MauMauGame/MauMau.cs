@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TIG.AV.Karte;
+using System.Threading;
 
 namespace MauMauGame
 {
@@ -42,11 +43,14 @@ namespace MauMauGame
             draw.Image = bacenekarteSlike[52];
             draw.BackColor = Color.Transparent;
             znak.BackColor = Color.Transparent;
-
+            
 
             hand = new List<PictureBox>();
+            disableInput();
             controller = new Controller(this);
+            enableInput();
         }
+
 
         public void updateEnemyHand(int karte)
         {
@@ -60,47 +64,69 @@ namespace MauMauGame
                 pom.Height = 80;
                 pom.Width = 50;
                 enemyHand.Controls.Add(pom);
-
+                
             }
+            enemyHand.Refresh();
         }
 
         public void updateTalon(Karta k, Boja b)
         {
-            
-            imageFaceCard.Image = bacenekarteSlike[indexKarte(k)];
-            //if (b == Boja.Unknown)
-            {
-              //  znak.Image = null;
-            }
-            //else
-            {
+                imageFaceCard.Image = bacenekarteSlike[indexKarte(k)];
                 znak.Image = znakSlika[(int)b];
-            }
+
+            imageFaceCard.Refresh();
+            znak.Refresh();
         }
 
         public void updateYourHand(List<Karta> k)
         {
-            yourHand.Controls.Clear();
-            hand.Clear();
-            
-            foreach(Karta karta in k)
-            {
-                PictureBox pom = new PictureBox();
-                pom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                pom.Image=karteSlike[indexKarte(karta)];
-               
-                pom.Height = 80;
-                pom.Width = 50;
-                pom.Click += playCard;
-                hand.Add(pom);
+                yourHand.Controls.Clear();
+                hand.Clear();
 
-                yourHand.Controls.Add(pom);
-            }
+                foreach (Karta karta in k)
+                {
+                    PictureBox pom = new PictureBox();
+                    pom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                    pom.Image = karteSlike[indexKarte(karta)];
+
+                    pom.Height = 80;
+                    pom.Width = 50;
+                    pom.Click += playCard;
+                    hand.Add(pom);
+
+                    yourHand.Controls.Add(pom);
+                }
+
+
+            yourHand.Refresh();
         }
 
         private void playCard(object sender, EventArgs e)
         {
+            disableInput();
             controller.playCard(hand.IndexOf(sender as PictureBox));
+            enableInput();
+        }
+
+        protected void disableInput()
+        {
+            foreach(PictureBox a in hand)
+            {
+                a.Enabled = false;
+                a.Refresh();
+            }
+            draw.Enabled = false;
+            draw.Refresh();
+        }
+        protected void enableInput()
+        {
+            foreach (PictureBox a in hand)
+            {
+                a.Enabled = true;
+                a.Refresh();
+            }
+            draw.Enabled = true;
+            draw.Refresh();
         }
 
         static protected int indexKarte(Karta k)
@@ -128,7 +154,10 @@ namespace MauMauGame
 
         private void draw_Click(object sender, EventArgs e)
         {
+
+            disableInput();
             controller.draw();
+            enableInput();
         }
 
         public void updatePoints(int your, int enemy)
