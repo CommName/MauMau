@@ -9,7 +9,7 @@ namespace GameEngine
 {
     public class PlayerUser
     {
-        
+
 
         #region atributi
         protected List<Karta> hand;
@@ -38,6 +38,10 @@ namespace GameEngine
             {
                 bot = new _16114.Gilgamesh();
             }
+        }
+        public PlayerUser(IIgra igrac)
+        {
+            bot = igrac;
         }
         #endregion
         public void manualPlay(int rdBrojKarte, TipPoteza tip, Boja boja)

@@ -13,7 +13,7 @@ namespace ConsoleGame
     {
         static void igra() {
 
-            GameEngine.Engine game = new GameEngine.Engine();
+            GameEngine.Engine game = new GameEngine.Engine(2);
 
             //while (!game.gameOver())
             game.player1.name = "player 1";
@@ -22,7 +22,7 @@ namespace ConsoleGame
             Console.WriteLine(game.player1);
             Console.WriteLine(game.player2);
 
-            try
+            //try
             {
                 do
                 {
@@ -43,11 +43,13 @@ namespace ConsoleGame
 
                 } while (game.Game());
             }
+            /*
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw new Exception("ERROR");
             }
+            */
 
         }
 

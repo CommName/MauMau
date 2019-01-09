@@ -54,8 +54,8 @@ namespace GameEngine
             else
                 if (numOfBots == 2)
             {
-                player1 = new PlayerUser(true);
-                player2 = new PlayerUser(true);
+                player1 = new PlayerUser(new _16114.Gilgamesh());
+                player2 = new PlayerUser(new _16114.Gilgamesh());
             }
             else throw new Exception("Neispravan broj igraca");
             
@@ -82,6 +82,7 @@ namespace GameEngine
                 deck.Karte[index] = pom;
             }
             poslednjeBacene.Add(topCard);
+            player1.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
             player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
             boja = Boja.Unknown;
             kazna = 0;
@@ -124,8 +125,31 @@ namespace GameEngine
                 {
                     throw new Exception("Nije potrebno kupiti kaznenu kartu");
                 }
-                current.KupioKarte(kupi(kazna));
+                //Popraviti ovo da  vrati false
+                if(deck.Karte.Count< kazna)
+                {
+                    return false;
+                }
+                current.KupioKarte(kupi(kazna)); 
                 kazna = 0;
+            }
+            //kupi kartu
+            if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKartu) != 0)
+            {
+                if (kupioKartu)
+                {
+                    throw new Exception("Vec je kupljena karta");
+                }
+                kupioKartu = true;
+                if (deck.Karte.Count != 0)
+                {
+                    current.KupioKarte(kupi(1));
+                }
+                else
+                {
+                    return false;
+                }
+
             }
             //baci kartu
             if (((int)current.BestMove.Tip & (int)TipPoteza.BacaKartu) != 0)
@@ -207,41 +231,27 @@ namespace GameEngine
 
             }
 
-            //kupi kartu
-            if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKartu) != 0)
-            {
-                if (kupioKartu)
-                {
-                    throw new Exception("Vec je kupljena karta");
-                }
-                kupioKartu = true;
-                if (deck.Karte.Count != 0)
-                {
-                    current.KupioKarte(kupi(1));
-                }
-                else
-                {
-                    return false;
-                }
 
-            }
             //Kraj poteza
-            if (((int)current.BestMove.Tip & (int)TipPoteza.KrajPoteza) != 0)
+            if (!promena)
             {
-               
-                if(kupioKartu || bacioKartu)
+                if (((int)current.BestMove.Tip & (int)TipPoteza.KrajPoteza) != 0)
                 {
-                    if (!bacioKartu)
+
+                    if (kupioKartu || bacioKartu)
                     {
-                        current = current.nextPlayer;
-                        promena = true;
-                        kupioKartu = false;
+                        if (!bacioKartu)
+                        {
+                            current = current.nextPlayer;
+                            promena = true;
+                            kupioKartu = false;
+                        }
+                        return true;
                     }
-                    return true;
-                }
-                else
-                {
-                    throw new Exception("Ne moze da zavrsi potez");
+                    else
+                    {
+                        throw new Exception("Ne moze da zavrsi potez");
+                    }
                 }
             }
            
