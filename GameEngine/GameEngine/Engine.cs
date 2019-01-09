@@ -133,26 +133,9 @@ namespace GameEngine
                 current.KupioKarte(kupi(kazna)); 
                 kazna = 0;
             }
-            //kupi kartu
-            if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKartu) != 0)
-            {
-                if (kupioKartu)
-                {
-                    throw new Exception("Vec je kupljena karta");
-                }
-                kupioKartu = true;
-                if (deck.Karte.Count != 0)
-                {
-                    current.KupioKarte(kupi(1));
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
+            
             //baci kartu
-            if (((int)current.BestMove.Tip & (int)TipPoteza.BacaKartu) != 0)
+            if ((((int)current.BestMove.Tip & (int)TipPoteza.BacaKartu) != 0)|| ((current.BestMove.Tip & TipPoteza.PromeniBoju)!=0))
             {
                 poslednjeBacene = new List<Karta>();
                 if (current.BestMove.Karte.Count == 0)
@@ -230,7 +213,27 @@ namespace GameEngine
                 }
 
             }
+            //kupi kartu
+            if (!promena)
+            {
+                if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKartu) != 0)
+                {
+                    if (kupioKartu)
+                    {
+                        throw new Exception("Vec je kupljena karta");
+                    }
+                    kupioKartu = true;
+                    if (deck.Karte.Count != 0)
+                    {
+                        current.KupioKarte(kupi(1));
+                    }
+                    else
+                    {
+                        return false;
+                    }
 
+                }
+            }
 
             //Kraj poteza
             if (!promena)
@@ -254,8 +257,9 @@ namespace GameEngine
                     }
                 }
             }
-           
-        return true;
+
+
+            return true;
         }
 
 
