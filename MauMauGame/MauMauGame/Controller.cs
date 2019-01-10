@@ -167,6 +167,7 @@ namespace MauMauGame
                 if (igrac.Hand[i].Broj == "J")
                 {
                     izaber_znak znak = new izaber_znak();
+                    znak.Location = Cursor.Position;
                     if (znak.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         igrac.manualPlay(i, TIG.AV.Karte.TipPoteza.BacaKartu | TIG.AV.Karte.TipPoteza.PromeniBoju, znak.boja);
