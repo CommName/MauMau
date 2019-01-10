@@ -13,6 +13,7 @@ namespace MauMauGame
         void updateYourHand(List<Karta> k);
         void updateEnemyHand(int karte);
         void updatePoints(int your, int enemy);
-        
+
+        void krajRunde(int tvoj, int protivnik);
     }
 }

@@ -164,11 +164,32 @@ namespace MauMauGame
         {
             playerPoints.Text = your.ToString();
             enemyPoints.Text = enemy.ToString();
+            playerPoints.Refresh();
+            enemyPoints.Refresh();
         }
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controller.novaIgra();
+        }
+
+        public void krajRunde(int tvoj, int protivnik)
+        {
+            krajRundeTvoj.Text = tvoj.ToString();
+            krajrundeProtivnikovi.Text = protivnik.ToString();
+
+            krajRundeTvoj.Visible = true;
+            krajrundeProtivnikovi.Visible = true;
+            krajRundeTvoj.Refresh();
+            krajrundeProtivnikovi.Refresh();
+
+            Thread.Sleep(2500);
+
+            krajRundeTvoj.Visible = false;
+            krajrundeProtivnikovi.Visible = false;
+            krajRundeTvoj.Refresh();
+            krajrundeProtivnikovi.Refresh();
+
         }
     }
 }

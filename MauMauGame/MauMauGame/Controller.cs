@@ -15,7 +15,6 @@ namespace MauMauGame
         PlayerUser igrac;
         int yourPoints, enemyPoints;
 
-
         public Controller(View view)
         {
             pogled = view;
@@ -46,7 +45,7 @@ namespace MauMauGame
         }
 
 
-        protected void updateView()
+        public void updateView()
         {
             pogled.updateTalon(game.topCard,game.boja);
             pogled.updateYourHand(igrac.Hand);
@@ -55,24 +54,28 @@ namespace MauMauGame
         }
         protected void gameover()
         {
+            int player=0, bot=0;
             if (igrac.Hand.Count == 0)
             {
                 bool J = game.topCard.Broj == "J";
-                yourPoints += J?-40:-20;
+                player += J?-40:-20;
                 foreach(TIG.AV.Karte.Karta k in igrac.nextPlayer.Hand)
                 {
-                    enemyPoints += J?Engine.vrednostKarte(k)*2:Engine.vrednostKarte(k);
+                    bot += J?Engine.vrednostKarte(k)*2:Engine.vrednostKarte(k);
                 }
             }
             else if (igrac.nextPlayer.Hand.Count == 0)
             {
                 bool J = game.topCard.Broj == "J";
-                enemyPoints += J ? -40 : -20;
+                bot += J ? -40 : -20;
                 foreach (TIG.AV.Karte.Karta k in igrac.Hand)
                 {
-                    yourPoints += J ? Engine.vrednostKarte(k) * 2 : Engine.vrednostKarte(k);
+                    player += J ? Engine.vrednostKarte(k) * 2 : Engine.vrednostKarte(k);
                 }
             }
+            yourPoints += player;
+            enemyPoints += bot;
+            pogled.krajRunde(player, bot);
             pogled.updatePoints(yourPoints, enemyPoints);
             if (yourPoints < 100 && enemyPoints < 100)
             {
@@ -119,6 +122,8 @@ namespace MauMauGame
                     pogled.updateTalon(game.topCard, game.boja);
 
             }
+            pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
+            pogled.updateTalon(game.topCard, game.boja);
             if (game.gameOver())
             {
                 gameover();

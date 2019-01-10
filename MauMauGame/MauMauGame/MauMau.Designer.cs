@@ -41,6 +41,8 @@
             this.znak = new System.Windows.Forms.PictureBox();
             this.draw = new System.Windows.Forms.PictureBox();
             this.imageFaceCard = new System.Windows.Forms.PictureBox();
+            this.krajrundeProtivnikovi = new System.Windows.Forms.Label();
+            this.krajRundeTvoj = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.znak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw)).BeginInit();
@@ -82,7 +84,7 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
@@ -157,7 +159,7 @@
             // draw
             // 
             this.draw.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.draw.Location = new System.Drawing.Point(346, 167);
+            this.draw.Location = new System.Drawing.Point(346, 139);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(168, 194);
             this.draw.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -169,12 +171,40 @@
             // 
             this.imageFaceCard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imageFaceCard.BackColor = System.Drawing.SystemColors.Control;
-            this.imageFaceCard.Location = new System.Drawing.Point(164, 167);
+            this.imageFaceCard.Location = new System.Drawing.Point(164, 139);
             this.imageFaceCard.Name = "imageFaceCard";
             this.imageFaceCard.Size = new System.Drawing.Size(170, 194);
             this.imageFaceCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imageFaceCard.TabIndex = 2;
             this.imageFaceCard.TabStop = false;
+            // 
+            // krajrundeProtivnikovi
+            // 
+            this.krajrundeProtivnikovi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.krajrundeProtivnikovi.AutoSize = true;
+            this.krajrundeProtivnikovi.BackColor = System.Drawing.Color.Transparent;
+            this.krajrundeProtivnikovi.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.krajrundeProtivnikovi.ForeColor = System.Drawing.Color.Red;
+            this.krajrundeProtivnikovi.Location = new System.Drawing.Point(284, 139);
+            this.krajrundeProtivnikovi.Name = "krajrundeProtivnikovi";
+            this.krajrundeProtivnikovi.Size = new System.Drawing.Size(97, 37);
+            this.krajrundeProtivnikovi.TabIndex = 0;
+            this.krajrundeProtivnikovi.Text = "+ 100";
+            this.krajrundeProtivnikovi.Visible = false;
+            // 
+            // krajRundeTvoj
+            // 
+            this.krajRundeTvoj.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.krajRundeTvoj.AutoSize = true;
+            this.krajRundeTvoj.BackColor = System.Drawing.Color.Transparent;
+            this.krajRundeTvoj.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.krajRundeTvoj.ForeColor = System.Drawing.Color.Lime;
+            this.krajRundeTvoj.Location = new System.Drawing.Point(284, 336);
+            this.krajRundeTvoj.Name = "krajRundeTvoj";
+            this.krajRundeTvoj.Size = new System.Drawing.Size(97, 37);
+            this.krajRundeTvoj.TabIndex = 16;
+            this.krajRundeTvoj.Text = "+ 100";
+            this.krajRundeTvoj.Visible = false;
             // 
             // GameView
             // 
@@ -182,6 +212,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(644, 511);
+            this.Controls.Add(this.krajrundeProtivnikovi);
+            this.Controls.Add(this.krajRundeTvoj);
             this.Controls.Add(this.enemyPoints);
             this.Controls.Add(this.playerPoints);
             this.Controls.Add(this.label2);
@@ -222,6 +254,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label playerPoints;
         private System.Windows.Forms.Label enemyPoints;
+        private System.Windows.Forms.Label krajrundeProtivnikovi;
+        private System.Windows.Forms.Label krajRundeTvoj;
     }
 }
 

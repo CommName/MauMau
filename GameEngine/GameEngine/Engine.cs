@@ -102,9 +102,8 @@ namespace GameEngine
         public bool Game()
         {
             //bug kraj poteza kupio kartu
-           
-            if (gameOver())
-                return false;
+
+            
 
             bool bacioKartu = false;
             if (promena)
@@ -184,15 +183,9 @@ namespace GameEngine
                     }
                     else
                     {
-                        /*
-                        Console.Write(current.BestMove.Tip.ToString());
-                        foreach (Karta k in current.BestMove.Karte)
-                        {
-                            Console.Write(k.Broj +" "+k.Boja.ToString());
-                        }
-                        */
                         throw new Exception("Invalid move");
-                    }                    
+                    }   
+                   
 
                 }
                 if(topCard.Broj != "A") //A
@@ -227,7 +220,7 @@ namespace GameEngine
                     }
                     else
                     {
-                        return false;
+                        
                     }
 
                 }
@@ -247,7 +240,7 @@ namespace GameEngine
                             promena = true;
                             kupioKartu = false;
                         }
-                        return true;
+                        
                     }
                     else
                     {
@@ -255,6 +248,8 @@ namespace GameEngine
                     }
                 }
             }
+            if (gameOver())
+                return false;
 
 
             return true;
