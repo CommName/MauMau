@@ -115,7 +115,8 @@ namespace MauMauGame
 
         protected void disableInput()
         {
-            foreach(PictureBox a in hand)
+            
+            foreach (PictureBox a in hand)
             {
                 a.Enabled = false;
                 a.Refresh();
@@ -123,6 +124,9 @@ namespace MauMauGame
             draw.Enabled = false;
             draw.Refresh();
             endTurn.Visible = false;
+            yourHand.UseWaitCursor = true;
+            yourHand.Refresh();
+
         }
         protected void enableInput()
         {
@@ -136,6 +140,8 @@ namespace MauMauGame
             turnFleg.Image = flegovi[4];
             turnFleg.Refresh();
             tvojPotez.SetToolTip(turnFleg, "Trenutno je vas potez");
+
+            yourHand.UseWaitCursor = false;
         }
 
         static protected int indexKarte(Karta k)

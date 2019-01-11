@@ -187,6 +187,7 @@
             // 
             // endTurn
             // 
+            this.endTurn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.endTurn.Location = new System.Drawing.Point(520, 271);
             this.endTurn.Name = "endTurn";
             this.endTurn.Size = new System.Drawing.Size(75, 23);
