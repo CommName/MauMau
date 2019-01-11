@@ -93,6 +93,46 @@ namespace MauMauGame {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kartaKupljena {
+            get {
+                object obj = ResourceManager.GetObject("kartaKupljena", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kartaKupljenaActive {
+            get {
+                object obj = ResourceManager.GetObject("kartaKupljenaActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kazna {
+            get {
+                object obj = ResourceManager.GetObject("kazna", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kaznaActive {
+            get {
+                object obj = ResourceManager.GetObject("kaznaActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pik {
             get {
                 object obj = ResourceManager.GetObject("pik", resourceCulture);
@@ -106,6 +146,26 @@ namespace MauMauGame {
         internal static System.Drawing.Bitmap tref {
             get {
                 object obj = ResourceManager.GetObject("tref", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yourTurn {
+            get {
+                object obj = ResourceManager.GetObject("yourTurn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yourTurnA {
+            get {
+                object obj = ResourceManager.GetObject("yourTurnA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

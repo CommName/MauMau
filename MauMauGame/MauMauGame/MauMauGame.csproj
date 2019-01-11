@@ -155,6 +155,12 @@
     <None Include="Resources\tref.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\yourTurnA.bmp" />
+    <None Include="Resources\yourTurn.bmp" />
+    <None Include="Resources\kaznaActive.bmp" />
+    <None Include="Resources\kazna.bmp" />
+    <None Include="Resources\kartaKupljenaActive.bmp" />
+    <None Include="Resources\kartaKupljena.bmp" />
     <None Include="BaceneKarte\BackGround.png" />
     <None Include="BaceneKarte\Herz2.png" />
     <None Include="BaceneKarte\Herz3.png" />

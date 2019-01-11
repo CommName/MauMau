@@ -38,15 +38,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.playerPoints = new System.Windows.Forms.Label();
             this.enemyPoints = new System.Windows.Forms.Label();
+            this.krajrundeProtivnikovi = new System.Windows.Forms.Label();
+            this.krajRundeTvoj = new System.Windows.Forms.Label();
+            this.endTurn = new System.Windows.Forms.Button();
             this.znak = new System.Windows.Forms.PictureBox();
             this.draw = new System.Windows.Forms.PictureBox();
             this.imageFaceCard = new System.Windows.Forms.PictureBox();
-            this.krajrundeProtivnikovi = new System.Windows.Forms.Label();
-            this.krajRundeTvoj = new System.Windows.Forms.Label();
+            this.kaznaFleg = new System.Windows.Forms.PictureBox();
+            this.kupiFleg = new System.Windows.Forms.PictureBox();
+            this.turnFleg = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.znak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageFaceCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaznaFleg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kupiFleg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.turnFleg)).BeginInit();
             this.SuspendLayout();
             // 
             // yourHand
@@ -146,6 +153,44 @@
             this.enemyPoints.TabIndex = 15;
             this.enemyPoints.Text = "label4";
             // 
+            // krajrundeProtivnikovi
+            // 
+            this.krajrundeProtivnikovi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.krajrundeProtivnikovi.AutoSize = true;
+            this.krajrundeProtivnikovi.BackColor = System.Drawing.Color.Transparent;
+            this.krajrundeProtivnikovi.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.krajrundeProtivnikovi.ForeColor = System.Drawing.Color.Red;
+            this.krajrundeProtivnikovi.Location = new System.Drawing.Point(284, 139);
+            this.krajrundeProtivnikovi.Name = "krajrundeProtivnikovi";
+            this.krajrundeProtivnikovi.Size = new System.Drawing.Size(97, 37);
+            this.krajrundeProtivnikovi.TabIndex = 0;
+            this.krajrundeProtivnikovi.Text = "+ 100";
+            this.krajrundeProtivnikovi.Visible = false;
+            // 
+            // krajRundeTvoj
+            // 
+            this.krajRundeTvoj.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.krajRundeTvoj.AutoSize = true;
+            this.krajRundeTvoj.BackColor = System.Drawing.Color.Transparent;
+            this.krajRundeTvoj.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.krajRundeTvoj.ForeColor = System.Drawing.Color.Lime;
+            this.krajRundeTvoj.Location = new System.Drawing.Point(284, 336);
+            this.krajRundeTvoj.Name = "krajRundeTvoj";
+            this.krajRundeTvoj.Size = new System.Drawing.Size(97, 37);
+            this.krajRundeTvoj.TabIndex = 16;
+            this.krajRundeTvoj.Text = "+ 100";
+            this.krajRundeTvoj.Visible = false;
+            // 
+            // endTurn
+            // 
+            this.endTurn.Location = new System.Drawing.Point(520, 268);
+            this.endTurn.Name = "endTurn";
+            this.endTurn.Size = new System.Drawing.Size(75, 23);
+            this.endTurn.TabIndex = 17;
+            this.endTurn.Text = "End turn";
+            this.endTurn.UseVisualStyleBackColor = true;
+            this.endTurn.Click += new System.EventHandler(this.endTurn_Click);
+            // 
             // znak
             // 
             this.znak.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -178,33 +223,35 @@
             this.imageFaceCard.TabIndex = 2;
             this.imageFaceCard.TabStop = false;
             // 
-            // krajrundeProtivnikovi
+            // kaznaFleg
             // 
-            this.krajrundeProtivnikovi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.krajrundeProtivnikovi.AutoSize = true;
-            this.krajrundeProtivnikovi.BackColor = System.Drawing.Color.Transparent;
-            this.krajrundeProtivnikovi.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.krajrundeProtivnikovi.ForeColor = System.Drawing.Color.Red;
-            this.krajrundeProtivnikovi.Location = new System.Drawing.Point(284, 139);
-            this.krajrundeProtivnikovi.Name = "krajrundeProtivnikovi";
-            this.krajrundeProtivnikovi.Size = new System.Drawing.Size(97, 37);
-            this.krajrundeProtivnikovi.TabIndex = 0;
-            this.krajrundeProtivnikovi.Text = "+ 100";
-            this.krajrundeProtivnikovi.Visible = false;
+            this.kaznaFleg.BackColor = System.Drawing.Color.Transparent;
+            this.kaznaFleg.Location = new System.Drawing.Point(0, 423);
+            this.kaznaFleg.Name = "kaznaFleg";
+            this.kaznaFleg.Size = new System.Drawing.Size(50, 50);
+            this.kaznaFleg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.kaznaFleg.TabIndex = 18;
+            this.kaznaFleg.TabStop = false;
             // 
-            // krajRundeTvoj
+            // kupiFleg
             // 
-            this.krajRundeTvoj.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.krajRundeTvoj.AutoSize = true;
-            this.krajRundeTvoj.BackColor = System.Drawing.Color.Transparent;
-            this.krajRundeTvoj.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.krajRundeTvoj.ForeColor = System.Drawing.Color.Lime;
-            this.krajRundeTvoj.Location = new System.Drawing.Point(284, 336);
-            this.krajRundeTvoj.Name = "krajRundeTvoj";
-            this.krajRundeTvoj.Size = new System.Drawing.Size(97, 37);
-            this.krajRundeTvoj.TabIndex = 16;
-            this.krajRundeTvoj.Text = "+ 100";
-            this.krajRundeTvoj.Visible = false;
+            this.kupiFleg.BackColor = System.Drawing.Color.Transparent;
+            this.kupiFleg.Location = new System.Drawing.Point(56, 423);
+            this.kupiFleg.Name = "kupiFleg";
+            this.kupiFleg.Size = new System.Drawing.Size(50, 50);
+            this.kupiFleg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.kupiFleg.TabIndex = 19;
+            this.kupiFleg.TabStop = false;
+            // 
+            // turnFleg
+            // 
+            this.turnFleg.BackColor = System.Drawing.Color.Transparent;
+            this.turnFleg.Location = new System.Drawing.Point(110, 423);
+            this.turnFleg.Name = "turnFleg";
+            this.turnFleg.Size = new System.Drawing.Size(50, 50);
+            this.turnFleg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.turnFleg.TabIndex = 20;
+            this.turnFleg.TabStop = false;
             // 
             // GameView
             // 
@@ -212,6 +259,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(644, 511);
+            this.Controls.Add(this.turnFleg);
+            this.Controls.Add(this.kupiFleg);
+            this.Controls.Add(this.kaznaFleg);
+            this.Controls.Add(this.endTurn);
             this.Controls.Add(this.krajrundeProtivnikovi);
             this.Controls.Add(this.krajRundeTvoj);
             this.Controls.Add(this.enemyPoints);
@@ -236,6 +287,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.znak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageFaceCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaznaFleg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kupiFleg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.turnFleg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +310,10 @@
         private System.Windows.Forms.Label enemyPoints;
         private System.Windows.Forms.Label krajrundeProtivnikovi;
         private System.Windows.Forms.Label krajRundeTvoj;
+        private System.Windows.Forms.Button endTurn;
+        private System.Windows.Forms.PictureBox kaznaFleg;
+        private System.Windows.Forms.PictureBox kupiFleg;
+        private System.Windows.Forms.PictureBox turnFleg;
     }
 }
 

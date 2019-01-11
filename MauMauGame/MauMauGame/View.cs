@@ -15,5 +15,9 @@ namespace MauMauGame
         void updatePoints(int your, int enemy);
 
         void krajRunde(int tvoj, int protivnik);
+
+        void kazna(bool k);
+        void kupi(bool k);
+        void yourTurn(bool t);
     }
 }

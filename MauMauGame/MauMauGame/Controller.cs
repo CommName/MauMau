@@ -42,6 +42,7 @@ namespace MauMauGame
 
             updateView();
             playEnemyTurn();
+            flegovi();
         }
 
 
@@ -93,7 +94,11 @@ namespace MauMauGame
                 }
             }
         }
-
+        protected void flegovi()
+        {
+            pogled.kazna(game.kupiKaznene);
+            pogled.kupi(game.KupiKartu);
+        }
         protected void playYourturn()
         {
             if (game.current.bot == null&&!game.Game())
@@ -111,10 +116,14 @@ namespace MauMauGame
             {
                 playEnemyTurn();
             }
+            flegovi();
         }
         protected void playEnemyTurn()
         {
-
+            if(game.current.bot != null)
+            {
+                pogled.yourTurn(false);
+            }
             while (game.current.bot != null&& game.Game())
             {
                
@@ -128,24 +137,31 @@ namespace MauMauGame
             {
                 gameover();
             }
-            
+            pogled.yourTurn(true);
+
         }
 
-        public void draw()
+        public int draw()
         {
             if (game.kupiKaznene)
             {
                 igrac.manualPlay(0, TIG.AV.Karte.TipPoteza.KupiKazneneKarte, TIG.AV.Karte.Boja.Unknown);
+                playYourturn();
+                return 0;
             }
             else if (game.KupiKartu)
             {
                 igrac.manualPlay(0, TIG.AV.Karte.TipPoteza.KupiKartu, TIG.AV.Karte.Boja.Unknown);
+                playYourturn();
+                return 1;
             }
             else
             {
                 igrac.manualPlay(0, TIG.AV.Karte.TipPoteza.KrajPoteza, TIG.AV.Karte.Boja.Unknown);
+                playYourturn();
+                return 2;
             }
-            playYourturn();
+            return -1;
         }
         public void playCard(int i)
         {

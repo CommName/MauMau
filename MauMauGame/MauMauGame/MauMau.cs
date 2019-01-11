@@ -27,10 +27,12 @@ namespace MauMauGame
                                                 ,new Bitmap(BaceneKarte.PikA), new Bitmap(BaceneKarte.Pik2), new Bitmap(BaceneKarte.Pik3), new Bitmap(BaceneKarte.Pik4), new Bitmap(BaceneKarte.Pik5), new Bitmap(BaceneKarte.Pik6), new Bitmap(BaceneKarte.Pik7), new Bitmap(BaceneKarte.Pik8), new Bitmap(BaceneKarte.Pik9), new Bitmap(BaceneKarte.Pik10), new Bitmap(BaceneKarte.PikJ), new Bitmap(BaceneKarte.PikQ), new Bitmap(BaceneKarte.PikK)
                                                 ,new Bitmap(BaceneKarte.HerzA), new Bitmap(BaceneKarte.Herz2), new Bitmap(BaceneKarte.Herz3), new Bitmap(BaceneKarte.Herz4), new Bitmap(BaceneKarte.Herz5), new Bitmap(BaceneKarte.Herz6), new Bitmap(BaceneKarte.Herz7), new Bitmap(BaceneKarte.Herz8), new Bitmap(BaceneKarte.Herz9), new Bitmap(BaceneKarte.Herz10), new Bitmap(BaceneKarte.HerzJ), new Bitmap(BaceneKarte.HerzQ), new Bitmap(BaceneKarte.HerzK)
                                                 ,new Bitmap(BaceneKarte.TrefA), new Bitmap(BaceneKarte.Tref2), new Bitmap(BaceneKarte.Tref3), new Bitmap(BaceneKarte.Tref4), new Bitmap(BaceneKarte.Tref5), new Bitmap(BaceneKarte.Tref6), new Bitmap(BaceneKarte.Tref7), new Bitmap(BaceneKarte.Tref8), new Bitmap(BaceneKarte.Tref9), new Bitmap(BaceneKarte.Tref10), new Bitmap(BaceneKarte.TrefJ), new Bitmap(BaceneKarte.TrefQ), new Bitmap(BaceneKarte.TrefK)
-                                                ,new Bitmap(BaceneKarte.BackGround) }; 
+                                                ,new Bitmap(BaceneKarte.BackGround) };
 
 
-        protected static Bitmap[] znakSlika = {null, new Bitmap(Ostalo.karo), new Bitmap(Ostalo.pik), new Bitmap(Ostalo.herz), new Bitmap(Ostalo.tref) };
+        protected static Bitmap[] znakSlika = { null, new Bitmap(Ostalo.karo), new Bitmap(Ostalo.pik), new Bitmap(Ostalo.herz), new Bitmap(Ostalo.tref) };
+
+        protected static Bitmap[] flegovi = { new Bitmap(Ostalo.kartaKupljenaActive), new Bitmap(Ostalo.kartaKupljena), new Bitmap(Ostalo.kaznaActive), new Bitmap(Ostalo.kazna), new Bitmap(Ostalo.yourTurnA),new Bitmap(Ostalo.yourTurn) };
 
         public GameView()
         {
@@ -43,7 +45,7 @@ namespace MauMauGame
             draw.Image = bacenekarteSlike[52];
             draw.BackColor = Color.Transparent;
             znak.BackColor = Color.Transparent;
-            
+            this.Refresh();
 
             hand = new List<PictureBox>();
             disableInput();
@@ -117,6 +119,7 @@ namespace MauMauGame
             }
             draw.Enabled = false;
             draw.Refresh();
+            endTurn.Visible = false;
         }
         protected void enableInput()
         {
@@ -127,6 +130,8 @@ namespace MauMauGame
             }
             draw.Enabled = true;
             draw.Refresh();
+            turnFleg.Image = flegovi[4];
+            turnFleg.Refresh();
         }
 
         static protected int indexKarte(Karta k)
@@ -156,7 +161,10 @@ namespace MauMauGame
         {
 
             disableInput();
-            controller.draw();
+            if (controller.draw() == 1)
+            {
+                endTurn.Visible = true;
+            }
             enableInput();
         }
 
@@ -190,6 +198,52 @@ namespace MauMauGame
             krajRundeTvoj.Refresh();
             krajrundeProtivnikovi.Refresh();
 
+        }
+
+        private void endTurn_Click(object sender, EventArgs e)
+        {
+            disableInput();
+            controller.draw();
+            enableInput();
+        }
+
+        public void kazna(bool k)
+        {
+            if (k)
+            {
+                kaznaFleg.Image = flegovi[2];
+            }
+            else
+            {
+                kaznaFleg.Image = flegovi[3];
+            }
+            kaznaFleg.Refresh();
+        }
+
+        public void kupi(bool k)
+        {
+            if (k)
+            {
+                kupiFleg.Image = flegovi[0];
+            }
+            else
+            {
+                kupiFleg.Image = flegovi[1];
+            }
+            kaznaFleg.Refresh();
+        }
+
+        public void yourTurn(bool t)
+        {
+            if (t)
+            {
+                turnFleg.Image = flegovi[4];
+            }
+            else
+            {
+                turnFleg.Image = flegovi[5];
+            }
+            turnFleg.Refresh();
         }
     }
 }
