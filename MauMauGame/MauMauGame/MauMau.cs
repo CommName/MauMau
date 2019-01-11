@@ -135,6 +135,7 @@ namespace MauMauGame
             draw.Refresh();
             turnFleg.Image = flegovi[4];
             turnFleg.Refresh();
+            tvojPotez.SetToolTip(turnFleg, "Trenutno je vas potez");
         }
 
         static protected int indexKarte(Karta k)
@@ -215,10 +216,12 @@ namespace MauMauGame
             if (k)
             {
                 kaznaFleg.Image = flegovi[2];
+                kazneneKarte.SetToolTip(kaznaFleg, "Potrebno je kupiti kaznene karte");
             }
             else
             {
                 kaznaFleg.Image = flegovi[3];
+                kazneneKarte.SetToolTip(kaznaFleg, "Nije potrebno kupiti kaznene karte");
             }
             kaznaFleg.Refresh();
         }
@@ -228,10 +231,12 @@ namespace MauMauGame
             if (k)
             {
                 kupiFleg.Image = flegovi[0];
+                kupiKartu.SetToolTip(kupiFleg, "Moguce je kupiti kartu");
             }
             else
             {
                 kupiFleg.Image = flegovi[1];
+                kupiKartu.SetToolTip(kupiFleg, "Vec ste kupili kartu");
             }
             kaznaFleg.Refresh();
         }
@@ -241,10 +246,13 @@ namespace MauMauGame
             if (t)
             {
                 turnFleg.Image = flegovi[4];
+                tvojPotez.SetToolTip(turnFleg, "Trenutno je vas potez");
+                
             }
             else
             {
                 turnFleg.Image = flegovi[5];
+                tvojPotez.SetToolTip(turnFleg, "Trenutno je protivnikov potez");
             }
             turnFleg.Refresh();
         }

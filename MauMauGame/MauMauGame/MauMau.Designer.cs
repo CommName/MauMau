@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameView));
             this.yourHand = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -47,6 +48,9 @@
             this.znak = new System.Windows.Forms.PictureBox();
             this.draw = new System.Windows.Forms.PictureBox();
             this.imageFaceCard = new System.Windows.Forms.PictureBox();
+            this.kazneneKarte = new System.Windows.Forms.ToolTip(this.components);
+            this.kupiKartu = new System.Windows.Forms.ToolTip(this.components);
+            this.tvojPotez = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.turnFleg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kupiFleg)).BeginInit();
@@ -316,6 +320,9 @@
         private System.Windows.Forms.PictureBox kaznaFleg;
         private System.Windows.Forms.PictureBox kupiFleg;
         private System.Windows.Forms.PictureBox turnFleg;
+        private System.Windows.Forms.ToolTip kazneneKarte;
+        private System.Windows.Forms.ToolTip kupiKartu;
+        private System.Windows.Forms.ToolTip tvojPotez;
     }
 }
 
