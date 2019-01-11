@@ -41,25 +41,24 @@
             this.krajrundeProtivnikovi = new System.Windows.Forms.Label();
             this.krajRundeTvoj = new System.Windows.Forms.Label();
             this.endTurn = new System.Windows.Forms.Button();
+            this.turnFleg = new System.Windows.Forms.PictureBox();
+            this.kupiFleg = new System.Windows.Forms.PictureBox();
+            this.kaznaFleg = new System.Windows.Forms.PictureBox();
             this.znak = new System.Windows.Forms.PictureBox();
             this.draw = new System.Windows.Forms.PictureBox();
             this.imageFaceCard = new System.Windows.Forms.PictureBox();
-            this.kaznaFleg = new System.Windows.Forms.PictureBox();
-            this.kupiFleg = new System.Windows.Forms.PictureBox();
-            this.turnFleg = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.turnFleg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kupiFleg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaznaFleg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.znak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageFaceCard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaznaFleg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kupiFleg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.turnFleg)).BeginInit();
             this.SuspendLayout();
             // 
             // yourHand
             // 
-            this.yourHand.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.yourHand.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.yourHand.AutoScroll = true;
             this.yourHand.Location = new System.Drawing.Point(164, 394);
             this.yourHand.MaximumSize = new System.Drawing.Size(350, 100);
@@ -76,7 +75,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(644, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(674, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -97,6 +96,7 @@
             // 
             // enemyHand
             // 
+            this.enemyHand.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.enemyHand.Location = new System.Drawing.Point(164, 28);
             this.enemyHand.MaximumSize = new System.Drawing.Size(350, 100);
             this.enemyHand.MinimumSize = new System.Drawing.Size(350, 100);
@@ -160,7 +160,7 @@
             this.krajrundeProtivnikovi.BackColor = System.Drawing.Color.Transparent;
             this.krajrundeProtivnikovi.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.krajrundeProtivnikovi.ForeColor = System.Drawing.Color.Red;
-            this.krajrundeProtivnikovi.Location = new System.Drawing.Point(284, 139);
+            this.krajrundeProtivnikovi.Location = new System.Drawing.Point(284, 145);
             this.krajrundeProtivnikovi.Name = "krajrundeProtivnikovi";
             this.krajrundeProtivnikovi.Size = new System.Drawing.Size(97, 37);
             this.krajrundeProtivnikovi.TabIndex = 0;
@@ -174,7 +174,7 @@
             this.krajRundeTvoj.BackColor = System.Drawing.Color.Transparent;
             this.krajRundeTvoj.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.krajRundeTvoj.ForeColor = System.Drawing.Color.Lime;
-            this.krajRundeTvoj.Location = new System.Drawing.Point(284, 336);
+            this.krajRundeTvoj.Location = new System.Drawing.Point(284, 342);
             this.krajRundeTvoj.Name = "krajRundeTvoj";
             this.krajRundeTvoj.Size = new System.Drawing.Size(97, 37);
             this.krajRundeTvoj.TabIndex = 16;
@@ -183,7 +183,7 @@
             // 
             // endTurn
             // 
-            this.endTurn.Location = new System.Drawing.Point(520, 268);
+            this.endTurn.Location = new System.Drawing.Point(520, 271);
             this.endTurn.Name = "endTurn";
             this.endTurn.Size = new System.Drawing.Size(75, 23);
             this.endTurn.TabIndex = 17;
@@ -191,10 +191,43 @@
             this.endTurn.UseVisualStyleBackColor = true;
             this.endTurn.Click += new System.EventHandler(this.endTurn_Click);
             // 
+            // turnFleg
+            // 
+            this.turnFleg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.turnFleg.BackColor = System.Drawing.Color.Transparent;
+            this.turnFleg.Location = new System.Drawing.Point(608, 426);
+            this.turnFleg.Name = "turnFleg";
+            this.turnFleg.Size = new System.Drawing.Size(50, 50);
+            this.turnFleg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.turnFleg.TabIndex = 20;
+            this.turnFleg.TabStop = false;
+            // 
+            // kupiFleg
+            // 
+            this.kupiFleg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.kupiFleg.BackColor = System.Drawing.Color.Transparent;
+            this.kupiFleg.Location = new System.Drawing.Point(566, 426);
+            this.kupiFleg.Name = "kupiFleg";
+            this.kupiFleg.Size = new System.Drawing.Size(50, 50);
+            this.kupiFleg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.kupiFleg.TabIndex = 19;
+            this.kupiFleg.TabStop = false;
+            // 
+            // kaznaFleg
+            // 
+            this.kaznaFleg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.kaznaFleg.BackColor = System.Drawing.Color.Transparent;
+            this.kaznaFleg.Location = new System.Drawing.Point(520, 426);
+            this.kaznaFleg.Name = "kaznaFleg";
+            this.kaznaFleg.Size = new System.Drawing.Size(50, 50);
+            this.kaznaFleg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.kaznaFleg.TabIndex = 18;
+            this.kaznaFleg.TabStop = false;
+            // 
             // znak
             // 
             this.znak.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.znak.Location = new System.Drawing.Point(118, 293);
+            this.znak.Location = new System.Drawing.Point(118, 299);
             this.znak.Name = "znak";
             this.znak.Size = new System.Drawing.Size(40, 40);
             this.znak.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -204,7 +237,7 @@
             // draw
             // 
             this.draw.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.draw.Location = new System.Drawing.Point(346, 139);
+            this.draw.Location = new System.Drawing.Point(346, 145);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(168, 194);
             this.draw.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -216,49 +249,19 @@
             // 
             this.imageFaceCard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imageFaceCard.BackColor = System.Drawing.SystemColors.Control;
-            this.imageFaceCard.Location = new System.Drawing.Point(164, 139);
+            this.imageFaceCard.Location = new System.Drawing.Point(164, 145);
             this.imageFaceCard.Name = "imageFaceCard";
             this.imageFaceCard.Size = new System.Drawing.Size(170, 194);
             this.imageFaceCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imageFaceCard.TabIndex = 2;
             this.imageFaceCard.TabStop = false;
             // 
-            // kaznaFleg
-            // 
-            this.kaznaFleg.BackColor = System.Drawing.Color.Transparent;
-            this.kaznaFleg.Location = new System.Drawing.Point(0, 423);
-            this.kaznaFleg.Name = "kaznaFleg";
-            this.kaznaFleg.Size = new System.Drawing.Size(50, 50);
-            this.kaznaFleg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.kaznaFleg.TabIndex = 18;
-            this.kaznaFleg.TabStop = false;
-            // 
-            // kupiFleg
-            // 
-            this.kupiFleg.BackColor = System.Drawing.Color.Transparent;
-            this.kupiFleg.Location = new System.Drawing.Point(56, 423);
-            this.kupiFleg.Name = "kupiFleg";
-            this.kupiFleg.Size = new System.Drawing.Size(50, 50);
-            this.kupiFleg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.kupiFleg.TabIndex = 19;
-            this.kupiFleg.TabStop = false;
-            // 
-            // turnFleg
-            // 
-            this.turnFleg.BackColor = System.Drawing.Color.Transparent;
-            this.turnFleg.Location = new System.Drawing.Point(110, 423);
-            this.turnFleg.Name = "turnFleg";
-            this.turnFleg.Size = new System.Drawing.Size(50, 50);
-            this.turnFleg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.turnFleg.TabIndex = 20;
-            this.turnFleg.TabStop = false;
-            // 
             // GameView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(644, 511);
+            this.ClientSize = new System.Drawing.Size(674, 511);
             this.Controls.Add(this.turnFleg);
             this.Controls.Add(this.kupiFleg);
             this.Controls.Add(this.kaznaFleg);
@@ -278,18 +281,17 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(660, 550);
-            this.MinimumSize = new System.Drawing.Size(660, 550);
+            this.MinimumSize = new System.Drawing.Size(690, 550);
             this.Name = "GameView";
             this.Text = "Mau Mau";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.turnFleg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kupiFleg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaznaFleg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.znak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.draw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageFaceCard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaznaFleg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kupiFleg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.turnFleg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -45,6 +45,9 @@ namespace MauMauGame
             draw.Image = bacenekarteSlike[52];
             draw.BackColor = Color.Transparent;
             znak.BackColor = Color.Transparent;
+            kaznaFleg.BackColor = Color.Transparent;
+            kupiFleg.BackColor = Color.Transparent;
+            turnFleg.BackColor = Color.Transparent;
             this.Refresh();
 
             hand = new List<PictureBox>();
