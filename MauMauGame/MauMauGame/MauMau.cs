@@ -108,8 +108,12 @@ namespace MauMauGame
 
         private void playCard(object sender, EventArgs e)
         {
+            bool pom = endTurn.Visible;
             disableInput();
-            controller.playCard(hand.IndexOf(sender as PictureBox));
+            if(!controller.playCard(hand.IndexOf(sender as PictureBox)))
+            {
+                endTurn.Visible = pom;
+            }
             enableInput();
         }
 
@@ -188,7 +192,9 @@ namespace MauMauGame
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            disableInput();
             controller.novaIgra();
+            enableInput();
         }
 
         public void krajRunde(int tvoj, int protivnik)

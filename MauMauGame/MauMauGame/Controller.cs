@@ -187,7 +187,7 @@ namespace MauMauGame
             }
             return -1;
         }
-        public void playCard(int i)
+        public bool playCard(int i)
         {
             if (game.isValid(igrac.Hand[i]))
             {
@@ -196,12 +196,12 @@ namespace MauMauGame
                     if (game.topCard.Broj == "2")
                     {
                         MessageBox.Show("Potrebno je kupiti kaznene karte!");
-                        return;
+                        return false;
                     }
                     if (!(game.topCard.Broj == "7" && igrac.Hand[i].Broj == "7"))
                     { 
                         MessageBox.Show("Potrebno je kupiti kaznene karte!");
-                        return;
+                        return false;
                     }
                 }
                 if (igrac.Hand[i].Broj == "J")
@@ -214,7 +214,7 @@ namespace MauMauGame
                     }
                     else
                     {
-                        return;
+                        return false;
                     }
                 }
                 else
@@ -222,7 +222,9 @@ namespace MauMauGame
                     igrac.manualPlay(i, TIG.AV.Karte.TipPoteza.BacaKartu, TIG.AV.Karte.Boja.Unknown);
                 }
                 playYourturn();
+                return true;
             }
+            return false;
         }
 
     }

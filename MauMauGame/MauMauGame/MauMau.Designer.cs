@@ -94,7 +94,7 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
@@ -192,7 +192,7 @@
             this.endTurn.Name = "endTurn";
             this.endTurn.Size = new System.Drawing.Size(75, 23);
             this.endTurn.TabIndex = 17;
-            this.endTurn.Text = "End turn";
+            this.endTurn.Text = "Kraj poteza";
             this.endTurn.UseVisualStyleBackColor = true;
             this.endTurn.Click += new System.EventHandler(this.endTurn_Click);
             // 
