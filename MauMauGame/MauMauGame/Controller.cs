@@ -74,6 +74,18 @@ namespace MauMauGame
                     player += J ? Engine.vrednostKarte(k) * 2 : Engine.vrednostKarte(k);
                 }
             }
+            else
+            {
+                foreach (TIG.AV.Karte.Karta k in igrac.nextPlayer.Hand)
+                {
+                    bot += Engine.vrednostKarte(k);
+                }
+
+                foreach (TIG.AV.Karte.Karta k in igrac.Hand)
+                {
+                    player += Engine.vrednostKarte(k);
+                }
+            }
             yourPoints += player;
             enemyPoints += bot;
             pogled.krajRunde(player, bot);
@@ -103,7 +115,10 @@ namespace MauMauGame
         {
             if (game.current.bot == null&&!game.Game())
             {
-                //gameover();
+                pogled.updateYourHand(igrac.Hand);
+                pogled.updateTalon(game.topCard, game.boja);
+                gameover();
+                return;
             }
 
             pogled.updateYourHand(igrac.Hand);
@@ -124,11 +139,20 @@ namespace MauMauGame
             {
                 pogled.yourTurn(false);
             }
-            while (game.current.bot != null&& game.Game())
+            while (game.current.bot != null)
             {
-               
+                if (game.Game())
+                {
                     pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
                     pogled.updateTalon(game.topCard, game.boja);
+                }
+                else
+                {
+                    pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
+                    pogled.updateTalon(game.topCard, game.boja);
+                    gameover();
+                    return;
+                }
 
             }
             pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);

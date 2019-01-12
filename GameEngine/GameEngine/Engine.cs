@@ -214,13 +214,13 @@ namespace GameEngine
                         throw new Exception("Vec je kupljena karta");
                     }
                     kupioKartu = true;
-                    if (deck.Karte.Count != 0)
+                    if (deck.Karte.Count > 0)
                     {
                         current.KupioKarte(kupi(1));
                     }
                     else
                     {
-                        
+                        return false;
                     }
 
                 }
