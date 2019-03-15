@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace MauMauGame
 {
-    public partial class izaber_znak : Form
+    public partial class chose_suit : Form
     {
         public TIG.AV.Karte.Boja boja { get; set; }
-        public izaber_znak()
+        public chose_suit()
         {
             InitializeComponent();
             DialogResult= DialogResult.Cancel;

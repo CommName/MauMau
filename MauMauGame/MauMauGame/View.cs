@@ -14,10 +14,10 @@ namespace MauMauGame
         void updateEnemyHand(int karte);
         void updatePoints(int your, int enemy);
 
-        void krajRunde(int tvoj, int protivnik);
+        void endOfRound(int tvoj, int protivnik);
 
-        void kazna(bool k);
-        void kupi(bool k);
+        void penalty(bool k);
+        void drawCards(bool k);
         void yourTurn(bool t);
     }
 }

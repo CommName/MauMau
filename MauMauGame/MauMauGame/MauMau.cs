@@ -143,7 +143,7 @@ namespace MauMauGame
             draw.Refresh();
             turnFleg.Image = flegovi[4];
             turnFleg.Refresh();
-            tvojPotez.SetToolTip(turnFleg, "Trenutno je vas potez");
+            tvojPotez.SetToolTip(turnFleg, "It's your turn");
 
             yourHand.UseWaitCursor = false;
         }
@@ -193,11 +193,11 @@ namespace MauMauGame
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             disableInput();
-            controller.novaIgra();
+            controller.newGame();
             enableInput();
         }
 
-        public void krajRunde(int tvoj, int protivnik)
+        public void endOfRound(int tvoj, int protivnik)
         {
             krajRundeTvoj.Text = tvoj.ToString();
             krajrundeProtivnikovi.Text = protivnik.ToString();
@@ -223,32 +223,32 @@ namespace MauMauGame
             enableInput();
         }
 
-        public void kazna(bool k)
+        public void penalty(bool k)
         {
             if (k)
             {
                 kaznaFleg.Image = flegovi[2];
-                kazneneKarte.SetToolTip(kaznaFleg, "Potrebno je kupiti kaznene karte");
+                kazneneKarte.SetToolTip(kaznaFleg, "You need to draw penalty cards");
             }
             else
             {
                 kaznaFleg.Image = flegovi[3];
-                kazneneKarte.SetToolTip(kaznaFleg, "Nije potrebno kupiti kaznene karte");
+                kazneneKarte.SetToolTip(kaznaFleg, "There is no penalty active");
             }
             kaznaFleg.Refresh();
         }
 
-        public void kupi(bool k)
+        public void drawCards(bool k)
         {
             if (k)
             {
                 kupiFleg.Image = flegovi[0];
-                kupiKartu.SetToolTip(kupiFleg, "Moguce je kupiti kartu");
+                kupiKartu.SetToolTip(kupiFleg, "You can draw a card");
             }
             else
             {
                 kupiFleg.Image = flegovi[1];
-                kupiKartu.SetToolTip(kupiFleg, "Vec ste kupili kartu");
+                kupiKartu.SetToolTip(kupiFleg, "You already drew a card");
             }
             kaznaFleg.Refresh();
         }
@@ -258,15 +258,20 @@ namespace MauMauGame
             if (t)
             {
                 turnFleg.Image = flegovi[4];
-                tvojPotez.SetToolTip(turnFleg, "Trenutno je vas potez");
+                tvojPotez.SetToolTip(turnFleg, "It's your turn");
                 
             }
             else
             {
                 turnFleg.Image = flegovi[5];
-                tvojPotez.SetToolTip(turnFleg, "Trenutno je protivnikov potez");
+                tvojPotez.SetToolTip(turnFleg, "It's not your turn, please wait!");
             }
             turnFleg.Refresh();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

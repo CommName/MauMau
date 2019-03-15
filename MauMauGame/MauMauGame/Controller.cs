@@ -18,16 +18,16 @@ namespace MauMauGame
         public Controller(View view)
         {
             pogled = view;
-            novaIgra();
+            newGame();
         }
-        public void novaIgra()
+        public void newGame()
         {
             yourPoints = 0;
             enemyPoints = 0;
-            novaRunda();
+            newRound();
 
         }
-        protected void novaRunda()
+        protected void newRound()
         {
             
             game = new Engine(1);
@@ -42,7 +42,7 @@ namespace MauMauGame
 
             updateView();
             playEnemyTurn();
-            flegovi();
+            flags();
         }
 
 
@@ -88,28 +88,28 @@ namespace MauMauGame
             }
             yourPoints += player;
             enemyPoints += bot;
-            pogled.krajRunde(player, bot);
+            pogled.endOfRound(player, bot);
             pogled.updatePoints(yourPoints, enemyPoints);
             if (yourPoints < 100 && enemyPoints < 100)
             {
-                novaRunda();
+                newRound();
             }
             else
             {
                 if (yourPoints < 100)
                 {
-                    MessageBox.Show("Cestitam pobedili ste", "POBEDNIK");
+                    MessageBox.Show("Congratulations, you won", "Winner");
                 }
                 else
                 {
-                    MessageBox.Show("Izgubili ste", "");
+                    MessageBox.Show("You lost, better luck next time", "Loser");
                 }
             }
         }
-        protected void flegovi()
+        protected void flags()
         {
-            pogled.kazna(game.isPenaltyActive);
-            pogled.kupi(game.canDrawCards);
+            pogled.penalty(game.isPenaltyActive);
+            pogled.drawCards(game.canDrawCards);
         }
         protected void playYourturn()
         {
@@ -131,7 +131,7 @@ namespace MauMauGame
             {
                 playEnemyTurn();
             }
-            flegovi();
+            flags();
         }
         protected void playEnemyTurn()
         {
@@ -195,18 +195,18 @@ namespace MauMauGame
                 {
                     if (game.topCard.Broj == "2")
                     {
-                        MessageBox.Show("Potrebno je kupiti kaznene karte!");
+                        MessageBox.Show("You have to buy penalty cards first!");
                         return false;
                     }
                     if (!(game.topCard.Broj == "7" && igrac.Hand[i].Broj == "7"))
                     { 
-                        MessageBox.Show("Potrebno je kupiti kaznene karte!");
+                        MessageBox.Show("You have to buy penalty cards first!");
                         return false;
                     }
                 }
                 if (igrac.Hand[i].Broj == "J")
                 {
-                    izaber_znak znak = new izaber_znak();
+                    chose_suit znak = new chose_suit();
                     znak.Location = Cursor.Position;
                     if (znak.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {

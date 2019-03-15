@@ -58,11 +58,11 @@
       <DependentUpon>BaceneKarte.resx</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
-    <Compile Include="Izaberi znak.cs">
+    <Compile Include="chose a suit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Izaberi znak.Designer.cs">
-      <DependentUpon>Izaberi znak.cs</DependentUpon>
+    <Compile Include="chose a suit.Designer.cs">
+      <DependentUpon>chose a suit.cs</DependentUpon>
     </Compile>
     <Compile Include="Karte.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -87,11 +87,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BaceneKarte.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Izaberi znak.aa.resx">
-      <DependentUpon>Izaberi znak.cs</DependentUpon>
+    <EmbeddedResource Include="chose a suit.aa.resx">
+      <DependentUpon>chose a suit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Izaberi znak.resx">
-      <DependentUpon>Izaberi znak.cs</DependentUpon>
+    <EmbeddedResource Include="chose a suit.resx">
+      <DependentUpon>chose a suit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Karte.resx">
       <Generator>ResXFileCodeGenerator</Generator>

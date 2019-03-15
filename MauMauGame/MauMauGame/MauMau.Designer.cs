@@ -94,7 +94,7 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
@@ -117,9 +117,10 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(1, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Tvoj poeni";
+            this.label1.Text = "Your points";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -129,9 +130,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(60, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 16);
+            this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Protivnikovi poeni";
+            this.label2.Text = "Enemy points";
             // 
             // playerPoints
             // 
@@ -192,7 +193,7 @@
             this.endTurn.Name = "endTurn";
             this.endTurn.Size = new System.Drawing.Size(75, 23);
             this.endTurn.TabIndex = 17;
-            this.endTurn.Text = "Kraj poteza";
+            this.endTurn.Text = "End turn";
             this.endTurn.UseVisualStyleBackColor = true;
             this.endTurn.Click += new System.EventHandler(this.endTurn_Click);
             // 

@@ -112,7 +112,7 @@ namespace GameEngine
                 cardsPlaid = null;
                 playerChange = false;
             }
-             current.findBestMoce();
+             current.findBestMove();
                 
             
             //kaznene karte

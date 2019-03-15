@@ -59,7 +59,7 @@ namespace GameEngine
         }
 
         #region interfejs
-        public void findBestMoce()
+        public void findBestMove()
         {
             if (bot != null)
             {

@@ -1,6 +1,6 @@
 ﻿namespace MauMauGame
 {
-    partial class izaber_znak
+    partial class chose_suit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(izaber_znak));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(chose_suit));
             this.label1 = new System.Windows.Forms.Label();
             this.hertz = new System.Windows.Forms.PictureBox();
             this.pik = new System.Windows.Forms.PictureBox();
@@ -82,7 +82,7 @@
             this.karo.TabStop = false;
             this.karo.Click += new System.EventHandler(this.karo_Click);
             // 
-            // izaber_znak
+            // chose_suit
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -92,7 +92,7 @@
             this.Controls.Add(this.pik);
             this.Controls.Add(this.tref);
             this.Controls.Add(this.karo);
-            this.Name = "izaber_znak";
+            this.Name = "chose_suit";
             ((System.ComponentModel.ISupportInitialize)(this.hertz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pik)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tref)).EndInit();
