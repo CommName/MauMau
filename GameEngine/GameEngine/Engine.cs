@@ -14,14 +14,14 @@ namespace GameEngine
 
         //talon
         public Karta topCard { get; set; }
-        public Boja boja { get; set; }
-        protected int kazna;
-        protected bool kupioKartu;
-        protected bool promena;
-        protected List<Karta> poslednjeBacene;
+        public Boja suit { get; set; }
+        protected int penalty;
+        protected bool drewCard;
+        protected bool playerChange;
+        protected List<Karta> cardsPlaid;
 
-        public bool KupiKartu { get { return !kupioKartu; } }
-        public bool kupiKaznene { get { return kazna!=0; } }
+        public bool canDrawCards { get { return !drewCard; } }
+        public bool isPenaltyActive { get { return penalty!=0; } }
 
 
         public PlayerUser player1 { get; set; } 
@@ -67,7 +67,7 @@ namespace GameEngine
 
 
             topCard = deck.Karte[0];
-            poslednjeBacene = new List<Karta>();
+            cardsPlaid = new List<Karta>();
             deck.Karte.RemoveAt(0);
             //Da ne pocninje partiju sa kaznenim kartama
             if (topCard.Broj == "7" || (topCard.Broj == "2" && topCard.Boja == Boja.Tref))
@@ -81,20 +81,20 @@ namespace GameEngine
                 topCard = deck.Karte[index];
                 deck.Karte[index] = pom;
             }
-            poslednjeBacene.Add(topCard);
-            boja = Boja.Unknown;
-            kazna = 0;
-            kupioKartu = false;
-            promena = true;
+            cardsPlaid.Add(topCard);
+            suit = Boja.Unknown;
+            penalty = 0;
+            drewCard = false;
+            playerChange = true;
 
             //Dealibg cards
            player1.SetRuka(deck.Karte.GetRange(0, 6));
            deck.Karte.RemoveRange(0, 6);
            player2.SetRuka(deck.Karte.GetRange(0, 6));
            deck.Karte.RemoveRange(0,6 );
-           player1.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
-           player2.Bacenekarte(poslednjeBacene, Boja.Unknown, 6);
-           poslednjeBacene.Clear();
+           player1.Bacenekarte(cardsPlaid, Boja.Unknown, 6);
+           player2.Bacenekarte(cardsPlaid, Boja.Unknown, 6);
+           cardsPlaid.Clear();
             current = player1;
 
         }
@@ -106,11 +106,11 @@ namespace GameEngine
             
 
             bool bacioKartu = false;
-            if (promena)
+            if (playerChange)
             {
-                current.Bacenekarte(poslednjeBacene, boja, current.previousPlayer.Hand.Count);
-                poslednjeBacene = null;
-                promena = false;
+                current.Bacenekarte(cardsPlaid, suit, current.previousPlayer.Hand.Count);
+                cardsPlaid = null;
+                playerChange = false;
             }
              current.findBestMoce();
                 
@@ -118,23 +118,23 @@ namespace GameEngine
             //kaznene karte
             if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKazneneKarte) != 0)
             {
-                if (kazna == 0)
+                if (penalty == 0)
                 {
                     throw new Exception("Nije potrebno kupiti kaznenu kartu");
                 }
                 //Popraviti ovo da  vrati false
-                if(deck.Karte.Count< kazna)
+                if(deck.Karte.Count< penalty)
                 {
                     return false;
                 }
-                current.KupioKarte(kupi(kazna)); 
-                kazna = 0;
+                current.KupioKarte(kupi(penalty)); 
+                penalty = 0;
             }
             
             //baci kartu
             if ((((int)current.BestMove.Tip & (int)TipPoteza.BacaKartu) != 0)|| ((current.BestMove.Tip & TipPoteza.PromeniBoju)!=0))
             {
-                poslednjeBacene = new List<Karta>();
+                cardsPlaid = new List<Karta>();
                 if (current.BestMove.Karte.Count == 0)
                 {
                     throw new Exception("Nije selektovana karta");
@@ -144,23 +144,23 @@ namespace GameEngine
                     if (isValid(current.BestMove.Karte[i]))
                     {
                         bacioKartu = true;
-                        kupioKartu = false; 
-                        poslednjeBacene.Add(current.BestMove.Karte[i]);
+                        drewCard = false; 
+                        cardsPlaid.Add(current.BestMove.Karte[i]);
                         topCard = current.BestMove.Karte[i];
                         
                         //7
                         if (topCard.Broj == "7")
                         {
-                            kazna += 2;
+                            penalty += 2;
                         }
-                        else if (kazna != 0)
+                        else if (penalty != 0)
                         {
                             throw new Exception("Nije kupio kaznene karte");
                         }
                         //2 tref
                         if (topCard.Boja == Boja.Tref && topCard.Broj == "2")
                         {
-                            kazna = 4;
+                            penalty = 4;
                         }
                         //J
                         if (topCard.Broj == "J")
@@ -169,8 +169,8 @@ namespace GameEngine
                             {
                                 throw new Exception("Pogresan tip za J");
                             }
-                            boja = current.BestMove.NovaBoja;
-                            if(boja == Boja.Unknown)
+                            suit = current.BestMove.NovaBoja;
+                            if(suit == Boja.Unknown)
                             {
                                 throw new Exception("Boja nije setovana");
                             }
@@ -178,7 +178,7 @@ namespace GameEngine
                         }
                         else
                         {
-                            boja = Boja.Unknown;
+                            suit = Boja.Unknown;
                         }
                     }
                     else
@@ -199,21 +199,21 @@ namespace GameEngine
                     else
                     {
                         current = current.nextPlayer;
-                        promena = true;
+                        playerChange = true;
                     }
                 }
 
             }
             //kupi kartu
-            if (!promena)
+            if (!playerChange)
             {
                 if (((int)current.BestMove.Tip & (int)TipPoteza.KupiKartu) != 0)
                 {
-                    if (kupioKartu)
+                    if (drewCard)
                     {
                         throw new Exception("Vec je kupljena karta");
                     }
-                    kupioKartu = true;
+                    drewCard = true;
                     if (deck.Karte.Count > 0)
                     {
                         current.KupioKarte(kupi(1));
@@ -227,18 +227,18 @@ namespace GameEngine
             }
 
             //Kraj poteza
-            if (!promena)
+            if (!playerChange)
             {
                 if (((int)current.BestMove.Tip & (int)TipPoteza.KrajPoteza) != 0)
                 {
 
-                    if (kupioKartu || bacioKartu)
+                    if (drewCard || bacioKartu)
                     {
                         if (!bacioKartu)
                         {
                             current = current.nextPlayer;
-                            promena = true;
-                            kupioKartu = false;
+                            playerChange = true;
+                            drewCard = false;
                         }
                         
                     }
@@ -274,7 +274,7 @@ namespace GameEngine
             public bool isValid(Karta card)
             {
 
-                if((card.Broj == "J") || (card.Boja == topCard.Boja && boja == Boja.Unknown) || (card.Broj == topCard.Broj) || (boja == card.Boja))
+                if((card.Broj == "J") || (card.Boja == topCard.Boja && suit == Boja.Unknown) || (card.Broj == topCard.Broj) || (suit == card.Boja))
                 {
                     return true;
                 }
@@ -287,7 +287,7 @@ namespace GameEngine
 
             public bool gameOver()
             {
-                if ((topCard.Broj!="A")&&(player1.Hand.Count == 0 || player2.Hand.Count == 0)&&(kazna==0))
+                if ((topCard.Broj!="A")&&(player1.Hand.Count == 0 || player2.Hand.Count == 0)&&(penalty==0))
                 {
                     return true;
                 }

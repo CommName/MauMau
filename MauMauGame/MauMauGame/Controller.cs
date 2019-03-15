@@ -48,7 +48,7 @@ namespace MauMauGame
 
         public void updateView()
         {
-            pogled.updateTalon(game.topCard,game.boja);
+            pogled.updateTalon(game.topCard,game.suit);
             pogled.updateYourHand(igrac.Hand);
             pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
             pogled.updatePoints(yourPoints, enemyPoints);
@@ -108,21 +108,21 @@ namespace MauMauGame
         }
         protected void flegovi()
         {
-            pogled.kazna(game.kupiKaznene);
-            pogled.kupi(game.KupiKartu);
+            pogled.kazna(game.isPenaltyActive);
+            pogled.kupi(game.canDrawCards);
         }
         protected void playYourturn()
         {
             if (game.current.bot == null&&!game.Game())
             {
                 pogled.updateYourHand(igrac.Hand);
-                pogled.updateTalon(game.topCard, game.boja);
+                pogled.updateTalon(game.topCard, game.suit);
                 gameover();
                 return;
             }
 
             pogled.updateYourHand(igrac.Hand);
-            pogled.updateTalon(game.topCard, game.boja);
+            pogled.updateTalon(game.topCard, game.suit);
             if (game.gameOver())
             {
                 gameover();
@@ -144,19 +144,19 @@ namespace MauMauGame
                 if (game.Game())
                 {
                     pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
-                    pogled.updateTalon(game.topCard, game.boja);
+                    pogled.updateTalon(game.topCard, game.suit);
                 }
                 else
                 {
                     pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
-                    pogled.updateTalon(game.topCard, game.boja);
+                    pogled.updateTalon(game.topCard, game.suit);
                     gameover();
                     return;
                 }
 
             }
             pogled.updateEnemyHand(igrac.nextPlayer.Hand.Count);
-            pogled.updateTalon(game.topCard, game.boja);
+            pogled.updateTalon(game.topCard, game.suit);
             if (game.gameOver())
             {
                 gameover();
@@ -167,13 +167,13 @@ namespace MauMauGame
 
         public int draw()
         {
-            if (game.kupiKaznene)
+            if (game.isPenaltyActive)
             {
                 igrac.manualPlay(0, TIG.AV.Karte.TipPoteza.KupiKazneneKarte, TIG.AV.Karte.Boja.Unknown);
                 playYourturn();
                 return 0;
             }
-            else if (game.KupiKartu)
+            else if (game.canDrawCards)
             {
                 igrac.manualPlay(0, TIG.AV.Karte.TipPoteza.KupiKartu, TIG.AV.Karte.Boja.Unknown);
                 playYourturn();
@@ -191,7 +191,7 @@ namespace MauMauGame
         {
             if (game.isValid(igrac.Hand[i]))
             {
-                if (game.kupiKaznene)
+                if (game.isPenaltyActive)
                 {
                     if (game.topCard.Broj == "2")
                     {
