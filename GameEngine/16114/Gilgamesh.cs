@@ -85,7 +85,7 @@ namespace _16114
             }
             //*/
             List<IMove> child = node.moves();
-            if (depth == 0 || child.Count < 1 || ((node.hand.Count == 0 || node.enemyHand == 0) && !node.kazna))
+            if (depth == 0 || child.Count < 1 || ((node.hand.Count == 0 || node.enemyHand == 0) && !node.penalty))
             {
 
                 best = new Move { Tip = TipPoteza.KupiKartu };

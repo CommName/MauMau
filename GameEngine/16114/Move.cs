@@ -12,7 +12,7 @@ namespace _16114
         public TipPoteza Tip { get; set; }
         public List<Karta> Karte { get; set; }
         public Boja NovaBoja { get; set; }
-        public int Dubina { get; set; }
+        public int Depth { get; set; }
         public int Value { get; set; }
 
         public Move()
@@ -20,7 +20,7 @@ namespace _16114
             Karte = new List<Karta>();
             NovaBoja = Boja.Unknown;
             Tip = TipPoteza.KupiKartu;
-            Dubina = 0;
+            Depth = 0;
             Value = 0;
         }
         public Move(IMove mv,int d,int v)
@@ -28,7 +28,7 @@ namespace _16114
             Karte = new List<Karta>(mv.Karte);
             NovaBoja = mv.NovaBoja;
             Tip = mv.Tip;
-            Dubina = d;
+            Depth = d;
             Value = v;
         }
         public Move(Karta k, Boja nova)
@@ -37,7 +37,7 @@ namespace _16114
             Karte.Add(k);
             NovaBoja = nova;
             Tip = TipPoteza.BacaKartu;
-            Dubina = 0;
+            Depth = 0;
             Value = 0;
 
         }
@@ -47,7 +47,7 @@ namespace _16114
             NovaBoja = m.NovaBoja;
             Karte = new List<Karta>();
             Karte.AddRange(m.Karte);
-            Dubina = 0;
+            Depth = 0;
             Value = 0;
         }
 

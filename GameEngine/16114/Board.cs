@@ -30,14 +30,14 @@ namespace _16114
             } 
 
 
-        public bool kazna { get; set; }
-        public bool kupio { get; set; }
+        public bool penalty { get; set; }
+        public bool cardDrawn { get; set; }
 
         public Board()
         {
             hand = new List<Karta>();
-            kazna = false;
-            kupio = false;
+            penalty = false;
+            cardDrawn = false;
 
         }
         public Board(IMove lastMove, bool turn, List<Karta> yourHand, int enemy, CardCounter used,bool kaznene) : this()
@@ -59,7 +59,7 @@ namespace _16114
 
                 if (lastMove.Tip == TipPoteza.BacaKartu && lastMove.Karte.Count > 0 && (lastMove.Karte.Last().Broj == "7" || (lastMove.Karte.Last().Broj == "2" && lastMove.Karte.Last().Boja == Boja.Tref)) && !kaznene)
                 {
-                    kazna = true;
+                    penalty = true;
                 }
             }
         }
@@ -87,11 +87,11 @@ namespace _16114
             }
             if (move.Tip == TipPoteza.BacaKartu && move.Karte.Last().Broj == "7")
             {
-                kazna = true;
+                penalty = true;
             }
             else
             {
-                kazna = false;
+                penalty = false;
             }
             if (move.Tip==TipPoteza.BacaKartu&&( move.Karte.Last().Broj == "A" || move.Karte.Last().Broj == "8"))
             {
@@ -107,7 +107,7 @@ namespace _16114
         {
             bool J = false; //J 2 puta
             List<IMove> ret = new List<IMove>();
-            if (kazna)
+            if (penalty)
             {
                 if (talon.Karte.Last().Broj == "7")
                 {
@@ -125,15 +125,15 @@ namespace _16114
             }
             else
             {
-                foreach (Karta karta in fromHand)
+                foreach (Karta card in fromHand)
                 {
-                    if (!J && karta.Broj == "J")
+                    if (!J && card.Broj == "J")
                     {
                         J = true;
                         for (int i = 1; i < 5; i++)
                         {
                             Move temp = new Move();
-                            temp.setKarta(karta);
+                            temp.setKarta(card);
                             temp.NovaBoja = (Boja)i;
                             temp.Tip = TipPoteza.BacaKartu | TipPoteza.PromeniBoju;
                             ret.Add(temp);
@@ -141,20 +141,20 @@ namespace _16114
                     }
                     else
                     {
-                        if (isValid(karta))
+                        if (isValid(card))
                         {
-                            if (karta.Broj == "A")
+                            if (card.Broj == "A")
                             {
                                 List<Karta> jedinice = new List<Karta>();
-                                jedinice.Add(karta);
+                                jedinice.Add(card);
 
-                                kombinacijeA(jedinice, fromHand, ref ret);
+                                combinationsA(jedinice, fromHand, ref ret);
                             }
                             else
                             {
                                 
                                 Move temp = new Move();
-                                temp.setKarta(karta);
+                                temp.setKarta(card);
                                 ret.Add(temp);
                                 
                             }
@@ -162,7 +162,7 @@ namespace _16114
                     }
                 }
                 if (ret.Count == 0) { 
-                if (kupio)
+                if (cardDrawn)
                 {
                     ret.Add(new Move() { Tip = TipPoteza.KrajPoteza });
                 }
@@ -175,18 +175,18 @@ namespace _16114
             return ret;
         }
 
-        protected void kombinacijeA(List<Karta> kec, List<Karta> hand, ref List<IMove> moves)
+        protected void combinationsA(List<Karta> A, List<Karta> hand, ref List<IMove> moves)
         {
             bool J = false; //J 2 puta
             List<Karta> localHand = new List<Karta>();
             localHand.AddRange(hand);
-            foreach (Karta k in kec)
+            foreach (Karta k in A)
             {
                 localHand.Remove(k);
             }
             foreach (Karta k in localHand)
             {
-                if (isValid(kec.Last(), k))
+                if (isValid(A.Last(), k))
                 {
                     if (k.Broj != "A")
                     {
@@ -198,7 +198,7 @@ namespace _16114
                             for (int i = 1; i < 5; i++)
                             {
                                 Move temp = new Move();
-                                temp.Karte.AddRange(kec);
+                                temp.Karte.AddRange(A);
                                 temp.Karte.Add(k);
                                 temp.NovaBoja = (Boja)i;
                                 temp.Tip = TipPoteza.BacaKartu | TipPoteza.PromeniBoju;
@@ -209,7 +209,7 @@ namespace _16114
                         {
                             Move temp = new Move();
                             temp.Tip = TipPoteza.BacaKartu;
-                            temp.Karte.AddRange(kec);
+                            temp.Karte.AddRange(A);
                             temp.Karte.Add(k);
                             moves.Add(temp);
                         }
@@ -217,15 +217,15 @@ namespace _16114
                     else
                     {
                         List<Karta> pom = new List<Karta>();
-                        pom.AddRange(kec);
+                        pom.AddRange(A);
                         pom.Add(k);
-                        kombinacijeA(pom, hand, ref moves);
+                        combinationsA(pom, hand, ref moves);
                     }
                 }
 
             }
             Move kraj = new Move();
-            kraj.Karte.AddRange(kec);
+            kraj.Karte.AddRange(A);
             kraj.Tip = TipPoteza.BacaKartu;
             moves.Add(kraj);
 
@@ -261,36 +261,36 @@ namespace _16114
         public int evaluation()
         {
             
-            int evaluacija = 0;
+            int evulationValue = 0;
             if (hand.Count == 0)
             {
                 if (talon.Karte.Count != 0)
                 {
                     if (talon.Karte.Last().Broj == "A")
                     {
-                        evaluacija = -200;
+                        evulationValue = -200;
                     }
                     else
                     {
-                        evaluacija = -400;
+                        evulationValue = -400;
                     }
                 }
             }
             else {
                 foreach (Karta k in hand)
                 {
-                    evaluacija += cardPoints(k);
+                    evulationValue += cardPoints(k);
                 }
             }
 
             if (enemyHand == 0)
             {
-                evaluacija += 100;
+                evulationValue += 100;
             }
             // avrage card is 8 points
             //evaluacija -= 8 * enemyHand;
 
-            evaluacija -= getMoves(hand).Count;
+            evulationValue -= getMoves(hand).Count;
 
             if(enemyHand ==0 || hand.Count == 0)
             {
@@ -298,13 +298,13 @@ namespace _16114
                 {
                     if (talon.Karte.Last().Broj == "J")
                     {
-                        evaluacija *= 2;
+                        evulationValue *= 2;
                         //shift 2
                     }
                 }
             }
 
-            return evaluacija;
+            return evulationValue;
         }
 
         public ulong key()
@@ -316,7 +316,7 @@ namespace _16114
             {
                 ret += CardCounter.brojToNumber(k.Broj)*100*((uint)Math.Pow(100 ,((uint)((int)k.Boja))));
             }
-            if (kazna)
+            if (penalty)
             {
                 ret+=10000000000000000000;
             }

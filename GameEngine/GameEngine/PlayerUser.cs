@@ -39,20 +39,20 @@ namespace GameEngine
                 bot = new _16114.Gilgamesh();
             }
         }
-        public PlayerUser(IIgra igrac)
+        public PlayerUser(IIgra player)
         {
-            bot = igrac;
+            bot = player;
         }
         #endregion
-        public void manualPlay(int rdBrojKarte, TipPoteza tip, Boja boja)
+        public void manualPlay(int cardNumber, TipPoteza moveType, Boja suit)
         {
             BestMove.Karte.Clear();
-            BestMove.Tip = tip;
-            BestMove.NovaBoja = boja;
-            if ((tip&TipPoteza.BacaKartu) == TipPoteza.BacaKartu)
+            BestMove.Tip = moveType;
+            BestMove.NovaBoja = suit;
+            if ((moveType & TipPoteza.BacaKartu) == TipPoteza.BacaKartu)
             { 
-                BestMove.Karte.Add(hand[rdBrojKarte]);
-                hand.RemoveAt(rdBrojKarte);
+                BestMove.Karte.Add(hand[cardNumber]);
+                hand.RemoveAt(cardNumber);
 
             }
 
@@ -66,7 +66,6 @@ namespace GameEngine
                 bot.BeginBestMove();
                 Thread.Sleep(1000);
                 bot.EndBestMove();
-                //Thread.Sleep(500);
                 BestMove = bot.BestMove;
                 if ((BestMove.Tip & TipPoteza.BacaKartu) == TipPoteza.BacaKartu)
                 {
@@ -91,14 +90,6 @@ namespace GameEngine
             {
                 bot.Bacenekarte(karte, boja, BrojKarataProtivnika);
             }
-           /* if (karte != null)
-            {
-                Console.WriteLine(boja.ToString() + BrojKarataProtivnika.ToString());
-                foreach (Karta k in karte)
-                {
-                    Console.Write(k.Broj + k.Boja);
-                }
-            } */
             return;
         }
 
@@ -141,17 +132,7 @@ namespace GameEngine
             return name +ret;
         }
 
-
-        //posebna klasa koja broji karte i dostavlja mi validne poteze
-        //kopi konstruktor za karte koje imam (stablo klasa)
-        //kopi konstruktor za protivnikove karte koji vraca valid moves
-        //klasa stablo koja ima child validne poteze
-        //posebna funkcija koja uzima ceo niz karata i razvrstava ih
-        //retko posednuta matrica
-
-        //igranje protiv keca i 8 
-        //igranje portiv 7 T
-        //igranje protiv 2/3
+  
 
     }
 }

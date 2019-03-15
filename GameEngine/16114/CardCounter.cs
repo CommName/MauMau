@@ -14,8 +14,8 @@ namespace _16114
     public class CardCounter
     {
 
-        protected List<Karta>[] Boja;
-        protected List<Karta>[] Broj;
+        protected List<Karta>[] Suits;
+        protected List<Karta>[] Numbers;
 
         public List<Karta> hand;
 
@@ -23,7 +23,7 @@ namespace _16114
 
 
         private const int singleCard = 13;
-        private const double granica = 0.1;
+        private const double limit = 0.1;
 
 
         public CardCounter()
@@ -32,18 +32,18 @@ namespace _16114
         }
         public CardCounter(CardCounter copy)
         {
-            Boja = new List<Karta>[4];
-            Broj = new List<Karta>[13];
+            Suits = new List<Karta>[4];
+            Numbers = new List<Karta>[13];
 
             for (int i = 0; i < 4; i++)
             {
-                Boja[i] = new List<Karta>();
-                Boja[i].AddRange(copy.Boja[i]);
+                Suits[i] = new List<Karta>();
+                Suits[i].AddRange(copy.Suits[i]);
             }
             for (int i = 0; i < 13; i++)
             {
-                Broj[i] = new List<Karta>();
-                Broj[i].AddRange(copy.Broj[i]);
+                Numbers[i] = new List<Karta>();
+                Numbers[i].AddRange(copy.Numbers[i]);
             }
             numOfRemCard = 52;
             numOfRemCard = copy.numOfRemCard;
@@ -60,7 +60,7 @@ namespace _16114
             for(uint i = 0; i < 4; i++)
             {
                 ulong pom = 0;
-                foreach(Karta k in Boja[i])
+                foreach(Karta k in Suits[i])
                 {
                     pom += brojToNumber(k.Broj);
                 }
@@ -72,22 +72,22 @@ namespace _16114
         public void reset()
         {
             numOfRemCard = 52;
-            Boja = new List<Karta>[4];
-            Broj = new List<Karta>[13];
+            Suits = new List<Karta>[4];
+            Numbers = new List<Karta>[13];
 
             for(int i = 0; i < 4; i++)
             {
-                Boja[i] = new List<Karta>();
+                Suits[i] = new List<Karta>();
             }
             for (int i = 0; i < 13; i++)
             {
-                Broj[i] = new List<Karta>();
+                Numbers[i] = new List<Karta>();
             }
             Spil karte = new Spil();
             foreach(Karta karta in karte.Karte)
             {
-                Boja[(int)karta.Boja - 1].Add(karta);
-                Broj[brojToNumber(karta.Broj) - 1].Add(karta);
+                Suits[(int)karta.Boja - 1].Add(karta);
+                Numbers[brojToNumber(karta.Broj) - 1].Add(karta);
             }
 
         }
@@ -104,21 +104,21 @@ namespace _16114
                 return;
             
             int bojaIndex = (int)karta.Boja - 1;
-            for (int i = 0; i < Boja[bojaIndex].Count; i++)
+            for (int i = 0; i < Suits[bojaIndex].Count; i++)
             {
-                if (karta.Broj == Boja[bojaIndex][i].Broj)
+                if (karta.Broj == Suits[bojaIndex][i].Broj)
                 {
-                    Boja[bojaIndex].RemoveAt(i);
+                    Suits[bojaIndex].RemoveAt(i);
                     numOfRemCard--;
                     break;
                 }
             }
             uint brojIndex = brojToNumber(karta.Broj) - 1;
 
-            for (int i = 0; i < Broj[brojIndex].Count; i++)
+            for (int i = 0; i < Numbers[brojIndex].Count; i++)
             {
-                if (karta.Boja == Broj[brojIndex][i].Boja){
-                    Broj[brojIndex].RemoveAt(i);
+                if (karta.Boja == Numbers[brojIndex][i].Boja){
+                    Numbers[brojIndex].RemoveAt(i);
                     break;
                 }
 
@@ -128,11 +128,11 @@ namespace _16114
         }
         public int count(Boja boja)
         {
-            return Boja[(int)boja - 1].Count;
+            return Suits[(int)boja - 1].Count;
         }
         public int count(string broj)
         {
-            return Broj[brojToNumber(broj)].Count;
+            return Numbers[brojToNumber(broj)].Count;
         }
              
         public List<Karta> valid(Karta talon,Boja b,int numOfEnemieCards)
@@ -141,7 +141,7 @@ namespace _16114
             if (talon.Broj == "J" && b != TIG.AV.Karte.Boja.Unknown) // Dodavanje sve iz te boje
             {
                 bool all=true;
-                foreach (Karta k in Boja[(int)b - 1])
+                foreach (Karta k in Suits[(int)b - 1])
                 {
                     if (k.Broj != "A" && k.Broj != "8" && k.Broj != "J" && k.Broj != "7")
                     {
@@ -162,27 +162,27 @@ namespace _16114
             }
             else if(talon.Broj == "7") // Slucaj za 7
             {
-                if (Broj[6].Count > 1)
+                if (Numbers[6].Count > 1)
                 {
-                    ret.AddRange(Broj[6]);
+                    ret.AddRange(Numbers[6]);
                 }
-                else if (Broj[6].Count == 1 && ((numOfRemCard + numOfEnemieCards) <= singleCard))
+                else if (Numbers[6].Count == 1 && ((numOfRemCard + numOfEnemieCards) <= singleCard))
                 {
                     //maybe change to a chance
-                    ret.Add(Broj[6].First());
+                    ret.Add(Numbers[6].First());
                 }
                 else
                 {
-                    ret.AddRange(Boja[(int)talon.Boja - 1]);
+                    ret.AddRange(Suits[(int)talon.Boja - 1]);
                 }
             }
             else
             {
                
-                if (chance(Boja[(int)talon.Boja - 1].Count, numOfEnemieCards) >= granica)
+                if (chance(Suits[(int)talon.Boja - 1].Count, numOfEnemieCards) >= limit)
                 {
                     bool all = true;
-                    foreach (Karta ka in Boja[(int)talon.Boja - 1])
+                    foreach (Karta ka in Suits[(int)talon.Boja - 1])
                     {
                         if (ka.Broj != "A" && ka.Broj != "8" && ka.Broj != "7")
                         {
@@ -204,9 +204,9 @@ namespace _16114
                 if (talon.Broj != "J")
                 {
                    
-                    if (chance(Broj[brojToNumber(talon.Broj) - 1].Count, numOfEnemieCards) >= granica)
+                    if (chance(Numbers[brojToNumber(talon.Broj) - 1].Count, numOfEnemieCards) >= limit)
                     {
-                        ret.AddRange(Broj[brojToNumber(talon.Broj) - 1]);
+                        ret.AddRange(Numbers[brojToNumber(talon.Broj) - 1]);
                     }
                 }
 
